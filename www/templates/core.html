@@ -1,0 +1,67 @@
+<!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+   <!--  <ion-nav-bar class="bar bar-header icon-left" ng-controller="SettingsCtrl">
+       <ion-nav-back-button>
+       </ion-nav-back-button>
+     <div class="logo-setting-head">
+       <h1 class="title"><a ng-href="#/"><img class="logo" ng-src="img/{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo"></a></h1>
+       <i class="button button-clear ion-gear-b" ng-click="openModal()"></i>
+     </div>
+     
+   </ion-nav-bar> -->
+   <!--  <ion-nav-bar class="bar-stable">
+     <ion-nav-back-button>
+     </ion-nav-back-button>
+     
+   </ion-nav-bar> -->
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <div ng-controller="LayoutCtrl">
+       <ion-nav-view></ion-nav-view>
+    </div>
+    
+     <!-- Modals -->
+    <script id="settings.html" type="text/ng-template">
+      <ion-modal-view id="settings">
+        <ion-header-bar class="icon-right">
+          <h1 class="title">Settings</h1>
+          <i class="button button-clear ion-ios-arrow-down" ng-click="closeModal()"></i>
+        </ion-header-bar>
+        <ion-content>
+          <ul class="list">
+               <li>
+                  <a class="item item-icon-left" href="#">
+                    <i class="icon ion-person"></i>
+                    Profile
+                    <span class="badge badge-assertive">0</span>
+                  </a>
+               </li>
+                <li>
+                  <a class="item item-icon-left" href="#">
+                    <i class="icon ion-refresh"></i>
+                    Update
+                    <span class="badge badge-assertive">0</span>
+                  </a>
+               </li>
+                <li>
+                  <a class="item item-icon-left" href="#">
+                    <i class="icon ion-ios-bell"></i>
+                    Notification
+                    <span class="badge badge-assertive">0</span>
+                  </a>
+               </li>
+               <li class="item item-divider"></li>
+                <li>
+                  <a class="item item-icon-left" href="#">
+                    <i class="icon ion-log-in"></i>
+                    Sign in
+                  </a>
+               </li>
+          </ul>
+        </ion-content>
+    </ion-modal-view>
+    </script>

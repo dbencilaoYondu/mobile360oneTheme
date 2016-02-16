@@ -1,0 +1,49 @@
+
+
+
+  <div class="flyout" >
+    	<header class="bar bar-header">
+
+    			<div ng-show="subsOn" class="button button-icon sort" ng-click="backToParentMenu();"><i class="ion-arrow-left-c"></i></div>
+    			<div class="text-center title">
+                    <a ng-click="defaultState()" class="logo-title">
+                      <span ng-hide="data.data.data.logo">{{data.data.data.applicationName}}</span>
+                      <img ng-show="data.data.data.logo" class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
+                    </a>
+
+                </div>
+    			<button class="button button-icon flyback" ng-click="flyBack();"><i class="ion-close-round"></i></button>
+
+    	</header>
+    	<div class="banner">
+    		<img src="../img/custom-images/carImg1_02.jpg" alt="">
+    	</div>
+    	<ul class="menuList list">
+    		<li ng-hide="subsOn" class="nosubs" ng-repeat="info in menuItems" ng-click="openBrowser(info.type,$index)">
+    			<a class="item item-icon-left" ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);">
+    				<i class="icon {{info.iconOn}}"></i>
+    				{{info.label}}
+    			</a>
+                <a  class="item item-icon-left" ng-hide="info.subMenu" href="{{info.href}}">
+                    <i class="icon {{info.iconOn}}"></i>
+                    {{info.label}}
+                </a>
+    		</li>
+            <li ng-show="subsOn" class="subs" ng-repeat="info in currentParentOfSub.menuItems">
+                <a  class="item item-icon-left" href="{{info.href}}" ng-click="pageInfo($index);">
+                    <i class="icon {{info.iconOn}}"></i>
+                    {{info.label}}
+                </a>
+            </li>
+    	</ul>
+
+    	<!-- <ul class="menuList menu2 list">
+            <li class="item item-icon-left" ng-repeat="info in menuItems" ng-click="openBrowser(info.type,$index)">
+                <a href="{{info.href}}">
+                    <i class="icon {{info.iconOn}}"></i>
+                    <p>{{info.label}}</p>
+                </a>
+            </li>
+        </ul> -->
+    </div>
+

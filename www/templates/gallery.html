@@ -1,0 +1,46 @@
+<ion-view id="gallery">
+  <ion-content>
+	<div id="albums" ng-hide="paramsId">
+		  <ul class="row" ng-repeat="info in data.data.data.pages">
+			   	<li class="ionic-col col col-33" ng-repeat="galleryList in info.albums">
+			   		<a href="#/gallery/{{galleryList.id}}" >
+			   			<div class="thumb-img" ng-style="{'background-image':'url({{galleryList.albumCover}})'}">
+							<!-- <div class="post-date">{{galleryList.date}}</div> -->
+					   		<div class="post-title"><h3>{{galleryList.title}}</h3></div>
+						</div>
+			   		</a>
+			   	</li>
+		   </ul>
+		</div>
+		
+
+	   <!-- photo collection -->
+	   <div class="padding" ng-show="paramsId" id="photoCollection">
+	   		<div class="post-single"   ng-repeat="info in  data.data.data.pages">
+				<div ng-repeat="photoList in info.albums | filter:{id: paramsId}">
+					<h3>{{photoList.title}}</h3>
+					<div class="row">
+						<div class="col col-50" ng-repeat="photo in photoList.photos" ng-hide="id">
+							<a ng-href="#/gallery/{{paramsId}}/{{photo.id}}"><img class="photo" ng-src="{{photo.photoTitle}}" alt="{{photo.caption}}"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+	   </div>
+		
+	 <!-- photo details -->
+	 <div class="" id="photoDetails" ng-show="id">
+	 	<div class="post-single" ng-repeat="info in  data.data.data.pages">
+			<div class="clearfix" ng-repeat="photoList in info.albums | filter:{id: paramsId}">
+				<div class="col" ng-repeat="photo in photoList.photos | filter:{id: id}">
+					<img class="photo" ng-src="{{photo.photoTitle}}" alt="{{photo.caption}}">
+					<p class="card caption">{{photo.caption}}</p>
+				</div>
+				
+			</div>
+		</div>
+	 </div> 	
+  </ion-content>
+</ion-view>
+
+

@@ -1,0 +1,47 @@
+
+<ion-view id="inquire">
+  <ion-content>
+	<div class="wrapper">
+		<header  class="banner">
+			<h2>{{data.form.label}}</h2>
+		</header>
+		<form class="form" name="myForm" novalidate ng-submit="submitForm()">
+			<div class="list list-inset">
+			  <div ng-repeat="info in data.form.fields">
+			  	<label class="item item-input" ng-if="info.type == 'input'">
+			  		<input type="text" placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]" ng-required="{{info.required}}">
+			  	</label>
+			  	<label class="item item-input"  ng-if="info.type == 'textarea'">
+			  		<textarea placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]"></textarea>
+			  	</label>
+			  	<div class="list"> 		
+			  		<label class="item item-input item-select" ng-if="info.type == 'dropdown'" ng-repeat="item in info.selections">
+				  			<div class="input-label">
+						      {{item.label}}
+						    </div>
+						    <select ng-model="form.dropdown[item.label]">
+						      <option ng-repeat="option in item.options" value="{{option.value}}">{{option.title}}</option>
+						    </select>
+			  		</label>
+			  	</div>
+			  	<label ng-if="info.type == 'checkbox'">
+			  		<ion-list>
+					  <ion-checkbox ng-model="form.checkbox[check.label]" ng-repeat="check in info.checkList">{{check.label}}</ion-checkbox>
+					</ion-list>
+			  	</label>
+			  	<label ng-if="info.type == 'radio'">
+			  		<ion-list>
+					  <ion-radio ng-model="form.radio[radio.label]" ng-value="'A'" ng-repeat="radio in info.radioList">{{radio.label}}</ion-radio>
+					</ion-list>
+			  	</label>
+			  </div>
+			  <button type="submit" class="button button-full button-assertive">
+				  SUBMIT
+			  </button>
+			</div>
+		</form>
+		
+		
+	</div>
+  </ion-content>
+</ion-view>

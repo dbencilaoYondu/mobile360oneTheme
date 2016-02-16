@@ -1,0 +1,28 @@
+<div class="flyout">
+	<header class="bar bar-header">
+
+    			<div class="button button-icon sort" ng-click="sortMenu();"><i class="{{sortIcon}}"></i></div>
+    			<div class="text-center title">title</div>
+    			<button class="button button-icon flyback" ng-click="flyBack();"><i class="ion-ios-arrow-left"></i></button>
+
+    	</header>
+    	<div class="banner">
+    		<img src="../img/custom-images/carImg1_02.jpg" alt="">
+    	</div>
+    	<ul class="row menuList menu1 active" ng-class="{setHeight:data.inquire.subPages.length > 6 }">
+    		<li class="col col-50 text-center" ng-repeat="info in data.inquire.subPages"  ng-click="flyBack();">
+    			<a ui-sref="app.{{info.title}}">
+    				<i class="{{info.iconOn}}"></i>
+    				<p>{{info.title}}</p>
+    			</a>
+    		</li>
+    	</ul>
+    	<ul class="menuList menu2 list" ng-class="{setHeight:data.inquire.subPages.length > 6 }">
+    		<li class="item item-icon-left" ng-repeat="info in data.inquire.subPages" ng-click="flyBack();">
+    			<a ui-sref="app.{{info.title}}">
+    				<i class="icon {{info.iconOn}}"></i>
+    				<p>{{info.title}}</p>
+    			</a>
+    		</li>
+    	</ul>
+</div>
