@@ -16,22 +16,25 @@
 
     	</header>
     	<div class="banner">
-    		<img src="../img/custom-images/carImg1_02.jpg" alt="">
+    		<img ng-src="{{data.data.data.menuBanner}}" alt="">
     	</div>
     	<ul class="menuList list">
     		<li ng-hide="subsOn" class="nosubs" ng-repeat="info in menuItems" ng-click="openBrowser(info.type,$index)">
     			<a class="item item-icon-left" ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);">
-    				<i class="icon {{info.iconOn}}"></i>
+    				<i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
     				{{info.label}}
     			</a>
                 <a  class="item item-icon-left" ng-hide="info.subMenu" href="{{info.href}}">
-                    <i class="icon {{info.iconOn}}"></i>
+                   <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
                     {{info.label}}
                 </a>
     		</li>
             <li ng-show="subsOn" class="subs" ng-repeat="info in currentParentOfSub.menuItems">
                 <a  class="item item-icon-left" href="{{info.href}}" ng-click="pageInfo($index);">
-                    <i class="icon {{info.iconOn}}"></i>
+                    <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
                     {{info.label}}
                 </a>
             </li>

@@ -2,6 +2,7 @@
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "logo":"img/logo.png",
+    "menuBanner":"../img/custom-images/carImg1_02.jpg",
     "menuItems": [        
         {
             "href": "#/app/about",
