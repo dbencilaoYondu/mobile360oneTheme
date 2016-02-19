@@ -5,8 +5,145 @@
     "menuBanner":"../img/custom-images/carImg1_02.jpg",
     "menuItems": [        
         {
-            "href": "#/app/about",
+
             "label": "About",
+            "iconOn":"ion-ios-people",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "banner":"../img/custom-images/about/about-banner.jpg",
+            "type":"about",
+            "subMenu":{
+                "menuItems":[
+                    {
+                        "href": "#/app/aboutContact",
+                        "label": "aboutContact",
+                        "type":"contact",
+                        "iconOn":"ion-ios-people",
+                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                        "banner":"../img/custom-images/about/about-banner.jpg",
+                        "contacts":[
+                            {
+                                "title":"company",
+                                "icon":"ion-ionic",
+                                "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                                "input":"Micoioc aboutcontact in sub"
+                            },
+                            {
+                                "title":"telepone",
+                                "icon":"ion-ios-telephone",
+                                "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                                "input":"1234567"
+                            },
+                            {
+                                "title":"mobile",
+                                "icon":"ion-iphone",
+                                "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                                "input":"1234567"
+                            },
+                            {
+                                "title":"address",
+                                "icon":"ion-ios-location",
+                                "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                                "input":"no 1 bldg sample, manila"
+                            }
+                        ]
+                    },
+                    {
+                        "href": "#/app/about2",
+                        "label": "About2",
+                        "type":"about",
+                        "iconOn":"ion-ios-people",
+                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                        "banner":"../img/custom-images/about/about-banner.jpg",
+                        "content":[
+                                {
+                                    "id":1,
+                                    "title":"our mission",
+                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
+                                    "text":"About2 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
+                                },
+                                {   "id":2,
+                                    "title":"Our Vision",
+                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
+                                    "text":"About2 Vision Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
+                                }
+                        ]
+                    }
+                    
+                ]
+            }
+            
+        },
+        {
+            "href": "#/app/aboutContact2",
+            "label": "aboutContact2",
+            "type":"contact",
+            "iconOn":"ion-ios-people",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "banner":"../img/custom-images/about/about-banner.jpg",
+            "contacts":[
+                {
+                    "title":"company",
+                    "icon":"ion-ionic",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"Micoioc aboutcontact2 in sub"
+                },
+                {
+                    "title":"telepone",
+                    "icon":"ion-ios-telephone",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"1234567"
+                },
+                {
+                    "title":"mobile",
+                    "icon":"ion-iphone",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"1234567"
+                },
+                {
+                    "title":"address",
+                    "icon":"ion-ios-location",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"no 1 bldg sample, manila"
+                }
+            ]
+        },
+        {
+            "href": "#/app/aboutContact3",
+            "label": "aboutContact3",
+            "type":"contact",
+            "iconOn":"ion-ios-people",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "banner":"../img/custom-images/about/about-banner.jpg",
+            "contacts":[
+                {
+                    "title":"company",
+                    "icon":"ion-ionic",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"Micoioc aboutcontact3 in sub"
+                },
+                {
+                    "title":"telepone",
+                    "icon":"ion-ios-telephone",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"1234567"
+                },
+                {
+                    "title":"mobile",
+                    "icon":"ion-iphone",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"1234567"
+                },
+                {
+                    "title":"address",
+                    "icon":"ion-ios-location",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "input":"no 1 bldg sample, manila"
+                }
+            ]
+        },
+        {
+            "href": "#/app/about22",
+            "label": "About22",
             "iconOn":"ion-ios-people",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
             "banner":"../img/custom-images/about/about-banner.jpg",
@@ -16,27 +153,47 @@
                                     "id":1,
                                     "title":"our mission",
                                     "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
+                                    "text":"About 22 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
                                 },
                                 {   "id":2,
                                     "title":"Our Vision",
                                     "photo":"../img/custom-images/about/about-mission-banner.jpg",
                                     "text":"About Vision Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
                                 }
-                ],
+                ]
+            },
+            {
+            "href": "#/app/about23",
+            "label": "About23",
+            "iconOn":"ion-ios-people",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "banner":"../img/custom-images/about/about-banner.jpg",
+            "type":"about",
+            "content":[
+                                {
+                                    "id":1,
+                                    "title":"our mission",
+                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
+                                    "text":"About 23 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
+                                },
+                                {   "id":2,
+                                    "title":"Our Vision",
+                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
+                                    "text":"About Vision Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
+                                }
+                ]
+            },
+        {
+            "label": "About2widthSub",
+            "iconOn":"ion-ios-people",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "banner":"../img/custom-images/about/about-banner.jpg",
+            "type":"about",
             "subMenu":{
                 "menuItems":[
                     {
-                        "href": "#/app/aboutContact",
-                        "label": "aboutContact",
-                        "type":"contact",
-                        "iconOn":"ion-ios-people",
-                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "banner":"../img/custom-images/about/about-banner.jpg"
-                    },
-                    {
-                        "href": "#/app/about2",
-                        "label": "Aboutsub2",
+                        "href": "#/app/about24",
+                        "label": "About24",
                         "type":"about",
                         "iconOn":"ion-ios-people",
                         "customIcon":"../img/custom-icon/ionic-placeholder.png",
@@ -46,7 +203,7 @@
                                     "id":1,
                                     "title":"our mission",
                                     "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About2 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
+                                    "text":"About24 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
                                 },
                                 {   "id":2,
                                     "title":"Our Vision",
@@ -55,117 +212,241 @@
                                 }
                         ]
                     },
-                    {
-                        "href": "#/app/aboutContact2",
-                        "label": "aboutContact2",
-                        "type":"contact",
-                        "iconOn":"ion-ios-people",
+                     {
+                        "href": "#/app/rss2",
+                        "label": "rss2",
+                        "type": "rss",
+                        "iconOn":"ion-social-rss",
                         "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "banner":"../img/custom-images/about/about-banner.jpg"
+                        "content":[
+                            {
+                                "title":"CNN222",
+                                "url":"http://rss.cnn.com/rss/cnn_topstories.rss"
+                            },
+                             {
+                                "title":"Mashable",
+                                "url":"http://news.ycombinator.com/rss"
+                            },
+                             {
+                                "title":"Huffington",
+                                "url":"http://feeds2.feedburner.com/Mashable"
+                            },
+                            {
+                                "title":"Techcrunch",
+                                "url":"http://feeds.feedburner.com/TechCrunch"
+                            }
+                        ]
                     },
                     {
-                        "href": "#/app/about3",
-                        "label": "Aboutsub3",
-                        "type":"about",
-                        "iconOn":"ion-ios-people",
+                        "href": "#/app/form2",
+                        "label": "inquire2",
+                        "type": "form",
+                        "iconOn":"ion-android-list",
                         "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "banner":"../img/custom-images/about/about-banner.jpg",
-                        "content":[
-                                {
-                                    "id":1,
-                                    "title":"our mission",
-                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About3 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
-                                },
-                                {   "id":2,
-                                    "title":"Our Vision",
-                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About3 Vision Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
-                                }
+                        "banner":"../img/custom-images/inquire/banner-inquire.jpg",
+                        "emailId":"user@yondu.com",
+                        "subject":"From custom form",
+                        "formName":"myForm",
+                        "description":"Lorem222 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
+                        "api":"submit.php",
+                        "fields":[
+                            {
+                                "type":"input",
+                                "label":"Name",
+                                "required":true
+                            },
+                            {
+                                "type":"input",
+                                "label":"Phone",
+                                "required":false
+                            },
+                            {
+                                 "type":"email",
+                                "label":"Email",
+                                "required":true
+                            },
+                            {
+                                "type":"textarea",
+                                "label":"Comment",
+                                "required":true
+                            },
+                            {
+                                "type":"checkbox",
+                                "label":"checkbox",
+                                "checkList":[
+                                    {
+                                        "label":"check 1",
+                                        "modelName":"check1"
+                                    },
+                                    {
+                                        "label":"check 2",
+                                        "modelName":"check2"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"radio",
+                                "label":"radio",
+                                "radioList":[
+                                    {
+                                        "label":"radio 1",
+                                        "modelName":"radio1"
+                                    },
+                                    {
+                                        "label":"radio 2",
+                                        "modelName":"radio2"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"dropdown",
+                                "label":"options",
+                                "selections":[
+                                    {
+                                        "label":"option 1",
+                                        "options":[
+                                            {
+                                                "title":"option1",
+                                                "value":1
+                                            },
+                                             {
+                                                "title":"option2",
+                                                "value":2
+                                            },
+                                             {
+                                                "title":"option3",
+                                                "value":3
+                                            }
+                                            ]
+                                    },
+                                    {
+                                        "label":"option 2",
+                                        "options":[
+                                            {
+                                                "title":"option1",
+                                                "value":1
+                                            },
+                                             {
+                                                "title":"option2",
+                                                "value":2
+                                            },
+                                             {
+                                                "title":"option3",
+                                                "value":3
+                                            }
+                                            ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "href": "#/app/form3",
+                        "label": "inquire3",
+                        "type": "form",
+                        "iconOn":"ion-android-list",
+                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                        "banner":"../img/custom-images/inquire/banner-inquire.jpg",
+                        "emailId":"user@yondu.com",
+                        "subject":"From custom form",
+                        "formName":"myForm",
+                        "description":"Lorem333ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
+                        "api":"submit.php",
+                        "fields":[
+                            {
+                                "type":"input",
+                                "label":"Name",
+                                "required":true
+                            },
+                            {
+                                "type":"input",
+                                "label":"Phone",
+                                "required":false
+                            },
+                            {
+                                 "type":"email",
+                                "label":"Email",
+                                "required":true
+                            },
+                            {
+                                "type":"textarea",
+                                "label":"Comment",
+                                "required":true
+                            },
+                            {
+                                "type":"checkbox",
+                                "label":"checkbox",
+                                "checkList":[
+                                    {
+                                        "label":"check 1",
+                                        "modelName":"check1"
+                                    },
+                                    {
+                                        "label":"check 2",
+                                        "modelName":"check2"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"radio",
+                                "label":"radio",
+                                "radioList":[
+                                    {
+                                        "label":"radio 1",
+                                        "modelName":"radio1"
+                                    },
+                                    {
+                                        "label":"radio 2",
+                                        "modelName":"radio2"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"dropdown",
+                                "label":"options",
+                                "selections":[
+                                    {
+                                        "label":"option 1",
+                                        "options":[
+                                            {
+                                                "title":"option1",
+                                                "value":1
+                                            },
+                                             {
+                                                "title":"option2",
+                                                "value":2
+                                            },
+                                             {
+                                                "title":"option3",
+                                                "value":3
+                                            }
+                                            ]
+                                    },
+                                    {
+                                        "label":"option 2",
+                                        "options":[
+                                            {
+                                                "title":"option1",
+                                                "value":1
+                                            },
+                                             {
+                                                "title":"option2",
+                                                "value":2
+                                            },
+                                             {
+                                                "title":"option3",
+                                                "value":3
+                                            }
+                                            ]
+                                    }
+                                ]
+                            }
                         ]
                     }
+                    
                 ]
             }
             
-        },
-        {
-            "href": "#/app/contact",
-            "label": "contact",
-            "type": "contact",
-            "iconOn":"ion-ios-telephone",
-            "customIcon":"../img/custom-icon/ionic-placeholder.png",
-            "contacts":[
-                    {
-                        "title":"company",
-                        "icon":"ion-ionic",
-                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "input":"Micoioc"
-                    },
-                    {
-                        "title":"telepone",
-                        "icon":"ion-ios-telephone",
-                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "input":"1234567"
-                    },
-                    {
-                        "title":"mobile",
-                        "icon":"ion-iphone",
-                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "input":"1234567"
-                    },
-                    {
-                        "title":"address",
-                        "icon":"ion-ios-location",
-                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "input":"no 1 bldg sample, manila"
-                    }
-                ],
-                "subMenu":{
-                "menuItems":[
-                    {
-                        "href": "#/app/about2",
-                        "label": "Aboutsub2",
-                        "type":"about",
-                        "iconOn":"ion-ios-people",
-                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "banner":"../img/custom-images/about/about-banner.jpg",
-                        "content":[
-                                {
-                                    "id":1,
-                                    "title":"our mission",
-                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About2 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
-                                },
-                                {   "id":2,
-                                    "title":"Our Vision",
-                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About2 Vision Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
-                                }
-                        ]
-                    },
-                    {
-                        "href": "#/app/about3",
-                        "label": "Aboutsub3",
-                        "type":"about",
-                        "iconOn":"ion-ios-people",
-                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
-                        "banner":"../img/custom-images/about/about-banner.jpg",
-                        "content":[
-                                {
-                                    "id":1,
-                                    "title":"our mission",
-                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About3 Mission Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
-                                },
-                                {   "id":2,
-                                    "title":"Our Vision",
-                                    "photo":"../img/custom-images/about/about-mission-banner.jpg",
-                                    "text":"About3 Vision Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentesque. Morbi placerat erat mollis lorem interdum, id euismod elit semper. Cras fringilla lacinia est vel mattis. Sed id sem mattis, tempor lacus suscipit, semper nisl. Nullam sagittis lobortis metus vulputate efficitur"
-                                }
-                        ]
-                    }
-                ]
-            }
         },
         {
             "href": "#/app/form",
@@ -173,17 +454,20 @@
             "type": "form",
             "iconOn":"ion-android-list",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
-            "banner":"banner-inquire.jpg",
+            "banner":"../img/custom-images/inquire/banner-inquire.jpg",
             "emailId":"user@yondu.com",
             "subject":"From custom form",
             "formName":"myForm",
-            "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
+            "description":"Lorem111 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
             "api":"submit.php",
+            "onSuccess":"Details Successfully sent",
+            "onError":"Something went wrong",
             "fields":[
                 {
                     "type":"input",
                     "label":"Name",
-                    "required":true
+                    "required":true,
+                    "is_checked":true
                 },
                 {
                     "type":"input",
@@ -206,11 +490,13 @@
                     "checkList":[
                         {
                             "label":"check 1",
-                            "modelName":"check1"
+                            "modelName":"check1",
+                            "group":"gender"
                         },
                         {
                             "label":"check 2",
-                            "modelName":"check2"
+                            "modelName":"check2",
+                            "group":"gender"
                         }
                     ]
                 },
@@ -220,11 +506,13 @@
                     "radioList":[
                         {
                             "label":"radio 1",
-                            "modelName":"radio1"
+                            "modelName":"radio1",
+                            "group":"radio group1"
                         },
                         {
                             "label":"radio 2",
-                            "modelName":"radio2"
+                            "modelName":"radio2",
+                            "group":"radio group1"
                         }
                     ]
                 },
@@ -270,7 +558,132 @@
                 }
             ]
         },
-    
+        {
+            "href": "#/app/form4",
+            "label": "inquire4",
+            "type": "form",
+            "iconOn":"ion-android-list",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "banner":"../img/custom-images/inquire/banner-inquire.jpg",
+            "emailId":"user@yondu.com",
+            "subject":"From custom form",
+            "formName":"myForm",
+            "description":"Lorem444 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
+            "api":"submit.php",
+            "onSuccess":"Details Successfully sent",
+            "onError":"Something went wrong",
+            "fields":[
+                {
+                    "type":"input",
+                    "label":"Name",
+                    "required":true,
+                    "is_checked":true
+                },
+                {
+                    "type":"input",
+                    "label":"Phone",
+                    "required":false
+                },
+                {
+                     "type":"email",
+                    "label":"Email",
+                    "required":true
+                },
+                {
+                    "type":"textarea",
+                    "label":"Comment",
+                    "required":true
+                },
+                {
+                    "type":"checkbox",
+                    "label":"checkbox",
+                    "checkList":[
+                        {
+                            "label":"check 1",
+                            "modelName":"check1",
+                            "group":"gender"
+                        },
+                        {
+                            "label":"check 2",
+                            "modelName":"check2",
+                            "group":"gender"
+                        }
+                    ]
+                },
+                {
+                    "type":"radio",
+                    "label":"radio",
+                    "radioList":[
+                        {
+                            "label":"radio 1",
+                            "modelName":"radio1",
+                            "group":"radio group1"
+                        },
+                        {
+                            "label":"radio 2",
+                            "modelName":"radio2",
+                            "group":"radio group1"
+                        }
+                    ]
+                },
+                {
+                    "type":"dropdown",
+                    "label":"options",
+                    "selections":[
+                        {
+                            "label":"option 1",
+                            "options":[
+                                {
+                                    "title":"option1",
+                                    "value":1
+                                },
+                                 {
+                                    "title":"option2",
+                                    "value":2
+                                },
+                                 {
+                                    "title":"option3",
+                                    "value":3
+                                }
+                                ]
+                        },
+                        {
+                            "label":"option 2",
+                            "options":[
+                                {
+                                    "title":"option1",
+                                    "value":1
+                                },
+                                 {
+                                    "title":"option2",
+                                    "value":2
+                                },
+                                 {
+                                    "title":"option3",
+                                    "value":3
+                                }
+                                ]
+                        }
+                    ]
+                }
+            ]
+        },
+         {
+            "href": "#/app/editor",
+            "label": "Editor",
+            "type": "editor",
+            "iconOn":"ion-earth",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "content":"<h1>helloooooo</h1><div>wefwefwefwefwef</div>"
+        },
+         {
+            "href": "#/app/editor2",
+            "label": "Editor2",
+            "type": "editor",
+            "iconOn":"ion-earth",
+            "customIcon":"../img/custom-icon/ionic-placeholder.png",
+            "content":"<h1>hellooooooeee</h1><div>wefwefwefwefwef</div>"
+        },
         {
             "label": "website2",
             "type": "website",
@@ -331,33 +744,72 @@
             "url": "/about",
             "templateUrl": "templates/about.html",
             "controller": "AboutCtrl",
-            "defaultState": true
+            "data":"About"
             
         },
         {
             "state": "app.aboutContact",
             "url": "/aboutContact",
             "templateUrl": "templates/contact.html",
-            "controller": "ContactCtrl"
-            
+            "controller": "ContactCtrl",
+            "data":"aboutContact"
         },
         {
             "state": "app.aboutContact2",
             "url": "/aboutContact2",
             "templateUrl": "templates/contact.html",
-            "controller": "ContactCtrl"
+            "controller": "ContactCtrl",
+            "data":"aboutContact2"
+        },
+        {
+            "state": "app.aboutContact3",
+            "url": "/aboutContact3",
+            "templateUrl": "templates/contact.html",
+            "controller": "ContactCtrl",
+            "data":"aboutContact3"
         },
         {
             "state": "app.about2",
             "url": "/about2",
             "templateUrl": "templates/about.html",
-            "controller":"AboutCtrl"
+            "controller":"AboutCtrl",
+            "data":"About2"
+        },
+        {
+            "state": "app.about2WithSub",
+            "url": "/about2WithSub",
+            "templateUrl": "templates/about.html",
+            "controller":"AboutCtrl",
+            "data":"About2WithSub"
+        },
+        {
+            "state": "app.about22",
+            "url": "/about22",
+            "templateUrl": "templates/about.html",
+            "controller":"AboutCtrl",
+            "data":"About22",
+            "defaultState": true
+        },
+        {
+            "state": "app.about23",
+            "url": "/about23",
+            "templateUrl": "templates/about.html",
+            "controller":"AboutCtrl",
+            "data":"About23"
+        },
+         {
+            "state": "app.about24",
+            "url": "/about24",
+            "templateUrl": "templates/about.html",
+            "controller":"AboutCtrl",
+            "data":"About24"
         },
         {
             "state": "app.about3",
             "url": "/about3",
             "templateUrl": "templates/about.html",
-            "controller":"AboutCtrl"
+            "controller":"AboutCtrl",
+            "data":"About3"
         },
         {
             "state": "app.contact",
@@ -370,7 +822,29 @@
             "state": "app.form",
             "url": "/form",
             "templateUrl": "templates/form.html",
-            "controller": "FormCtrl"
+            "controller": "FormCtrl",
+            "data":"inquire"
+        },
+         {
+            "state": "app.form2",
+            "url": "/form2",
+            "templateUrl": "templates/form.html",
+            "controller": "FormCtrl",
+            "data":"inquire2"
+        },
+         {
+            "state": "app.form3",
+            "url": "/form3",
+            "templateUrl": "templates/form.html",
+            "controller": "FormCtrl",
+            "data":"inquire3"
+        },
+         {
+            "state": "app.form4",
+            "url": "/form4",
+            "templateUrl": "templates/form.html",
+            "controller": "FormCtrl",
+            "data":"inquire4"
         },
         {
             "state": "app.gallery",
@@ -388,13 +862,34 @@
             "state": "app.rss",
             "url": "/rss",
             "templateUrl": "templates/rss.html",
-            "controller": "FeedCtrl"
+            "controller": "FeedCtrl",
+            "data":"rss"
+        },
+         {
+            "state": "app.rss2",
+            "url": "/rss2",
+            "templateUrl": "templates/rss.html",
+            "controller": "FeedCtrl",
+            "data":"rss2"
         },
         {
             "state": "app.map",
             "url": "/map",
             "templateUrl": "templates/map.html",
             "controller": "MapCtrl"
+        },
+         {
+            "state": "app.editor",
+            "url": "/editor",
+            "templateUrl": "templates/editor.html",
+            "controller": "EditorCtrl",
+            "data":"Editor"
+        },
+        {
+            "state": "app.editor2",
+            "url": "/editor2",
+            "templateUrl": "templates/editor.html",
+            "controller": "EditorCtrl"
         }
     ]
 }

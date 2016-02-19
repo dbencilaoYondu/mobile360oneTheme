@@ -3,14 +3,26 @@
   <ion-content>
 	<div class="wrapper">
 		<h2>Contact Us</h2>
-		<ul class="list list-inset">
-		    <li class="item item-icon-left" ng-repeat="contact in data.contact.contacts">
-		    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
-				<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
-		    	 <p>{{contact.input}}</p>
-		    	 <p class="contact-label">{{contact.title}}</p>
-		    </li>
-		</ul>
+		<div ng-show="data.scrum2[currentData].contacts">
+			<ul class="list list-inset">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in data.scrum2[currentData].contacts">
+			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
+					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
+			    	 <p>{{contact.input}}</p>
+			    	 <p class="contact-label">{{contact.title}}</p>
+			    </li>
+			</ul>
+		</div>
+		<div ng-hide="data.scrum2[currentData].contacts">
+			<ul class="list list-inset">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentContactData.contacts">
+			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
+					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
+			    	 <p>{{contact.input}}</p>
+			    	 <p class="contact-label">{{contact.title}}</p>
+			    </li>
+			</ul>
+		</div>
 	</div>
   </ion-content>
 </ion-view>

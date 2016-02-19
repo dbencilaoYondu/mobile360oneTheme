@@ -61,16 +61,17 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
                     'menuContent': {
                         templateUrl: state.templateUrl,
                         controller: state.controller
+                        
                     },
                     'sideMenu':{
                        templateUrl:'templates/sideMenu.html',
                        controller:'SettingsCtrl'            
                      }
-                }
+                },
+                data:state.data
             });
         }
     };
-
     $timeout(function () {
 
         // Read the configuration
@@ -132,7 +133,11 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
       }
         
      }
-    
+
+     $scope.data = Pages;
+     $scope.currentData = $state.current.data;
+     Pages.getSpecs();
+
      $scope.subsSwitch = function(label,index){
         $scope.subsOn = true;
 
@@ -220,8 +225,6 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages, $ionicHistory){
              $scope.withHeight = false;
           }
 
-          console.log('settings: ');
-          console.log($scope);
         }
         $scope.flyBack = function(){
           $('.flyout').removeClass('active');
@@ -241,8 +244,8 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages, $ionicHistory){
           }
         }
       
-    console.log('settings: ');
-    console.log($scope);
+/*    console.log('settings: ');
+    console.log($scope);*/
 });
 app.controller('MenuCtrl', function($scope,Pages,menuInfo) {
       $scope.data = Pages;
@@ -274,16 +277,37 @@ app.controller('AboutCtrl', function($scope,$ionicModal,Pages,$state) {
       $scope.closeModal = function(index) {
         $scope.modal.hide();
       };
-      console.log('About ctrl: ');
-      console.log($scope);
-      console.log('Parent');
-      $scope.currentAbout = $scope.$parent.currentParentOfSubInfo;
-      console.log($scope.$parent.currentParentOfSubInfo);
 
+      //data sharing
+        console.log('About ctrl: ');
+        console.log($scope);
+        console.log('Parent');
+
+        $scope.currentData = $state.current.data;
+        //set data to parent contact pages
+        $scope.currentAboutData = $scope.data.scrum2[$scope.currentData];
+
+        console.log($scope.$parent.currentParentOfSubInfo);
+      //end of data sharing
 
 })
-app.controller('ContactCtrl', function($scope,Pages) {$scope.data = Pages;console.log($scope);});
-app.controller('FormCtrl', function($scope,Pages, $http) {
+app.controller('ContactCtrl', function($scope,Pages,$state) {
+  $scope.data = Pages;
+  console.log('contact ctrl' );
+  console.log($scope);
+  //data sharing
+    $scope.currentData = $state.current.data;
+    //set data to parent contact pages
+    $scope.currentContactData = $scope.data.scrum2[$scope.currentData];
+
+    //transfer data to sub contact pages
+    if($scope.$parent.currentParentOfSubInfo){
+      $scope.currentContactData = $scope.$parent.currentParentOfSubInfo;
+    }
+    console.log($scope.$parent.currentParentOfSubInfo);
+  //end of data sharing
+});
+app.controller('FormCtrl', function($scope,Pages, $http,$state) {
   $scope.data = Pages;
   Pages.getSpecs();
   console.log($scope);
@@ -300,8 +324,24 @@ app.controller('FormCtrl', function($scope,Pages, $http) {
         }
       });
     $scope.form = {}
+    $ionicScrollDelegate.scrollTop();
   }
+
+  //data sharing
+  $scope.currentData = $state.current.data;
+    //set data to parent contact pages
+    $scope.currentFormData = $scope.data.scrum2[$scope.currentData];
+
+    //transfer data to sub contact pages
+    if($scope.$parent.currentParentOfSubInfo){
+      $scope.currentFormData = $scope.$parent.currentParentOfSubInfo;
+    }
+    console.log($scope.$parent.currentParentOfSubInfo);
+  //end of data sharing
+  console.log('form ctrl');
   console.log($scope);
+
+
 });
 app.controller('GalleryCtrl', function($scope,$stateParams, Pages) {
   $scope.data = Pages;
@@ -309,7 +349,8 @@ app.controller('GalleryCtrl', function($scope,$stateParams, Pages) {
   $scope.id = $stateParams.id;
 });
 
-app.controller("FeedCtrl", ['$scope','FeedService','Pages', function ($scope,Feed,Pages) {    
+
+app.controller("FeedCtrl", ['$scope','FeedService','Pages','$state', function ($scope,Feed,Pages,$state) {    
     $scope.data = Pages;
     Pages.getSpecs();  
     console.log($scope);
@@ -317,9 +358,19 @@ app.controller("FeedCtrl", ['$scope','FeedService','Pages', function ($scope,Fee
     $scope.loadFeed=function(url){
         Feed.parseFeed(url).then(function(res){
             console.log(res);
-            $scope.feeds=res.data.responseData.feed.entries;
+            $scope.feeds = res.data.responseData.feed.entries;
         });
     }
+
+    $scope.currentData = $state.current.data;
+    //set data to parent rss pages
+    $scope.currentRssData = $scope.data.scrum2[$scope.currentData];
+
+    //transfer data to sub rss pages
+    if($scope.$parent.currentParentOfSubInfo){
+      $scope.currentRssData = $scope.$parent.currentParentOfSubInfo;
+    }
+    console.log($scope.$parent.currentParentOfSubInfo);
 
 }]);
 
