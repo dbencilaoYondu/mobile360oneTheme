@@ -1,7 +1,5 @@
 var app = angular.module('starter.controllers', [])
 
-
-
 /**
  * This variable will store the base configuration which we get using the config service in AppCtrl
  */
@@ -141,6 +139,8 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
      $scope.subsSwitch = function(label,index){
         $scope.subsOn = true;
 
+        $('.backdrop.active').removeClass('visible');
+        
         if(Pages.data.data.menuItems[index].label == label){
 
           $scope.currentParentOfSub = Pages.data.data.menuItems[index].subMenu;
@@ -152,8 +152,7 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
 
       }
 
-      $scope.pageInfo = function(index){
-         
+      $scope.pageInfo = function(index){      
          $scope.currentParentOfSubInfo = $scope.currentParentOfSub.menuItems[index];
          console.log('Pageinfo: ');
          console.log(index);
@@ -164,7 +163,10 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
       $scope.backToParentMenu = function(){
           $scope.subsOn = false;
         }
-     
+      $scope.backdropHide = function() {
+        $('.backdrop.active').removeClass('visible');
+        $('.flyout').removeClass('active');
+      }
 });
 
 /**
@@ -230,6 +232,14 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages, $ionicHistory){
           $('.flyout').removeClass('active');
         }
 
+        //Show a backdrop
+        $scope.backdrop = function() {
+          $('.backdrop.active').toggleClass('visible');
+        };
+         $scope.backdropActive = function() {
+          $('.backdrop.active').addClass('visible');
+        };
+
         //for sorting menu orientation
         $scope.sortIcon = "ion-ios-more-outline";
         $scope.sortMenu = function(){
@@ -284,7 +294,7 @@ app.controller('AboutCtrl', function($scope,$ionicModal,Pages,$state) {
         console.log('Parent');
 
         $scope.currentData = $state.current.data;
-        //set data to parent contact pages
+        //set data to parent about pages
         $scope.currentAboutData = $scope.data.scrum2[$scope.currentData];
 
         console.log($scope.$parent.currentParentOfSubInfo);
@@ -307,7 +317,7 @@ app.controller('ContactCtrl', function($scope,Pages,$state) {
     console.log($scope.$parent.currentParentOfSubInfo);
   //end of data sharing
 });
-app.controller('FormCtrl', function($scope,Pages, $http,$state) {
+app.controller('FormCtrl', function($scope,Pages, $http,$state,$ionicScrollDelegate) {
   $scope.data = Pages;
   Pages.getSpecs();
   console.log($scope);
@@ -317,14 +327,17 @@ app.controller('FormCtrl', function($scope,Pages, $http,$state) {
   $scope.submitForm = function(){
     console.log($scope);
     console.log($scope.form);
-    $http.post($scope.data.form.api,$scope.form)
-      .then(function(data){
-        if(data.status == true){
-          $scope.form.status = true;
+    $http.post($scope.currentFormData.api,$scope.form)
+      .then(function successCallback(response){
+        if(response.status == true){
+          $scope.success = $scope.currentFormData.onSuccess;
         }
+      },function errorCallback(response){
+        console.log(response);
+        $scope.error = $scope.currentFormData.onError;
       });
-    $scope.form = {}
-    $ionicScrollDelegate.scrollTop();
+    $scope.form = {};
+     $ionicScrollDelegate.scrollTop();
   }
 
   //data sharing
@@ -349,7 +362,15 @@ app.controller('GalleryCtrl', function($scope,$stateParams, Pages) {
   $scope.id = $stateParams.id;
 });
 
-
+app.controller('EditorCtrl', function($scope,$stateParams, Pages, $sce,$state) {
+  $scope.data = Pages;
+  $scope.paramsId = $stateParams.paramsId;
+  
+   console.log('editor');
+   console.log($scope);
+   $scope.$sce = $sce;
+   $scope.currentData = $state.current.data;
+});
 app.controller("FeedCtrl", ['$scope','FeedService','Pages','$state', function ($scope,Feed,Pages,$state) {    
     $scope.data = Pages;
     Pages.getSpecs();  

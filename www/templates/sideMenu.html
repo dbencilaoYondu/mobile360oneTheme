@@ -12,7 +12,7 @@
                     </a>
 
                 </div>
-    			<button class="button button-icon flyback" ng-click="flyBack();"><i class="ion-close-round"></i></button>
+    			<button class="button button-icon flyback" ng-click="flyBack();backdropHide();"><i class="ion-close-round"></i></button>
 
     	</header>
     	<div class="banner">
@@ -20,20 +20,20 @@
     	</div>
     	<ul class="menuList list">
     		<li ng-hide="subsOn" class="nosubs" ng-repeat="info in menuItems" ng-click="openBrowser(info.type,$index)">
-    			<a class="item item-icon-left item-icon-right" ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);">
+    			<a class="item item-icon-left item-icon-right" ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);backdropActive()">
     				<i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
                     <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
     				{{info.label}}
                     <i class="subArrow icon ion-chevron-right"></i>
     			</a>
-                <a  class="item item-icon-left" ng-hide="info.subMenu" href="{{info.href}}">
+                <a  class="item item-icon-left" ng-hide="info.subMenu" href="{{info.href}}" ng-click="backdropHide();">
                    <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
                     <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
                     {{info.label}}
                 </a>
     		</li>
             <li ng-show="subsOn" class="subs" ng-repeat="info in currentParentOfSub.menuItems">
-                <a  class="item item-icon-left" href="{{info.href}}" ng-click="pageInfo($index);">
+                <a  class="item item-icon-left" href="{{info.href}}" ng-click="pageInfo($index);backdropHide();">
                     <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
                     <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
                     {{info.label}}
