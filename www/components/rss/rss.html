@@ -1,7 +1,7 @@
 <ion-view>
 <ion-content>
               
-    <div class="container-fluid">
+	<div class="container-fluid">
     <div data-ng-controller="FeedCtrl">
         
         <div>
@@ -10,12 +10,12 @@
               <div class="btn-group">
 
                 <!-- first level RSS list -->
-                <ul class="list" ng-show="data.scrum2[currentData].content">
-                  <li class="item item-divider" ng-repeat="info in data.scrum2[currentData].content" ng-click="loadFeed(info.url)"><a href="#">{{info.title}}</a></li>
+                <ul class="list" ng-show="currentRssData.content">
+                  <li class="item item-divider" ng-repeat="info in currentRssData.content" ng-click="loadFeed(info.url)"><a href="#">{{info.title}}</a></li>
                 </ul>
                 <!-- sub page RSS list -->
-                <ul class="list" ng-hide="data.scrum2[currentData].content">
-                  <li class="item item-divider" ng-repeat="info in currentRssData.content" ng-click="loadFeed(info.url)"><a href="#">{{info.title}}</a></li>
+                <ul class="list" ng-hide="currentRssData.content">
+                  <li class="item item-divider" ng-repeat="info in currentParentOfSubInfo.content" ng-click="loadFeed(info.url)"><a href="#">{{info.title}}</a></li>
                 </ul>
               </div>
             </div>

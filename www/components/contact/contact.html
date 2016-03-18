@@ -3,9 +3,9 @@
   <ion-content>
 	<div class="wrapper">
 		<h2>Contact Us</h2>
-		<div ng-show="data.scrum2[currentData].contacts">
+		<div ng-show="currentContactData.contacts">
 			<ul class="list list-inset">
-			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in data.scrum2[currentData].contacts">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentContactData.contacts">
 			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
 					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
 			    	 <p>{{contact.input}}</p>
@@ -13,9 +13,9 @@
 			    </li>
 			</ul>
 		</div>
-		<div ng-hide="data.scrum2[currentData].contacts">
+		<div ng-hide="currentContactData.contacts">
 			<ul class="list list-inset">
-			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentContactData.contacts">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentParentOfSubInfo.contacts">
 			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
 					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
 			    	 <p>{{contact.input}}</p>

@@ -1,16 +1,11 @@
 
 <ion-view id="about">
   <ion-content>
-  <!-- {{currentData}}
-  	<p>{{data.scrum2[currentData].content}} </p>
-  	<div ng-repeat="info in data.scrum2[currentData].content">
-  		{{info.title}}
-  	</div> -->
-    <!-- no subs -->
+
 	<div ng-show="currentAboutData" class="wrapper">
-		<img class="banner" ng-src="{{currentAboutData.banner}}" alt="{{currentAboutData.banner}}">
+		<img ng-show="currentAboutData.banner" class="banner" ng-src="{{currentAboutData.banner}}" alt="{{currentAboutData.banner}}">
 		
-		<div class="custom-content" ng-repeat="info in data.scrum2[currentData].content">
+		<div class="custom-content" ng-repeat="info in currentAboutData.content">
 			<h3>{{info.title}}</h3>
 			<div class="card">
 				<div class="header"><img ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
@@ -20,7 +15,7 @@
 		</div>
 	</div>
 	<div ng-hide="currentAboutData" class="wrapper">
-		<img class="banner" ng-src="{{currentParentOfSubInfo.banner}}" alt="{{currentParentOfSubInfo.banner}}">
+		<img ng-show="currentParentOfSubInfo.banner" class="banner" ng-src="{{currentParentOfSubInfo.banner}}" alt="{{currentParentOfSubInfo.banner}}">
 		
 		<div class="custom-content" ng-repeat="info in currentParentOfSubInfo.content">
 			<h3>{{info.title}}</h3>
@@ -32,35 +27,6 @@
 		</div>
 	</div>
 
-	<!-- with subs -->
-	<!-- <div ng-show="data.about.subMenu" class="wrapper">
-		<div ng-hide="currentAbout">
-			<img class="banner" ng-src="{{data.about.banner}}" alt="{{data.about.banner}}">
-			<div class="custom-content" ng-repeat="info in data.about.content">
-				<h3>{{info.title}}</h3>
-				<div class="card">
-					<div class="header"><img ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
-					<div class="item item-text-wrap">{{info.text | limitTo: 100}}{{info.text.length > 100 ? '...' : ''}}</div>
-					<div class="item text-right item-divider" ng-show="info.text.length > 100"> <div class="arrowDown" ng-click="openModal({{$index}})"><i class="ion-arrow-down-b"></i></div></div>
-				</div>
-			</div>
-		</div>
-		
-		<div ng-show="currentAbout">
-			<img class="banner" ng-src="{{currentAbout.banner}}" alt="{{currentAbout.banner}}">
-		
-			<div class="custom-content" ng-repeat="info in currentAbout.content">
-				<h3>{{info.title}}</h3>
-				<div class="card">
-					<div class="header"><img ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
-					<div class="item item-text-wrap">{{info.text | limitTo: 100}}{{info.text.length > 100 ? '...' : ''}}</div>
-					<div class="item text-right item-divider" ng-show="info.text.length > 100"> <div class="arrowDown" ng-click="openModal({{$index}})"><i class="ion-arrow-down-b"></i></div></div>
-				</div>
-			</div>
-		</div>
-		
-		
-	</div> -->
   </ion-content>
 </ion-view>
 

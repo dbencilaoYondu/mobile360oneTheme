@@ -10,11 +10,11 @@
       <ion-nav-buttons>
         <button class="button button-icon button-clear ion-navicon" ng-click="flyOut();backdrop();">
         </button>
-      </ion-nav-buttons>s
+      </ion-nav-buttons>
        <div class="logo-setting-head">
         <h1 class="title">
              <a ng-click="defaultState()" class="logo-title">
-               <span ng-hide="data.data.data.logo">{{data.data.data.applicationName}}</span>
+               <span ng-hide="data.data.data.logo">{{headerText}}</span>
                 <img ng-show="data.data.data.logo" class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
              </a>
         </h1>
@@ -24,7 +24,7 @@
 
  
 	<ion-nav-view name="menuContent">
-     <div class="backdrop active" ng-click="backdropHide();">backdrop</div>
+     <div class="backdrop active" ng-click="backdropHide();"></div>
   </ion-nav-view>
   
 

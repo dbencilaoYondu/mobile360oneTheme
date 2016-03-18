@@ -1,4 +1,4 @@
-var app = angular.module('starter.controllers', [])
+var app = angular.module('starter.controllers', ['youtube-embed'])
 
 /**
  * This variable will store the base configuration which we get using the config service in AppCtrl
@@ -66,6 +66,7 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
                        controller:'SettingsCtrl'            
                      }
                 },
+                parentId:state.parentId,
                 data:state.data
             });
         }
@@ -197,6 +198,12 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages, $ionicHistory){
     $scope.data = Pages;
     Pages.getSpecs();
 
+    if($scope.data.data.data.headerText){
+      $scope.headerText = $scope.data.data.data.headerText;
+    }else{
+      $scope.headerText = $scope.data.data.data.applicationName;
+    }
+    
      $ionicModal.fromTemplateUrl('settings.html', {
       id: '1', // We need to use and ID to identify the modal that is firing the event!
       scope: $scope,
@@ -254,9 +261,19 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages, $ionicHistory){
           }
         }
       
-/*    console.log('settings: ');
-    console.log($scope);*/
 });
+app.controller('BlankCtrl',function($scope,Pages,$timeout){
+  $scope.blankOn = true;
+  $('.backdrop.active').removeClass('visible');
+});
+
+app.controller('MenuPreviewCtrl',function($scope,Pages,$timeout){
+  $timeout(function() {
+     $('.flyout').addClass('active');
+     $('.backdrop.active').addClass('visible');
+  }, 10);
+});
+
 app.controller('MenuCtrl', function($scope,Pages,menuInfo) {
       $scope.data = Pages;
       console.log('Menu ctrl: ');
@@ -317,49 +334,88 @@ app.controller('ContactCtrl', function($scope,Pages,$state) {
     console.log($scope.$parent.currentParentOfSubInfo);
   //end of data sharing
 });
-app.controller('FormCtrl', function($scope,Pages, $http,$state,$ionicScrollDelegate) {
+
+
+app.controller('FormCtrl', function($scope,Pages,$state, $http,$ionicScrollDelegate,$httpParamSerializerJQLike ) {
   $scope.data = Pages;
   Pages.getSpecs();
-  console.log($scope);
+  
+  $scope.form = {};
 
-  $scope.form = {}
+  Object.toparams = function ObjecttoParams(obj) 
+  {
+    var p = [];
+    for (var key in obj) 
+    {
+      p.push(key + '=' + encodeURIComponent(obj[key]));
+    }
+    return p.join('&');
+  };
 
   $scope.submitForm = function(){
-    console.log($scope);
-    console.log($scope.form);
-    $http.post($scope.currentFormData.api,$scope.form)
+  
+    $scope.form.subject = $scope.currentFormData.subject;
+    $scope.form.emailId = $scope.currentFormData.emailId;
+    $scope.form.label = $scope.currentFormData.label;
+    $scope.form.description = $scope.currentFormData.description;
+    $scope.form.formName = $scope.currentFormData.formName;
+
+    $scope.stringData = JSON.stringify($scope.form);
+    $http(
+    {
+      method:'POST',
+      url:$scope.currentFormData.api,
+      data:Object.toparams({'data':$scope.stringData}),
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    })
       .then(function successCallback(response){
-        if(response.status == true){
+        console.log(response);
+        if(response.statusText == 'OK'){
           $scope.success = $scope.currentFormData.onSuccess;
+        }else{
+          $scope.error = $scope.currentFormData.onError;
         }
       },function errorCallback(response){
         console.log(response);
         $scope.error = $scope.currentFormData.onError;
       });
-    $scope.form = {};
+     $scope.form = {};
      $ionicScrollDelegate.scrollTop();
   }
 
   //data sharing
   $scope.currentData = $state.current.data;
-    //set data to parent contact pages
+    //set data to parent form pages
     $scope.currentFormData = $scope.data.scrum2[$scope.currentData];
 
-    //transfer data to sub contact pages
+    //transfer data to sub form pages
     if($scope.$parent.currentParentOfSubInfo){
       $scope.currentFormData = $scope.$parent.currentParentOfSubInfo;
     }
     console.log($scope.$parent.currentParentOfSubInfo);
   //end of data sharing
+
   console.log('form ctrl');
   console.log($scope);
 
-
 });
-app.controller('GalleryCtrl', function($scope,$stateParams, Pages) {
+app.controller('WebsiteCtrl', function($scope,Pages,$state,$sce) {
   $scope.data = Pages;
-  $scope.paramsId = $stateParams.paramsId;
-  $scope.id = $stateParams.id;
+  console.log('contact ctrl' );
+  console.log($scope);
+
+  $scope.$sce = $sce;
+  //data sharing
+    $scope.currentData = $state.current.data;
+    //set data to parent contact pages
+    $scope.currentWebsiteData = $scope.data.scrum2[$scope.currentData];
+    $scope.currentWebsiteDataURL = $sce.trustAsResourceUrl($scope.data.scrum2[$scope.currentData].url);
+    //transfer data to sub contact pages
+    if($scope.$parent.currentParentOfSubInfo){
+      $scope.currentContactData = $scope.$parent.currentParentOfSubInfo;
+    }
+  //end of data sharing
+    console.log($scope.$parent.currentParentOfSubInfo);
 });
 
 app.controller('EditorCtrl', function($scope,$stateParams, Pages, $sce,$state) {
@@ -369,7 +425,20 @@ app.controller('EditorCtrl', function($scope,$stateParams, Pages, $sce,$state) {
    console.log('editor');
    console.log($scope);
    $scope.$sce = $sce;
-   $scope.currentData = $state.current.data;
+
+   //data sharing
+    $scope.currentData = $state.current.data;
+   
+    //transfer data to sub contact pages
+    if($scope.currentParentOfSubInfo){
+      $scope.currentEditorData = $scope.currentParentOfSubInfo;
+       $scope.currentEditorDataHtml = $sce.trustAsHtml($scope.currentEditorData.content);
+    }else{
+       //set data to parent contact pages
+      $scope.currentEditorData = $scope.data.scrum2[$scope.currentData];
+      $scope.currentEditorDataHtml = $sce.trustAsHtml($scope.data.scrum2[$scope.currentData].content);
+    }
+  //end of data sharing
 });
 app.controller("FeedCtrl", ['$scope','FeedService','Pages','$state', function ($scope,Feed,Pages,$state) {    
     $scope.data = Pages;
@@ -416,4 +485,108 @@ app.controller('MapCtrl', function($scope ,$state, Pages,$cordovaGeolocation) {
   });
 
 
+});
+
+app.controller('GalleryCtrl', function($scope,$stateParams,$state, Pages) {
+  $scope.data = Pages;
+  $scope.paramsId = $stateParams.paramsId;
+  $scope.id = $stateParams.id;
+  console.log('Gallery Ctrl:');
+  console.log($scope);
+
+  $scope.galleryWrapper = true ;
+  //show all photos in an album
+  $scope.showAlbum = function($index){
+    
+      $scope.activeAlbum = $index;
+      $scope.galleryWrapper = false;
+      $scope.albumWrapper = true;
+
+      $scope.currentAlbumsObj = $scope.data.scrum2[$scope.currentData].albums[$scope.activeAlbum];
+    console.log($scope);
+  }
+
+  // show single photo
+  $scope.showPhoto = function($index){
+    
+      $scope.activePhoto = $index;
+      //$scope.activeAlbum = false;
+      $scope.albumWrapper = false;
+      $scope.photoWrapper = true;
+
+      $scope.singlePhoto = $scope.data.scrum2[$scope.currentData].albums[$scope.activeAlbum].photos[$scope.activePhoto];
+  
+    console.log($scope);
+  }  
+
+   //back to gallery list
+  $scope.backToGallery = function(){
+    $scope.galleryWrapper = true;
+    $scope.albumWrapper = false;
+  }
+  //back to albums
+  $scope.backToAlbums = function(){
+    $scope.galleryWrapper = false;
+    $scope.albumWrapper = true;
+    $scope.photoWrapper = false;
+  }
+  
+
+  $scope.currentData = $state.current.data;
+    //set data to parent rss pages
+    $scope.currentGalleryData = $scope.data.scrum2[$scope.currentData];
+
+    //transfer data to sub rss pages
+    if($scope.currentParentOfSubInfo){
+      $scope.currentGalleryData = $scope.currentParentOfSubInfo;
+    }
+    console.log($scope.currentParentOfSubInfo);
+
+});
+
+app.controller('VideoCtrl', function($scope,$state, $http, Pages){
+    $scope.data = Pages;
+    $scope.currentData = $state.current.data;
+
+    //transfer data to sub rss pages
+    if($scope.data.scrum2[$scope.currentData]){
+      //set data to parent rss pages
+      $scope.currentVideoData = $scope.data.scrum2[$scope.currentData];
+    }else{
+       $scope.currentVideoData = $scope.currentParentOfSubInfo;
+    }
+
+    console.log('video ctrl');
+    console.log($scope);
+
+     $scope.youtubeParams = {
+         key: $scope.currentVideoData.youtube.key,
+         type: 'video',
+         maxResults: $scope.currentVideoData.youtube.resultLimit,
+         part: 'id,snippet',
+         order: 'date',
+         //forUsername: 'aybutchikik',
+         channelId: $scope.currentVideoData.youtube.channelId
+     }
+     
+     $http.get('https://www.googleapis.com/youtube/v3/search', {
+
+        params: $scope.youtubeParams
+
+      })
+
+      .success(function(response){
+
+        $scope.videos  = response.items;
+
+        angular.forEach(response.items, function(child){
+             console.log (child);
+        });
+      });
+       
+      $scope.playerVars = {
+       rel: 0,
+       showinfo: 0,
+       modestbranding: 0,
+      }
 });

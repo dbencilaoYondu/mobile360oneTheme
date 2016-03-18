@@ -9788,6 +9788,9 @@ ion-nav-bar.bar.bar-header {
   left: 10px;
   top: 10px; }
 
+#about .wrapper .banner {
+  max-height: 200px; }
+
 #about .custom-content {
   margin-bottom: 12px; }
   #about .custom-content h3 {
@@ -9803,10 +9806,10 @@ ion-nav-bar.bar.bar-header {
   font-size: 21px; }
 
 #contact .contact-label {
-  position: absolute;
+  position: relative;
   right: 0;
   padding: 6px 12px;
-  top: 12px;
+  bottom: -5px;
   background: #DCDCDC; }
 
 #form .banner {
@@ -9815,7 +9818,7 @@ ion-nav-bar.bar.bar-header {
   background-position: center center; }
   #form .banner h2 {
     text-align: center;
-    line-height: 120px;
+    margin-top: 42px;
     text-transform: capitalize;
     position: absolute;
     margin-left: auto;
@@ -9868,6 +9871,9 @@ ion-modal-view#settings .item-divider {
         font-size: 15px;
         text-align: left;
         padding: 5px 0 0 7px; }
+    #gallery ul.row .thumb-img img {
+      width: 100%;
+      height: 100%; }
 
 #gallery #photoCollection h3 {
   padding-left: 6px; }
@@ -9879,8 +9885,34 @@ ion-modal-view#settings .item-divider {
 #gallery #photoDetails .caption {
   padding: 12px; }
 
+.blankWrapper {
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px; }
+  .blankWrapper header {
+    font-size: 24px; }
+  .blankWrapper article {
+    font-size: 15px;
+    padding: 12px 0; }
+    .blankWrapper article .icon {
+      font-size: 100px;
+      float: left;
+      padding: 12px; }
+
+#video .embed-responsive-item {
+  width: 100%; }
+
+#video .ytp-thumbnail-overlay {
+  background-size: 100%; }
+
 .angular-google-map-container {
   height: 594px; }
+
+#website .scroll {
+  height: 100%; }
+
+#website .website-container {
+  height: 100%; }
 
 .flyout {
   position: absolute;
@@ -9888,7 +9920,7 @@ ion-modal-view#settings .item-divider {
   height: 100%;
   width: 80%;
   box-shadow: 0px 1px 4px #2f2f2f;
-  transform: translate(-21em, 0);
+  transform: translate(-65em, 0);
   transition: 300ms ease-in-out; }
   .flyout.active {
     transform: translate(0em, 0); }
@@ -9902,7 +9934,7 @@ ion-modal-view#settings .item-divider {
       width: 100%;
       height: 100%; }
   .flyout .menuList {
-    height: 418px;
+    height: 100%;
     overflow-y: scroll; }
     .flyout .menuList li a i.subArrow {
       font-size: 24px; }
