@@ -1,0 +1,44 @@
+
+  <div class="flyout" >
+     <ion-content class="scroll-content ionic-scroll" hide-nav-bar="true" has-header='false' >
+    	<header class="bar bar-header">    			
+    			<div class="text-center title">
+                    <a ng-click="defaultState()" class="logo-title">
+                      <span ng-hide="data.data.data.logo">{{headerText}}</span>
+                      <img ng-show="data.data.data.logo" class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
+                    </a>
+
+                </div>
+                <div></div>
+    			<a ng-hide="subsOn" class="button button-icon flyback" ng-click="flyBack();backdropHide();"><i class="ion-android-arrow-back"></i></a>
+                <a ng-show="subsOn" class="button button-icon" ng-click="backToParentMenu();"><i class="ion-android-arrow-back"></i></a>
+    	</header>
+    	
+    	<ul class="row menuList menu1 active" ng-class="withHieght">
+            <div class="banner">
+             <img ng-src="{{data.data.data.menuBanner}}" alt="{{data.data.data.menuBanner}}">
+            </div>
+    		<li ng-hide="subsOn" class="col col-50 text-center nosubs" ng-repeat="info in menuItems">
+    			<a ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);backdropActive();">
+    				<i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+    				<span class="link_text">{{info.label}}</span>
+                    <i class="subArrow icon ion-arrow-down-b"></i>
+    			</a>
+                <a ng-hide="info.subMenu" href="{{info.href}}" ng-click="backdropHide();">
+                    <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                    <span class="link_text">{{info.label}}</span>
+                </a>
+    		</li>
+            <li ng-show="subsOn" class="col col-50 text-center subs" ng-repeat="info in currentParentOfSub.menuItems">
+                <a href="{{info.href}}" ng-click="pageInfo($index);backdropHide();">
+                   <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                   <span class="link_text">{{info.label}}</span>
+                </a>
+            </li>
+    	</ul>
+    </ion-content>
+</div>
+

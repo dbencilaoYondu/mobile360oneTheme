@@ -9943,3 +9943,54 @@ ion-modal-view#settings .item-divider {
     top: 5px;
     right: 5px;
     bottom: 5px; }
+
+#navigation {
+  position: absolute;
+  bottom: 0;
+  z-index: 6;
+  width: 100%;
+  height: 65px;
+  box-shadow: 1px 0px 4px #000; }
+  #navigation a {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    line-height: 10px; }
+  #navigation i {
+    color: #fff;
+    font-size: 43px; }
+  #navigation .menuTitle {
+    font-weight: 300;
+    color: #fff; }
+  #navigation .navList li {
+    text-align: center; }
+  #navigation .navList .customIcon {
+    padding: 5px 6px; }
+
+.tab-more.slideDown {
+  margin-top: 45px;
+  height: 100%;
+  background: #516273; }
+  .tab-more.slideDown ul li.item {
+    padding: 0; }
+    .tab-more.slideDown ul li.item a {
+      display: block;
+      padding: 16px;
+      padding-left: 54px; }
+  .tab-more.slideDown ul li a {
+    background-color: #516273;
+    border-color: #444C54; }
+    .tab-more.slideDown ul li a i.subArrow {
+      color: #394856;
+      font-size: 24px; }
+  .tab-more.slideDown .customIcon {
+    position: absolute;
+    left: 10px;
+    top: 10px; }
+
+#moreMenu .has-header {
+  padding: 0; }
+
+#moreMenu button.button.button-icon, #moreMenu .h1.title {
+  color: #fff; }

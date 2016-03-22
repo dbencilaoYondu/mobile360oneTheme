@@ -1,0 +1,94 @@
+/* Empty. Add your own CSS if you like */
+#navigation{
+	background-color:#3d4c5c;
+}
+.bar{
+	background-color:#3d4c5c;
+}
+.wrapper{background-color:#EEE;}
+.wrapper h3{
+	    	text-align: right;
+		    padding: 12px;
+		    text-transform: capitalize;
+}
+
+.wrapper .arrowDown{
+	    border: 1px solid #3d4c5c;
+	    color: #3d4c5c;
+}
+
+
+/* about */
+#about .wrapper h3{
+	text-align: right;
+	    color: #3d4c5c;
+	    padding: 0 12px;
+	    margin-top: 0;
+	    text-transform: capitalize;
+}
+#about .wrapper .card#mission .header{
+	background-image:url('../img/custom-images/about/about-mission-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+#about .wrapper .card#vision .header{
+	background-image:url('../img/custom-images/about/about-vision-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+/* contact */
+#contact h2{
+	color:#3d4c5c;
+}
+#contact .item-icon-left .icon, #contact .item-icon-left .icon + p{
+	color:#3d4c5c;
+}
+
+/* inquire */
+#inquire .banner{
+	background-image:url('../img/custom-images/inquire/banner-inquire.jpg');
+}
+#inquire .banner h2{
+	color:#3d4c5c;
+}
+#inquire .button-assertive{
+	background-color:#3d4c5c;
+	border-radius:30px;
+}
+
+ion-modal-view ion-header-bar h1{
+	color:#fff;
+}
+
+/* push menu side */
+#pushMenu .item-complex.item{
+		border:1px solid #960A0D;
+}
+#pushMenu,#pushMenu .item-complex a.item-content{
+	background-color: #c20004;
+	color:#fff;
+	font-size: 17px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#pushMenu,#pushMenu .item-complex a.item-content i{
+	font-size:28px;
+}
+
+/*more Menu*/
+#moreMenu .has-header{
+	background-color: #516273;
+}
+.tab-more.slideDown ul li{
+	background-color:#516273;
+	    border-color: #405163;
+}
+
+.tab-more.slideDown ul li a{
+	color:#fff;
+	text-decoration:none;
+}

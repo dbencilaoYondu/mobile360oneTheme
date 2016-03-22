@@ -53,3 +53,21 @@ app.factory('Markers', function($http) {
     }
   }
 });
+
+app.factory('MenuFunctions',function(){
+
+  return{
+    flyout: {
+      open: function(){
+        console.log('open flyout!');
+      }
+    },
+    halfSide:
+    {
+      open:function(){
+        console.log('open halfSide!');
+      }
+    }
+  }
+
+});

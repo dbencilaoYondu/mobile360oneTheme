@@ -309,3 +309,82 @@ ion-modal-view{
 		    bottom: 5px;
     }
 }
+
+//partials
+#navigation{
+    position: absolute;
+    bottom: 0;
+    z-index: 6;
+    width: 100%;
+    height: 65px;
+    box-shadow: 1px 0px 4px #000;
+    a{
+        font-size:14px;
+        color:#fff;
+        text-decoration: none;
+        display:block;
+        line-height: 10px;
+    }
+    i{
+        color:#fff;
+       font-size: 43px;
+    }
+    .menuTitle{
+		    font-weight: 300;
+		    color: #fff;
+    }
+    .navList{
+    	li{
+    		text-align:center;
+    	}
+    	.customIcon{
+    		padding: 5px 6px;
+    	}
+    }
+}
+
+
+//more menu
+.tab-more{
+	&.slideDown{
+		margin-top: 45px;
+		height: 100%;
+    	background: #516273;
+		ul{
+			li.item{
+				padding:0;
+				a{
+					display:block;
+					padding: 16px;
+    				padding-left: 54px;
+    				
+				}
+			}
+			li{
+				a{
+					background-color: #516273;
+    				border-color: #444C54;
+    				i{
+    					&.subArrow{
+    						color: #394856;
+    						font-size: 24px;
+    					}
+    				}
+				}
+			}
+		}
+		.customIcon{
+			    position: absolute;
+		    left: 10px;
+		    top: 10px;
+		}
+	}
+}
+#moreMenu{
+	.has-header{
+		padding:0;
+	}
+	button.button.button-icon,.h1.title{
+						color:#fff;
+    				}
+}

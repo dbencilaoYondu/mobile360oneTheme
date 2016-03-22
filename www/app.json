@@ -1,4 +1,5 @@
 {
+    "theme":"tabMenu",
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "headerText":"header Text",
@@ -14,6 +15,41 @@
             "type":"about",
             "subMenu":{
                 "menuItems":[
+                {
+                    "id":513,
+                    "href": "#/app/map3",
+                    "label": "Location3",
+                    "type": "map",
+                    "iconOn":"ion-ios-location",
+                    "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                    "mapOptions":{
+                            "zoom":4,
+                            "center":{
+                                    "lat":41.8819,
+                                    "lng":-87.6278
+                                },
+                            "markers":[
+                                    {
+                                        "title":"Bondi Beach 3",
+                                        "lat": 43.7000,
+                                        "lng":-79.4000,
+                                        "zIndex":4
+                                    },
+                                    {
+                                        "title":"Bondi Beach",
+                                        "lat": 41.8819,
+                                        "lng":-87.6278,
+                                        "zIndex":5
+                                    },
+                                    {
+                                        "title":"Bondi Beach",
+                                        "lat": 40.6700,
+                                        "lng":-73.9400,
+                                        "zIndex":3
+                                    }
+                                ]
+                        }
+                },
                       {
                         "id":10,
                         "href": "#/app/editor2",
@@ -40,6 +76,7 @@
                         "iconOn":"ion-ios-location",
                         "customIcon":"../img/custom-icon/ionic-placeholder.png",
                         "mapOptions":{
+                            "zoom":10,
                                 "center":{
                                         "lat":-33.9,
                                         "lng":151.2
@@ -598,12 +635,12 @@
                                     {
                                         "label":"radio 1",
                                         "modelName":"radio1",
-                                        "group":"radio group"
+                                        "group":"radio group1"
                                     },
                                     {
                                         "label":"radio 2",
                                         "modelName":"radio2",
-                                        "group":"radio group"
+                                        "group":"radio group1"
                                     }
                                 ]
                             },
@@ -614,12 +651,12 @@
                                     {
                                         "label":"radio 1",
                                         "modelName":"radio1",
-                                        "group":"radio group"
+                                        "group":"radio group2"
                                     },
                                     {
                                         "label":"radio 2",
                                         "modelName":"radio2",
-                                        "group":"radio group"
+                                        "group":"radio group2"
                                     }
                                 ]
                             },
@@ -806,6 +843,7 @@
             "formName":"myForm",
             "description":"Lorem111 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
             "api":"http://192.168.20.5/builder/services/api/form_builder_send_email",
+            "submitButton":"Submit",
             "onSuccess":"Details Successfully sent",
             "onError":"Something went wrong",
             "fields":[
@@ -837,7 +875,8 @@
                         {
                             "label":"check 1",
                             "modelName":"check1",
-                            "group":"gender"
+                            "group":"gender",
+                            "isChecked":true
                         },
                         {
                             "label":"check 2",
@@ -848,31 +887,28 @@
                 },
                 {
                     "type":"radio",
-                    "label":"radio",
+                    "label":"gender group 1",
                     "radioList":[
                         {
                             "label":"radio 1",
-                            "modelName":"radio1",
                             "value":"A",
-                            "group":"radio group1"
+                            "listName":"gender",
+                            "isChecked":true
                         },
                         {
                             "label":"radio 2",
-                            "modelName":"radio2",
                             "value":"B",
-                            "group":"radio group1"
+                            "listName":"gender"
                         },
                         {
                             "label":"radio 1C",
-                            "modelName":"radio1C",
                             "value":"C",
-                            "group":"radio group2"
+                            "listName":"gender"
                         },
                         {
                             "label":"radio 2D",
-                            "modelName":"radio2D",
                             "value":"D",
-                            "group":"radio group2"
+                            "listName":"gender"
                         }
                     ]
                 },
@@ -938,7 +974,7 @@
                     "type":"input",
                     "label":"Name",
                     "required":true,
-                    "is_checked":true
+                    "isChecked":true
                 },
                 {
                     "type":"input",
@@ -1077,6 +1113,7 @@
             "iconOn":"ion-ios-location",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
             "mapOptions":{
+                    "zoom":10,
                     "center":{
                             "lat":-33.9,
                             "lng":151.2
@@ -1436,7 +1473,14 @@
             "parentId":"1",
             "data":"313"
         },
-
+         {
+            "state": "app.map3",
+            "url": "/map3",
+            "templateUrl": "components/map/map.html",
+            "controller": "MapCtrl",
+            "parentId":"1",
+            "data":"513"
+        },
          {
             "state": "app.editor",
             "url": "/editor",

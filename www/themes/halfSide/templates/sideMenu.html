@@ -1,0 +1,26 @@
+  <div class="flyout" >
+      <!-- close header -->
+    	<!-- <header class="bar bar-header">
+      
+          <button class="button button-icon flyback" ng-click="flyBack();"><i class="ion-close-round"></i></button>
+      
+      </header> -->
+    	<ul class="menuList menu1 active" ng-class="withHieght">
+    		<li class="text-center nosubs" ng-repeat="info in menuItems">
+
+    			<a ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);backdropActive();">
+    				<i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+    				<p>{{info.label}}</p>
+            <i class="subArrow icon ion-arrow-right-b"></i>
+    			</a>
+          <a ng-hide="info.subMenu" href="{{info.href}}" ng-click="backToParentMenu();backdropHide();">
+              <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+              <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+              <p>{{info.label}}</p>
+          </a>
+    		</li>
+    	</ul>
+
+    </div>
+

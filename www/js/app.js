@@ -41,4 +41,3 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     app.urlRouterProvider = $urlRouterProvider;
     app.urlRouterProvider.otherwise('/init');
 });
-

@@ -1,0 +1,148 @@
+.menuList {
+  height: 100%;
+  overflow-y: scroll;
+  padding-top: 45px;
+  box-shadow: 1px 1px 4px #000; }
+  .menuList.row.active {
+    display: flex; }
+  .menuList.withHeight {
+    height: 418px; }
+  .menuList li {
+    height: 136px;
+    position: relative; }
+    .menuList li a {
+      display: block;
+      padding-top: 27px;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: #fff; }
+      .menuList li a i {
+        font-size: 50px; }
+        .menuList li a i.subArrow {
+          font-size: 36px;
+          position: absolute;
+          right: 12px;
+          top: 50px;
+          color: #26632A; }
+    .menuList li h2 {
+      position: absolute;
+      bottom: 0;
+      background: rgba(202, 99, 9, 0.51);
+      width: 100%;
+      font-size: 21px;
+      margin: 0;
+      padding: 12px;
+      color: #fff;
+      text-transform: capitalize; }
+  .menuList.menu1.setHeight {
+    height: 418px; }
+  .menuList.menu2.list li {
+    height: auto; }
+    .menuList.menu2.list li a {
+      padding-top: 0; }
+      .menuList.menu2.list li a p {
+        color: #fff; }
+  .menuList.menu2.setHeight {
+    height: 418px; }
+
+.flyout {
+  position: absolute;
+  z-index: 7;
+  height: 100%;
+  width: 40%;
+  box-shadow: 0px 1px 4px #2f2f2f;
+  transform: translate(-32em, 0);
+  transition: 300ms ease-in-out; }
+  .flyout.sub {
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    width: 60%;
+    transform: translate(-34em, 0);
+    background-color: rgba(56, 88, 58, 0.9); }
+    .flyout.sub .menuList {
+      padding: 0;
+      background-color: rgba(203, 39, 1, 0); }
+      .flyout.sub .menuList li {
+        background-color: rgba(203, 39, 1, 0); }
+  .flyout.active {
+    transform: translate(0em, 0); }
+  .flyout header {
+    color: #fff; }
+  .flyout .banner {
+    padding-top: 44px;
+    height: 220px;
+    width: 100%; }
+    .flyout .banner img {
+      width: 100%;
+      height: 100%; }
+
+/*# sourceMappingURL=halfside.css.map */
+
+
+
+
+
+/* Empty. Add your own CSS if you like */
+.bar{
+	background-color: #36783a;
+}
+
+ion-content{
+	    background-color: #EEE;
+}
+.menuList{
+	background-color:#36783a;
+}
+.menuList li{
+	    border: 1px solid #286B2C;
+	    background-color: #36783a;
+}
+.wrapper{
+	    background-color: #EEE;
+}
+/* about */
+#about .wrapper h3{
+	text-align: right;
+	    color: #36783a;
+	    padding: 0 12px;
+	    margin-top: 0;
+	    text-transform: capitalize;
+}
+#about .wrapper .card#mission .header{
+	background-image:url('../img/custom-images/about/about-mission-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+#about .wrapper .card#vision .header{
+	background-image:url('../img/custom-images/about/about-vision-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+/* contact */
+#contact h2{
+	color:#950602;
+}
+#contact .item-icon-left .icon, #contact .item-icon-left .icon + p{
+	color:#36783a;
+}
+
+/* inquire */
+#inquire .banner{
+	background-image:url('../img/custom-images/inquire/banner-inquire.jpg');
+}
+#inquire .banner h2{
+	color:#950602;
+}
+#inquire .button-assertive{
+	background-color:#36783a;
+	border-radius:30px;
+}
+ion-modal-view ion-header-bar h1{
+	color:#fff;
+}

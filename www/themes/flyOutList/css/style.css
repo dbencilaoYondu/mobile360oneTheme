@@ -1,0 +1,66 @@
+/* Empty. Add your own CSS if you like */
+.bar{
+	background-color: #005ccb;
+}
+
+ion-content{
+	    background-color: #EEE;
+}
+.menuList{
+	background-color:#005ccb;
+}
+.menuList li a{
+	    border:1px solid #004394;
+	    background-color: #005ccb;
+	    color:#fff;
+}
+.wrapper{
+	    background-color: #EEE;
+}
+.flyout{
+	background-color:#005ccb;
+}
+/* about */
+#about .wrapper h3{
+	text-align: right;
+	    color: #005ccb;
+	    padding: 0 12px;
+	    margin-top: 0;
+	    text-transform: capitalize;
+}
+#about .wrapper .card#mission .header{
+	background-image:url('../img/custom-images/about/about-mission-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+#about .wrapper .card#vision .header{
+	background-image:url('../img/custom-images/about/about-vision-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+/* contact */
+#contact h2{
+	color:#950602;
+}
+#contact .item-icon-left .icon, #contact .item-icon-left .icon + p{
+	color:#005ccb;
+}
+
+/* inquire */
+#inquire .banner{
+	background-image:url('../img/custom-images/inquire/banner-inquire.jpg');
+}
+#inquire .banner h2{
+	color:#950602;
+}
+#inquire .button-assertive{
+	background-color:#005ccb;
+	border-radius:30px;
+}
+ion-modal-view ion-header-bar h1{
+	color:#fff;
+}
