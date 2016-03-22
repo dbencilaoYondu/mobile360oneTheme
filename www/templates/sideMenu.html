@@ -2,10 +2,9 @@
 
 
   <div class="flyout" >
-    <ion-content class="scroll-content ionic-scroll" hide-nav-bar="true" has-header='false' >
+   <!--  <ion-content class="scroll-content ionic-scroll" hide-nav-bar="true" has-header='false' > -->
     	<header class="bar bar-header">
-
-    			<div ng-show="subsOn" class="button button-icon sort" ng-click="backToParentMenu();"><i class="android-arrow-back"></i></div>
+          
     			<div class="text-center title">
                     <a ng-click="defaultState()" class="logo-title">
                       <span ng-hide="data.data.data.logo">{{headerText}}</span>
@@ -13,7 +12,8 @@
                     </a>
 
                 </div>
-    			<button class="button button-icon flyback" ng-click="flyBack();backdropHide();"><i class="android-arrow-back"></i></button>
+    			<a ng-hide="subsOn" class="button button-icon flyback" ng-click="flyBack();backdropHide();"><i class="ion-android-arrow-back"></i></a>
+                <a ng-show="subsOn" class="button button-icon" ng-click="backToParentMenu();"><i class="ion-android-arrow-back"></i></a>
 
     	</header>
     	
@@ -43,6 +43,6 @@
                 </a>
             </li>
     	</ul>
-        </ion-content>
+       <!--  </ion-content> -->
 </div>
 

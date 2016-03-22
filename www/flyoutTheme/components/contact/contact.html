@@ -1,0 +1,28 @@
+
+<ion-view id="contact">
+  <ion-content>
+	<div class="wrapper">
+		<h2>Contact Us</h2>
+		<div ng-show="currentContactData.contacts">
+			<ul class="list list-inset">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentContactData.contacts">
+			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
+					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
+			    	 <p>{{contact.input}}</p>
+			    	 <p class="contact-label">{{contact.title}}</p>
+			    </li>
+			</ul>
+		</div>
+		<div ng-hide="currentContactData.contacts">
+			<ul class="list list-inset">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentParentOfSubInfo.contacts">
+			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
+					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
+			    	 <p>{{contact.input}}</p>
+			    	 <p class="contact-label">{{contact.title}}</p>
+			    </li>
+			</ul>
+		</div>
+	</div>
+  </ion-content>
+</ion-view>

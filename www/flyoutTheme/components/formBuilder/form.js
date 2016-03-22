@@ -5,10 +5,6 @@ app.controller('FormCtrl', function($scope,Pages,$state, $http,$ionicScrollDeleg
   Pages.getSpecs();
   
   $scope.form = {};
-  
-  $scope.removeDefault = function(){
-    $('.item-radio').removeClass('default');
-  }
 
   Object.toparams = function ObjecttoParams(obj) 
   {

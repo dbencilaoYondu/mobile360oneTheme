@@ -9938,3 +9938,8 @@ ion-modal-view#settings .item-divider {
     overflow-y: scroll; }
     .flyout .menuList li a i.subArrow {
       font-size: 24px; }
+  .flyout .flyback {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px; }
