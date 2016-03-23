@@ -1,0 +1,205 @@
+.bar .title {
+  min-width: 146px; }
+
+.wrapper {
+  padding-bottom: 64px; }
+  .wrapper .arrowDown {
+    padding: 6px;
+    border: 1px solid red;
+    display: inline-block;
+    border-radius: 40px;
+    width: 37px;
+    text-align: center;
+    color: #cb2700; }
+
+.has-header {
+  background-color: #eee;
+  top: 88px; }
+
+.currentMenuBtn {
+  border-bottom: 2px solid #fff !important; }
+
+.list-inset {
+  background-color: rgba(255, 255, 255, 0); }
+
+.menuList li {
+  height: 136px;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid #000000;
+  border-top: 0; }
+  .menuList li a {
+    display: block;
+    width: 100%;
+    height: 100%; }
+    .menuList li a p {
+      position: absolute;
+      bottom: -9px;
+      padding: 8px 16px;
+      background: #000;
+      width: 100%;
+      font-size: 18px;
+      text-align: left; }
+  .menuList li h2 {
+    position: absolute;
+    bottom: 0;
+    background: rgba(202, 99, 9, 0.51);
+    width: 100%;
+    font-size: 21px;
+    margin: 0;
+    padding: 12px;
+    color: #fff;
+    text-transform: capitalize; }
+
+.flyout {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  padding-top: 87px;
+  height: 100%;
+  transform: translate(0, 3px); }
+  .flyout.ng-hide {
+    transform: translate(0, -36em); }
+  .flyout .menuList {
+    background-color: #fff;
+    overflow-y: scroll;
+    max-height: 553px;
+    height: 100%; }
+    .flyout .menuList li a p {
+      bottom: 0;
+      margin-bottom: 0; }
+    .flyout .menuList li img {
+      width: 100%;
+      height: 100%; }
+
+#navigation {
+  position: absolute;
+  top: 44px;
+  z-index: 6;
+  width: 100%;
+  height: 42px;
+  box-shadow: 1px 0px 4px #000; }
+  #navigation a {
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    min-height: 36px;
+    padding-top: 4px; }
+  #navigation i {
+    color: #fff;
+    font-size: 43px; }
+  #navigation .menuTitle {
+    font-weight: 500;
+    color: #fff;
+    line-height: 24px; }
+  #navigation .navList {
+    overflow-x: scroll;
+    width: 100%;
+    flex-wrap: inherit; }
+    #navigation .navList li {
+      text-align: center;
+      background-color: #ff2a00; }
+    #navigation .navList .customIcon {
+      padding: 5px 6px; }
+
+/*# sourceMappingURL=tabularImg.css.map */
+
+
+
+
+/* Empty. Add your own CSS if you like */
+#navigation{
+	background-color:#333333;
+}
+.bar{
+	background-color:#333333;
+}
+.wrapper{background-color:#EEE;}
+.wrapper h3{
+	    	text-align: right;
+		    padding: 12px;
+		    text-transform: capitalize;
+}
+
+.wrapper .arrowDown{
+	    border: 1px solid #333333;
+	    color: #333333;
+}
+
+
+/* about */
+#about .wrapper h3{
+	text-align: right;
+	    color: #333333;
+	    padding: 0 12px;
+	    margin-top: 0;
+	    text-transform: capitalize;
+}
+#about .wrapper .card#mission .header{
+	background-image:url('../img/custom-images/about/about-mission-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+#about .wrapper .card#vision .header{
+	background-image:url('../img/custom-images/about/about-vision-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+/* contact */
+#contact h2{
+	color:#333333;
+}
+#contact .item-icon-left .icon, #contact .item-icon-left .icon + p{
+	color:#333333;
+}
+
+/* inquire */
+#inquire .banner{
+	background-image:url('../img/custom-images/inquire/banner-inquire.jpg');
+}
+#inquire .banner h2{
+	color:#333333;
+}
+#inquire .button-assertive{
+	background-color:#333333;
+	border-radius:30px;
+}
+
+ion-modal-view ion-header-bar h1{
+	color:#fff;
+}
+
+/* push menu side */
+#pushMenu .item-complex.item{
+		border:1px solid #960A0D;
+}
+#pushMenu,#pushMenu .item-complex a.item-content{
+	background-color: #c20004;
+	color:#fff;
+	font-size: 17px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+#pushMenu,#pushMenu .item-complex a.item-content i{
+	font-size:28px;
+}
+
+/*more Menu*/
+#moreMenu .has-header{
+	background-color: #516273;
+}
+.tab-more.slideDown ul li{
+	background-color:#516273;
+	    border-color: #405163;
+}
+
+.tab-more.slideDown ul li a{
+	color:#fff;
+	text-decoration:none;
+}

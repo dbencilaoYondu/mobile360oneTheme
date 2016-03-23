@@ -59,6 +59,8 @@ ion-nav-bar.bar.bar-header{
     	color: #fff;
 	}
 }
+
+
 //backdrop
 .backdrop{
 	z-index:4;
@@ -87,6 +89,7 @@ ion-nav-bar.bar.bar-header{
 //About 
 #about{
 	.wrapper{
+		padding-bottom:64px;
 		.banner{
 			max-height:200px;
 		}
@@ -107,6 +110,13 @@ ion-nav-bar.bar.bar-header{
 }
 //contact
 #contact{
+	.scroll{
+		height:100%;
+	}
+	.wrapper{
+		padding-bottom: 64px;
+		height:100%;
+	}
 	h2{
 		text-align: center;
     	padding-top: 15px;
@@ -122,6 +132,9 @@ ion-nav-bar.bar.bar-header{
 }
 // inquire
 #form{
+	.wrapper{
+		padding-bottom: 84px;
+	}
 	.banner{
 		height: 136px;
 	    background-size: cover;
@@ -168,6 +181,13 @@ ion-modal-view{
 
 //gallery
 #gallery{
+	.scroll{
+		 height: 100%;
+	}
+	.wrapper{
+		padding-bottom:64px;
+		    height: 100%;
+	}
 	.photo{
 			width:100%;
 		}
@@ -192,7 +212,7 @@ ion-modal-view{
 				    width: 100%;
 				    h3{
 				    	color:#fff;
-				    	    font-size: 15px;
+				    	font-size: 15px;
 					    text-align: left;
 					    padding: 5px 0 0 7px;
 				    }
@@ -206,6 +226,7 @@ ion-modal-view{
 	#photoCollection{
 		h3{
 			padding-left:6px;
+			padding-top:0;
 		}
 		.post-single{
 			.row{
@@ -240,8 +261,17 @@ ion-modal-view{
     	}
 	}
 }
+#rss{
+	.wrapper{
+		    height: 100%;
+    		padding-bottom: 64px;
+	}
+}
 //video
 #video{
+	.wrapper{
+		padding-bottom:64px;
+	}
 	.embed-responsive-item{
 		width:100%;
 	}
@@ -254,6 +284,25 @@ ion-modal-view{
 		height:594px;
 }
 
+#editor{
+	.scroll{
+		height:100%;
+	}
+	.wrapper{
+		height:100%;
+		padding-bottom:64px;
+	}
+}
+
+.mapc{
+	height: 83%;
+    margin-top: 46px;
+    max-height: 909px;
+	@media(min-width:768px){
+		height: 100%;
+	}
+}
+
 //website
 #website{
 	.scroll{
@@ -261,6 +310,7 @@ ion-modal-view{
 	}
 	.website-container{
 		height:100%;
+		padding-bottom:40px;
 	}
 }
 
@@ -269,7 +319,6 @@ ion-modal-view{
 	position:absolute;
     z-index: 10;
     height: 100%;
-    
    	width: 80%;
     box-shadow: 0px 1px 4px #2f2f2f;
     transform: translate(-65em,0);
@@ -381,6 +430,9 @@ ion-modal-view{
 	}
 }
 #moreMenu{
+	.scroll-content{
+		background: #516273;
+	}
 	.has-header{
 		padding:0;
 	}

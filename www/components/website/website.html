@@ -3,7 +3,7 @@
 	<div class="website-container" ng-show="currentWebsiteData" ng-hide="parentId">
 			<iframe width="100%" height="100%" src="{{currentWebsiteDataURL}}"></iframe>
 	</div>
-	<div class="website-container" ng-hide="parentId">
+	<div class="website-container" ng-hide="currentWebsiteData">
 			<iframe width="100%" height="100%" src="{{subWebsiteDataURL}}"></iframe>
 	</div>
 	<div class="website-container" ng-show="parentId">

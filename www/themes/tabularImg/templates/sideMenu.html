@@ -1,0 +1,12 @@
+<div id="navigation">
+  <ul class="row list-inline navList">
+    <li ng-repeat="info in menuItems | limitTo:quantity" class="col nosubs">
+      <a ng-show="info.subMenu" class="button button-clear" ng-click="menuIndicator($event);subsSwitch(info.label,$index);">
+        <div class="menuTitle">{{info.label}}</div>
+      </a>
+      <a ng-hide="info.subMenu" href="{{info.href}}" class="button button-clear" ng-click="menuIndicator($event,$index);backToParentMenu()">
+        <div class="menuTitle">{{info.label}}</div>
+      </a>
+    </li>
+
+  </ul>

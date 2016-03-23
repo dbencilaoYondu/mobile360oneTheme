@@ -8,7 +8,7 @@
      </ion-nav-back-button> -->
 
       <ion-nav-buttons>
-        <button class="button button-icon button-clear ion-navicon" ng-click="flyOut();backdrop();">
+        <button ng-show="flyoutStatus" class="button button-icon button-clear ion-navicon" ng-click="flyOut();backdrop();">
         </button>
       </ion-nav-buttons>
        <div class="logo-setting-head">
@@ -22,12 +22,10 @@
         </div>
       </ion-nav-bar>
 
- 
 	<ion-nav-view name="menuContent">
      <div class="backdrop active" ng-click="backdropHide();"></div>
   </ion-nav-view>
   
-
 
   	<ui-view name="sideMenu"></ui-view>
     <ui-view name="subMenu"></ui-view>

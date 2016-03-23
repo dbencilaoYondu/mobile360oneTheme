@@ -1,0 +1,13 @@
+<div class="flyout sub" ng-show="subsOn">
+    	<ul class="menuList menu1 active">
+            <li ng-show="subsOn" class="text-center subs" ng-class="info.label"  ng-repeat="info in currentParentOfSub.menuItems">
+
+                <a href="{{info.href}}" ng-click="pageInfo($index);">
+                  <img ng-src="{{info.menuImg}}" alt="{{info.label}}">
+                   <!-- <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}"> -->
+                    <p>{{info.label}}</p>
+                </a>
+            </li>
+        </ul>
+</div>

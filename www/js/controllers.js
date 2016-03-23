@@ -10,7 +10,7 @@ app.baseConfig = false;
  */
 app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, config,Pages) {
     $scope.startLoading();
-    console.log(Pages);
+
     $ionicHistory.nextViewOptions({
         disableAnimate: true,
         disableBack: true,
@@ -100,7 +100,6 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
  */
 app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInAppBrowser,Pages,$ionicModal) {
     
-
     $scope.stopLoading();
 
     $ionicHistory.nextViewOptions({
@@ -109,9 +108,12 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
         historyRoot: true
     });
 
+    //Declarations ---------------------------
     $scope.appName = app.baseConfig.appName;
     $scope.menuItems = app.baseConfig.menuItems;
-    
+    $scope.data = Pages;
+    $scope.currentData = $state.current.data;
+
 
     var options = {
       location: 'yes',
@@ -119,37 +121,25 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
       toolbar: 'no'
      };
 
-     $scope.openBrowser = function(type,index) {
-      console.log('clicked open browser ' + type + ' '+ index);
-      console.log(type );
+     console.log('menu length');
+     console.log($scope.menuItems.length);
 
-      if(type == 'website'){
-        $cordovaInAppBrowser.open($scope.menuItems[index].url, '_self', options)
-      
-        .then(function(event) {
-           // success
-        })
-      
-        .catch(function(event) {
-           // error
-        });
-      }
-        
+     //limit tabMenu
+     if(Pages.data.data.theme === 'tabMenu'){
+        if($scope.menuItems.length > 4){
+          $scope.showMoreMenu = true;
+          $scope.quantity = 3;
+        }else{
+          $scope.showMoreMenu = false;
+          $scope.quantity = 4;
+        }
+     }
+     
+     //show hamburger menu
+     if(Pages.data.data.theme === 'flyOutGrid' || Pages.data.data.theme === 'flyOutList' || Pages.data.data.theme === 'halfSide'){
+      $scope.flyoutStatus = true;
      }
 
-
-     console.log('menu length');
-      console.log($scope.menuItems.length);
-      if($scope.menuItems.length > 4){
-        $scope.showMoreMenu = true;
-        $scope.quantity = 3;
-      }else{
-        $scope.showMoreMenu = false;
-        $scope.quantity = 4;
-      }
-
-     $scope.data = Pages;
-     $scope.currentData = $state.current.data;
      Pages.getSpecs();
 
      $scope.subsSwitch = function(label,index){
@@ -165,7 +155,6 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
           console.log($scope.currentParentOfSub);
           console.log($scope);
         }
-
       }
 
       $scope.pageInfo = function(index){      
@@ -189,29 +178,30 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
         $('.flyout').removeClass('active');
       }
 
+      if(Pages.data.data.theme === 'tabMenu'){
+           //more menu
+            $ionicModal.fromTemplateUrl('moreMenu.html', {
+            id: '1', // We need to use and ID to identify the modal that is firing the event!
+            scope: $scope,
+            backdropClickToClose: true,
+            animation: 'slide-in-up'
+            }).then(function(modal) {
+              $scope.oModalSettings = modal;
+            });
 
-      //more menu
-      $ionicModal.fromTemplateUrl('moreMenu.html', {
-      id: '1', // We need to use and ID to identify the modal that is firing the event!
-      scope: $scope,
-      backdropClickToClose: true,
-      animation: 'slide-in-up'
-      }).then(function(modal) {
-        $scope.oModalSettings = modal;
-      });
+            //Cleanup the modal when we're done with it!
+            $scope.$on('$destroy', function() {
+              $scope.modal.remove();
+            });
 
-      //Cleanup the modal when we're done with it!
-      $scope.$on('$destroy', function() {
-        $scope.modal.remove();
-      });
+            $scope.moreModal = function(index) {
+              $scope.oModalSettings.show();
+            };
 
-      $scope.moreModal = function(index) {
-        $scope.oModalSettings.show();
-      };
-
-      $scope.closeMoreModal = function(index) {
-        $scope.oModalSettings.hide();
-      };
+            $scope.closeMoreModal = function(index) {
+              $scope.oModalSettings.hide();
+            };
+      }
 });
 
 /**
