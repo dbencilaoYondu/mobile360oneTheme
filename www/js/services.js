@@ -1,7 +1,7 @@
 var app = angular.module('starter.services', [])
 app.factory('Pages',function($http,$compile){
   var obj = {};
-  $http.get('../app.json').then(function(result){
+  $http.get('./app.json').then(function(result){
         obj.data = result;
             });
   obj.getSpecs = function(item){
@@ -21,7 +21,7 @@ app.factory('Pages',function($http,$compile){
 app.factory('config', function ($q, $http) {
     var config = {
         config: function () {
-            return $http.get('../app.json').success(function (data) {
+            return $http.get('./app.json').success(function (data) {
                 return data;
             });
         }

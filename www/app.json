@@ -1,5 +1,5 @@
 {
-    "theme":"tabularImg",
+    "theme":"halfSide",
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "headerText":"header Text",

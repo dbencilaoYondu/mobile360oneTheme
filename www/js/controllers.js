@@ -286,8 +286,6 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $
           console.log('wwwwww');
         }
         
-   
-
         $scope.flyBack = function(){
           $('.flyout').removeClass('active');
         }
