@@ -9,7 +9,7 @@ app.baseConfig = false;
  * This controllers reads the configuration and adds the states
  */
 app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, config,Pages) {
-    $scope.startLoading();
+   // $scope.startLoading();
 
     $ionicHistory.nextViewOptions({
         disableAnimate: true,
@@ -98,9 +98,12 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
  * The AppCtrl takes care of the parent view for all the other views
  * It is defined in one of the two static states in this application
  */
-app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInAppBrowser,Pages,$ionicModal) {
+app.controller('AppCtrl', function ($scope, $state,$timeout, $ionicHistory, $cordovaInAppBrowser,Pages,$ionicModal) {
     
-    $scope.stopLoading();
+   /* $timeout(function(){
+      $scope.stopLoading();
+    },1000);*/
+    
 
     $ionicHistory.nextViewOptions({
         disableAnimate: true,
@@ -114,6 +117,7 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
     $scope.data = Pages;
     $scope.currentData = $state.current.data;
 
+    
 
     var options = {
       location: 'yes',
@@ -125,7 +129,7 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
      console.log($scope.menuItems.length);
 
      //limit tabMenu
-     if(Pages.data.data.theme === 'tabMenu'){
+     if(Pages.data.data.theme === 'tabMenu' || Pages.data.data.theme === 'topListMenu'){
         if($scope.menuItems.length > 4){
           $scope.showMoreMenu = true;
           $scope.quantity = 3;
@@ -202,12 +206,23 @@ app.controller('AppCtrl', function ($scope, $state, $ionicHistory, $cordovaInApp
               $scope.oModalSettings.hide();
             };
       }
+
+      else if(Pages.data.data.theme === 'topListMenu'){
+
+            $scope.moreModal = function(index) {
+              $scope.moreModalStatus = !$scope.moreModalStatus;
+            };
+
+            $scope.closeMoreModal = function(index) {
+              $scope.moreModalStatus = false;
+            };
+      }
 });
 
 /**
  * The LayoutCtrl is attached to the body
  */
-app.controller('LayoutCtrl', function ($scope, $state, $ionicLoading) {
+app.controller('LayoutCtrl', function ($scope,Pages, $state, $ionicLoading) {
     $scope.init = function () {
         $state.go('init', true);
     };
@@ -222,17 +237,31 @@ app.controller('LayoutCtrl', function ($scope, $state, $ionicLoading) {
     $scope.stopLoading = function () {
         $ionicLoading.hide();
     };
+
+    $scope.data = Pages;
+    var themeType = Pages.data.data.theme;
+    $scope.snappyTheme = {};
+    $scope.snappyTheme.name = Pages.data.data.theme;
+    if(themeType == "bannerList" || themeType == 'pushMenu' || themeType == 'listImg' || themeType == 'gridMenu' ){
+      $scope.snappyTheme.status = true;
+    }else{
+      $scope.snappyTheme.status = false;
+    }
+   console.log($scope);
+
 });
 
 
 app.controller('HeaderCtrl',function($scope,Pages){$scope.data = Pages;});
-app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $ionicHistory){
+app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $ionicHistory,$state){
 
     $scope.data = Pages;
     Pages.getSpecs();
-
+    
     //console.log(MenuFunctions);
     //MenuFunctions.flyout.open();
+
+
     if($scope.data.data.data.headerText){
       $scope.headerText = $scope.data.data.data.headerText;
     }else{
@@ -247,6 +276,10 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $
       }).then(function(modal) {
         $scope.oModalSettings = modal;
       });
+
+       $scope.defaultState = function () {
+        $state.go(app.baseConfig.defaultState, true);
+      };
 
       $scope.openModal = function(index) {
         $scope.oModalSettings.show();

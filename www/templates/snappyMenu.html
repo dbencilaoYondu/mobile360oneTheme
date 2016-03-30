@@ -1,0 +1,55 @@
+<!-- banner list menu theme -->
+<div ng-if="snappyTheme.name == 'bannerList'">
+    <!-- carousel -->
+      <ion-slide-box class="menu-carousel" on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="info in data.data.data.menuSlider">
+              <div class="box blue"><img class="carPhoto" ng-src="{{info.photo}}" alt="{{info.title}}"></div>
+            </ion-slide>
+          </ion-slide-box>
+          <!-- menu -->
+          <ul class="menuList list">
+            <li class="item item-icon-left" ng-repeat="info in menuItems" ng-class="info.label">
+              <a ng-href="{{info.href}}">
+                 <i class="icon {{info.iconOn}}"></i>
+                <span>{{info.label}}</span>
+              </a>
+            </li>
+          </ul>
+</div>
+
+<!-- grid menu theme -->
+<div ng-if="snappyTheme.name == 'gridMenu'" class="grid-menu">
+    <ul class="row menuList">
+    <li ng-repeat="info in menuItems" class="col col-50" ng-class="info.label">
+
+      <a ng-href="{{info.href}}" >
+        <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+        <img ng-show="info.menuImg" ng-src="{{info.menuImg}}" alt="{{info.label}}">
+        <h2>{{info.label}}</h2>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<!-- grid menu theme -->
+<div ng-if="snappyTheme.name == 'listImg'" class="listImg-menu">
+    <ul class="menuList">
+    <li ng-repeat="info in menuItems" ng-class="info.label" >
+      <a ng-href="{{info.href}}">
+        <img ng-show="info.menuImg" ng-src="{{info.menuImg}}" alt="{{info.label}}">
+        <h2>{{info.label}}</h2>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+
+<!-- push menu theme -->
+<div ng-if="snappyTheme.name == 'pushMenu'" class="push-menu">
+    
+   
+
+
+</div>

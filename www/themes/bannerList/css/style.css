@@ -1,0 +1,96 @@
+
+.scroll-content{
+	top: 44px;
+}
+.transparent{
+	background-color:transparent;
+}
+
+.bar.bar-header i.button.transparent.icon.ion-home,.bar.bar-header .button.icon:before{
+	font-size:32px;
+}
+
+.menuList li.item {
+	padding:0;
+}
+.menuList li.item a{
+	display: block;
+	padding:16px;
+}
+.menuList li.item a span{
+	padding-left:42px;
+}
+
+/* Empty. Add your own CSS if you like */
+
+.bar{
+	background-color: #3c7902;
+}
+
+ion-content{
+	    background-color: #EEE;
+}
+.menu-carousel{
+	border-bottom:1px solid #a4fa0e;
+}
+
+.menuList li a i, .menuList li a{
+		color:#fff;
+}
+.menuList li{
+    background-color: #6ea70a;
+    border-bottom: 2px solid #a4fa0e;
+    border-top: 1px solid #416206;
+}
+.wrapper{
+	    background-color: #EEE;
+}
+.wrapper .arrowDown{
+	border:1px solid #3c7902;
+	color:#3c7902;
+}
+/* about */
+#about .wrapper h3{
+	text-align: right;
+	    color: #3c7902;
+	    padding: 0 12px;
+	    margin-top: 0;
+	    text-transform: capitalize;
+}
+#about .wrapper .card#mission .header{
+	background-image:url('../img/custom-images/about/about-mission-banner.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+#about .wrapper .card#vision .header{
+	background-image:url('../img/custom-images/about/about-mission-banner.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+/* contact */
+#contact h2{
+	color:#3c7902;
+}
+#contact .item-icon-left .icon, #contact .item-icon-left .icon + p{
+	color:#3c7902;
+}
+
+/* inquire */
+
+#inquire .banner{
+	background-image:url('../img/custom-images/inquire/banner-inquire.jpg');
+}
+#inquire .banner h2{
+	color:#fff;
+}
+#inquire .button-assertive{
+	background-color:#3c7902;
+	border-radius:30px;
+}
+ion-modal-view ion-header-bar h1{
+	color:#fff;
+}

@@ -1,0 +1,98 @@
+.menuList li {
+  height: 136px;
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  border: 1px solid #000000;
+  border-top: 0;
+}
+.menuList li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+.menuList li a img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.menuList li h2 {
+  position: absolute;
+  bottom: 0;
+  background: rgba(202, 99, 9, 0.51);
+  width: 100%;
+  font-size: 21px;
+  margin: 0;
+  padding: 12px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+
+/* Empty. Add your own CSS if you like */
+.menuList{
+	    padding-top: 45px;
+}
+.listImg-menu{
+	height:100%;
+	overflow: auto;
+}
+
+.bar{
+	background-color: #CB2701;
+}
+
+ion-content{
+	    background-color: #EEE;
+}
+
+.wrapper{
+	    background-color: #EEE;
+}
+/* about */
+#about .wrapper h3{
+	text-align: right;
+	    color: #cb2700;
+	    padding: 0 12px;
+	    margin-top: 0;
+	    text-transform: capitalize;
+}
+#about .wrapper .card#mission .header{
+	background-image:url('../img/custom-images/about/about-mission-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+#about .wrapper .card#vision .header{
+	background-image:url('../img/custom-images/about/about-vision-card-heading.jpg');
+	height:100px;
+	background-position: center center;
+    background-size: cover;
+}
+
+/* contact */
+#contact h2{
+	color:#950602;
+}
+#contact .item-icon-left .icon, #contact .item-icon-left .icon + p{
+	color:#cb2700;
+}
+
+/* inquire */
+#inquire .banner{
+	background-image:url('../img/custom-images/inquire/banner-inquire.jpg');
+}
+#inquire .banner h2{
+	color:#950602;
+}
+#inquire .button-assertive{
+	background-color:#cb2700;
+	border-radius:30px;
+}
+ion-modal-view ion-header-bar h1{
+	color:#fff;
+}

@@ -1,33 +1,123 @@
 
+<div ng-if="snappyTheme.status == true && snappyTheme.name != 'pushMenu'" class="snappyTheme">
 
+    <ion-view id="menu">
+      <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-view>
+</div>
 
-<ion-view id="menu">
+<div ng-if="snappyTheme.name == 'pushMenu'" class="snappyTheme">
 
-	<ion-nav-bar id="mainHeaderBar" class="bar bar-header icon-left" ng-controller="SettingsCtrl">
-     <!--  <ion-nav-back-button> uncomment for back button!!!
-     </ion-nav-back-button> -->
+   <ion-side-menus enable-menu-with-back-views="false">
+      <ion-side-menu-content>
+        <ion-nav-bar class="bar bar-header icon-left" ng-controller="SettingsCtrl">
+          <ion-nav-back-button>
+          </ion-nav-back-button>
 
-      <ion-nav-buttons>
-        <button ng-show="flyoutStatus" class="button button-icon button-clear ion-navicon" ng-click="flyOut();backdrop();">
-        </button>
-      </ion-nav-buttons>
-       <div class="logo-setting-head">
-        <h1 class="title">
-             <a ng-click="defaultState()" class="logo-title">
-               <span ng-hide="data.data.data.logo">{{headerText}}</span>
-                <img ng-show="data.data.data.logo" class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
-             </a>
-        </h1>
-             <i class="button button-clear ion-gear-b" ng-click="openModal()"></i>
+          <ion-nav-buttons side="left" >
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+          </ion-nav-buttons>
+           <div class="logo-setting-head">
+
+               <h1 class="title">
+                 <a ng-click="defaultState()" class="logo-title">
+                    <span ng-hide="data.data.data.logo">{{headerText}}</span>
+                    <img ng-show="data.data.data.logo"  class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
+                 </a>
+              </h1>
+                 <i class="button button-clear ion-gear-b" ng-click="openModal()"></i>
+            </div>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+      </ion-side-menu-content>
+
+      <ion-side-menu side="left">
+        <!-- uncomment for menu header title!!! -->
+        <!--ion-header-bar class="bar-stable">
+          <h1 class="title">Title</h1>
+        </ion-header-bar-->
+        <!-- menu.html -->
+        <ion-content id="pushMenu">
+          <ion-list>
+            <ion-item class="item-icon-left" nav-clear menu-close ng-repeat="item in menuItems" href="{{item.href}}">
+              <i ng-hide="item.customIcon" class="icon {{item.iconOn}}"></i>
+              <img ng-show="item.customIcon" class="customIcon" ng-src="{{item.customIcon}}" alt="{{item.label}}">
+              <span class="link_text">{{item.label}}</span>
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-side-menu>
+    </ion-side-menus>
+</div>
+
+<div ng-if="snappyTheme.status == false">
+    <ion-view id="menu" >
+      <ion-nav-bar id="mainHeaderBar" class="bar bar-header icon-left" ng-controller="SettingsCtrl">
+        <!--  <ion-nav-back-button>
+        </ion-nav-back-button> -->
+
+          <ion-nav-buttons>
+            <button ng-show="flyoutStatus" class="button button-icon button-clear ion-navicon" ng-click="flyOut();backdrop();">
+            </button>
+          </ion-nav-buttons>
+           <div class="logo-setting-head">
+            <h1 class="title">
+                 <a ng-click="defaultState()" class="logo-title">
+                   <span ng-hide="data.data.data.logo">{{headerText}}</span>
+                    <img ng-show="data.data.data.logo" class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
+                 </a>
+            </h1>
+                 <i class="button button-clear ion-gear-b" ng-click="openModal()"></i>
+            </div>
+          </ion-nav-bar>
+
+      <ion-nav-view name="menuContent">
+         <div class="backdrop active" ng-click="backdropHide();"></div>
+      </ion-nav-view>
+      
+        <ui-view name="sideMenu"></ui-view>
+        <ui-view name="subMenu"></ui-view>
+    </ion-view>
+
+</div>
+
+<script id="moreMenu.html" type="text/ng-template">
+    <ion-modal-view id="moreMenu">
+         <div  class="bar bar-header">
+              <button ng-show="subsOn" class="button button-icon icon ion-arrow-left-c" ng-click="backToParentMenu();"></button>
+               <div class="h1 title">Menu</div>
+              <button class="button button-clear icon ion-chevron-down" ng-click="closeMoreModal()"></button>
         </div>
-      </ion-nav-bar>
+        <ion-content>
+          <div class="tab-more slideDown">
+            <ul class="list">
+              <li ng-hide="subsOn" class="nosubs" ng-repeat="info in menuItems" ng-if="$index > 2">
+                <a class="item item-icon-left item-icon-right" ng-click="subsSwitch(info.label,$index);" ng-show="info.subMenu">
+                  <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"> </i>
+                   <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                  {{info.label}}
+                  <i class="subArrow icon ion-chevron-right"></i>
+                </a>
+                <a class="item item-icon-left" ng-hide="info.subMenu" href="{{info.href}}" ng-click="closeMoreModal()">
+                  <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"> </i>
+                   <img class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                  {{info.label}}
+                </a>
+              </li>
 
-	<ion-nav-view name="menuContent">
-     <div class="backdrop active" ng-click="backdropHide();"></div>
-  </ion-nav-view>
-  
+              <li ng-show="subsOn" class="subs" ng-repeat="info in currentParentOfSub.menuItems">
+                  <a  class="item item-icon-left" href="{{info.href}}" ng-click="pageInfo($index);closeMoreModal();">
+                      <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
+                      <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                      {{info.label}}
 
-  	<ui-view name="sideMenu"></ui-view>
-    <ui-view name="subMenu"></ui-view>
-</ion-view>
+                  </a>
+              </li>
+
+            </ul>
+          </div>
+       </ion-content>
+    </ion-modal-view>
+  </script>
 

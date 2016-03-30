@@ -1,9 +1,26 @@
 {
-    "theme":"halfSide",
+    "theme":"gridMenu",
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "headerText":"header Text",
     "logo":"img/logo.png",
+    "menuSlider":[
+                {
+                    "title":"",
+                    "photo":"../img/custom-images/carImg1_02.jpg",
+                    "caption":""
+                },
+                {
+                    "title":"",
+                    "photo":"../img/custom-images/menu-map.jpg",
+                    "caption":""
+                },
+                {
+                    "title":"",
+                    "photo":"../img/custom-images/menu-contact.jpg",
+                    "caption":""
+                }
+        ],
     "menuBanner":"../img/custom-images/carImg1_02.jpg",
     "menuItems": [        
         {
@@ -12,6 +29,7 @@
             "iconOn":"ion-ios-people",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
             "banner":"../img/custom-images/about/about-banner.jpg",
+            "menuImg":"../img/custom-images/menu-about.jpg",
             "type":"about",
             "subMenu":{
                 "menuItems":[
@@ -1299,22 +1317,30 @@
             "state": "app.menupreview",
             "url": "/menupreview",
             "templateUrl": "templates/blank.html",
-            "controller":"MenuPreviewCtrl"
-                
+            "controller":"MenuPreviewCtrl",
+            "defaultState": false
+        },
+         {
+            "state": "app.menu",
+            "url": "/menu",
+            "templateUrl": "templates/snappyMenu.html",
+            "controller":"AppCtrl",
+            "defaultState": true
         },
          {
             "state": "app.blank",
             "url": "/blank",
             "templateUrl": "templates/blank.html",
-             "controller":"BlankCtrl"
-             
+             "controller":"BlankCtrl"  
         },
+
          {
             "state": "app.about22",
             "url": "/about22",
             "templateUrl": "components/about/about.html",
             "controller":"AboutCtrl",
-            "data":"4"
+            "data":"4",
+            "defaultState": false
         },
         {
             "state": "app.about",
@@ -1495,7 +1521,7 @@
             "controller": "EditorCtrl",
             "data":"10",
             "parentId":"1",
-            "defaultState": true
+            "defaultState": false
         },
         {
             "state": "app.editor3",

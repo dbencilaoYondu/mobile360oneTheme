@@ -20,7 +20,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+.snappyTheme{
+	#menu{
+		z-index:5;
+	}
+	.view-container{
+		z-index:4;
+	}
+}
 
+#mainHeaderBar{
+	.ion-home{
+		color:#000;
+	}
+}
 .list-inset{
 	background:rgba(255, 255, 255, 0);
 }
@@ -60,6 +73,16 @@ ion-nav-bar.bar.bar-header{
 	}
 }
 
+//carousel slider
+ion-slide{
+	.carPhoto{
+		width:100%;
+		height: 100%;
+	}
+	.blue.box{
+		height: 177px;
+	}
+}
 
 //backdrop
 .backdrop{
@@ -440,3 +463,4 @@ ion-modal-view{
 						color:#fff;
     				}
 }
+

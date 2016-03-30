@@ -9731,6 +9731,15 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.snappyTheme #menu {
+  z-index: 5; }
+
+.snappyTheme .view-container {
+  z-index: 4; }
+
+#mainHeaderBar .ion-home {
+  color: #000; }
+
 .list-inset {
   background: rgba(255, 255, 255, 0); }
 
@@ -9767,6 +9776,13 @@ ion-nav-bar.bar.bar-header {
 .bar.bar-header .ion-gear-b {
   font-size: 32px;
   color: #fff; }
+
+ion-slide .carPhoto {
+  width: 100%;
+  height: 100%; }
+
+ion-slide .blue.box {
+  height: 177px; }
 
 .backdrop {
   z-index: 4; }
