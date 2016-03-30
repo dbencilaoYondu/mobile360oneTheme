@@ -99,11 +99,6 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
  * It is defined in one of the two static states in this application
  */
 app.controller('AppCtrl', function ($scope, $state,$timeout, $ionicHistory, $cordovaInAppBrowser,Pages,$ionicModal) {
-    
-   /* $timeout(function(){
-      $scope.stopLoading();
-    },1000);*/
-    
 
     $ionicHistory.nextViewOptions({
         disableAnimate: true,
@@ -116,8 +111,6 @@ app.controller('AppCtrl', function ($scope, $state,$timeout, $ionicHistory, $cor
     $scope.menuItems = app.baseConfig.menuItems;
     $scope.data = Pages;
     $scope.currentData = $state.current.data;
-
-    
 
     var options = {
       location: 'yes',
@@ -260,8 +253,6 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $
     
     //console.log(MenuFunctions);
     //MenuFunctions.flyout.open();
-
-
     if($scope.data.data.data.headerText){
       $scope.headerText = $scope.data.data.data.headerText;
     }else{
@@ -288,10 +279,6 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $
       $scope.closeModal = function(index) {
         $scope.oModalSettings.hide();
       };
-
-       $scope.myGoBack = function() {
-          $ionicHistory.goBack();
-        };
 
         if(Pages.data.data.theme === 'flyOutGrid' || Pages.data.data.theme === 'flyOutList'){
             $scope.flyOut = function(){
@@ -344,11 +331,6 @@ app.controller('MenuPreviewCtrl',function($scope,Pages,$timeout){
   }, 10);
 });
 
-app.controller('MenuCtrl', function($scope,Pages,menuInfo) {
-      $scope.data = Pages;
-      console.log('Menu ctrl: ');
-      console.log($scope);
-});
 
 
 
