@@ -1,9 +1,50 @@
 {
-    "theme":"gridMenu",
+    "theme":"flyOutGrid",
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "headerText":"header Text",
     "logo":"img/logo.png",
+    "login":{
+        "global":true,
+        "register":{
+            "api":"submit.php",
+            "customFields":[
+                            {
+                                "type":"input",
+                                "label":"custom field 1",
+                                "required":true
+                            },
+                            {
+                                "type":"input",
+                                "label":"custom field 2",
+                                "required":true
+                            },
+                             {
+                                "type":"checkbox",
+                                "label":"checkbox",
+                                "checkList":[
+                                    {
+                                        "label":"check 1",
+                                        "modelName":"check1",
+                                        "group":"checkgroup group"
+                                    },
+                                    {
+                                        "label":"check 2",
+                                        "modelName":"check2",
+                                        "group":"checkgroup group"
+                                    }
+                                ]
+                            }
+            ]
+        },
+        "forgotPassword":{
+            "message":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, mauris eu gravida fringilla, sem leo venenatis nibh, ut mollis tellus nibh non elit. Morbi malesuada ultrices eros ut vehicula. Cras consectetur dolor nisl, eget molestie lectus fringilla id. Mauris finibus velit at tortor ornare, in congue libero facilisis. Maecenas urna turpis, placerat nec est sit amet, vehicula malesuada sem. "
+        },
+        "signin":{
+
+        }
+
+    },
     "menuSlider":[
                 {
                     "title":"",
@@ -984,7 +1025,7 @@
             "subject":"From custom form",
             "formName":"myForm",
             "description":"Lorem444 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
-            "api":"submit.php",
+            "api":"http://192.168.20.5/builder/services/api/form_builder_send_email",
             "onSuccess":"Details Successfully sent",
             "onError":"Something went wrong",
             "fields":[
@@ -1321,17 +1362,39 @@
             "defaultState": false
         },
          {
+            "state": "app.login",
+            "url": "/login",
+            "templateUrl": "components/login/login/login.html",
+            "controller":"LoginCtrl",
+            "defaultState": false
+        },
+         {
+            "state": "app.register",
+            "url": "/register",
+            "templateUrl": "components/login/register/register.html",
+            "controller":"RegisterCtrl",
+            "defaultState": false
+        },
+         {
+            "state": "app.forgotpassword",
+            "url": "/forgotpassword",
+            "templateUrl": "components/login/forgotpassword/forgotpassword.html",
+            "controller":"ForgotPasswordCtrl",
+            "defaultState": false
+        },
+         {
             "state": "app.menu",
             "url": "/menu",
             "templateUrl": "templates/snappyMenu.html",
             "controller":"AppCtrl",
-            "defaultState": true
+            "defaultState": false
         },
          {
             "state": "app.blank",
             "url": "/blank",
             "templateUrl": "templates/blank.html",
-             "controller":"BlankCtrl"  
+             "controller":"BlankCtrl" ,
+             "defaultState": true 
         },
 
          {

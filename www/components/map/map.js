@@ -1,4 +1,9 @@
-app.controller('MapCtrl', function($scope ,$state, Pages,$cordovaGeolocation,$ionicLoading,$ionicPlatform) {
+app.controller('MapCtrl', function($scope ,$rootScope,$timeout,$state, Pages,$cordovaGeolocation,$ionicLoading,$ionicPlatform) {
+      $timeout(function() {
+        if($rootScope.loggedIn == false){
+          $state.go('app.login', true);
+        }
+      }, 1000);
 
  $ionicPlatform.ready(function() { 
 

@@ -98,13 +98,23 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
  * The AppCtrl takes care of the parent view for all the other views
  * It is defined in one of the two static states in this application
  */
-app.controller('AppCtrl', function ($scope, $state,$timeout, $ionicHistory, $cordovaInAppBrowser,Pages,$ionicModal) {
+app.controller('AppCtrl', function ($scope, $rootScope,$state,$timeout, $ionicHistory, $cordovaInAppBrowser,Pages,$ionicModal) {
+    
 
     $ionicHistory.nextViewOptions({
         disableAnimate: true,
         disableBack: true,
         historyRoot: true
     });
+    $rootScope.loggedIn = false;
+
+    $timeout(function(){
+       if(Pages.data.data.login.global == true){
+        $state.go('app.login', true);
+       }
+
+    },1000);
+
 
     //Declarations ---------------------------
     $scope.appName = app.baseConfig.appName;
@@ -242,11 +252,11 @@ app.controller('LayoutCtrl', function ($scope,Pages, $state, $ionicLoading) {
     }
    console.log($scope);
 
+
 });
 
-
 app.controller('HeaderCtrl',function($scope,Pages){$scope.data = Pages;});
-app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $ionicHistory,$state){
+app.controller('SettingsCtrl',function($scope,$rootScope,$ionicModal,Pages,MenuFunctions, $ionicHistory,$state){
 
     $scope.data = Pages;
     Pages.getSpecs();
@@ -266,9 +276,15 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $
       animation: 'slide-in-up'
       }).then(function(modal) {
         $scope.oModalSettings = modal;
+         $scope.signout = function(){
+            $rootScope.loggedIn = false;
+            $scope.defaultState();
+            $scope.closeModal();
+            console.log($rootScope);
+        }
       });
 
-       $scope.defaultState = function () {
+      $scope.defaultState = function () {
         $state.go(app.baseConfig.defaultState, true);
       };
 
@@ -319,6 +335,7 @@ app.controller('SettingsCtrl',function($scope,$ionicModal,Pages,MenuFunctions, $
         };
       
 });
+
 app.controller('BlankCtrl',function($scope,Pages,$timeout){
   $scope.blankOn = true;
   $('.backdrop.active').removeClass('visible');

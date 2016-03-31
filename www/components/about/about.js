@@ -1,6 +1,13 @@
 
-app.controller('AboutCtrl', function($scope,$ionicModal,Pages,$state) {
+app.controller('AboutCtrl', function($scope,$rootScope,$timeout,$ionicModal,Pages,$state) {
+      
+      $timeout(function() {
+        if($rootScope.loggedIn == false){
+          $state.go('app.login', true);
+        }
+      }, 1000);
 
+      
       $scope.data = Pages;
       Pages.getSpecs();
 

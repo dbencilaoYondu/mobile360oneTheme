@@ -1,0 +1,58 @@
+<ion-view id="register">
+  <ion-content>
+	<form class="form" name="myForm" novalidate ng-submit="register.submitForm()">
+		<div class="list">
+		  <label class="item item-input">
+		    <input type="text" placeholder="username" ng-model="form.username">
+		  </label>
+		  <label class="item item-input">
+		    <input type="password" placeholder="password" ng-model="form.password" >
+		    <i ng-show="form.passwordStatus" class="icon ion-checkmark"></i>
+		  </label>
+		  <label class="item item-input">
+		    <input type="password" placeholder="confirm password"  ng-model="form.confirmpassword" ng-keyup="comparePass();">
+		    <i ng-show="form.passwordStatus" class="icon ion-checkmark"></i>
+		  </label>
+		  <!-- custom fields -->
+		  <div class="list list-inset">
+			  <div ng-repeat="info in register.customFields">
+			  	<label class="item item-input" ng-if="info.type == 'input'">
+			  		<input type="text" placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]" ng-required="{{info.required}}">
+			  	</label>
+			  	<label class="item item-input"  ng-if="info.type == 'textarea'">
+			  		<textarea placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]"></textarea>
+			  	</label>
+			  	<div class="list" ng-if="info.type == 'dropdown'">
+			  	 	<h3>{{info.label}}</h3>
+			  		<label class="item item-input item-select"  ng-repeat="item in info.selections">
+				  			<div class="input-label">
+						      {{item.label}}
+						    </div>
+						    <select ng-model="form.dropdown[item.label]">
+						      <option ng-repeat="option in item.options" value="{{option.value}}">{{option.title}}</option>
+						    </select>
+			  		</label>
+			  	</div>
+			  	<label ng-if="info.type == 'checkbox'">
+			  		<h3>{{info.label}}</h3> 		
+			  		<ion-list>
+					  <ion-checkbox ng-model="form.checkbox[check.group][check.label]" ng-checked="check.isChecked" ng-repeat="check in info.checkList">{{check.label}}</ion-checkbox>
+					</ion-list>
+			  	</label>
+			  	<label ng-if="info.type == 'radio'">
+			  		<h3>{{info.label}}</h3> 		
+			  		<ion-list>
+					  <ion-radio ng-model="form.radio[info.label][radio.group]" icon="ion-record" ng-value="radio.value" ng-class="{default : radio.isChecked}" ng-click="removeDefault()" ng-repeat="radio in info.radioList">{{radio.label}}</ion-radio>
+					</ion-list>
+			  	</label>
+			  </div>
+			  	
+			</div>
+		</div>
+		<button type="submit" class="button button-block">Register</button>
+	</form>
+	<div class="text-center ">
+		<a class="button button-block button-outline" href="#/app/login">login</a>
+	</div>
+  </ion-content>
+</ion-view>

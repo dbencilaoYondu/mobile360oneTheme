@@ -1,6 +1,12 @@
 
 
-app.controller('FormCtrl', function($scope,Pages,$state, $http,$ionicScrollDelegate ) {
+app.controller('FormCtrl', function($scope,$rootScope,$timeout,Pages,$state, $http,$ionicScrollDelegate ) {
+      $timeout(function() {
+        if($rootScope.loggedIn == false){
+          $state.go('app.login', true);
+        }
+      }, 1500);
+
   $scope.data = Pages;
   Pages.getSpecs();
   
@@ -20,12 +26,6 @@ app.controller('FormCtrl', function($scope,Pages,$state, $http,$ionicScrollDeleg
     return p.join('&');
   };
 
-  $scope.updateRadioResult = function(x,y,z){
-    console.log(x);
-    console.log(y);
-    console.log(z);
-    
-  }
 
   $scope.submitForm = function(){
   

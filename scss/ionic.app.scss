@@ -108,7 +108,23 @@ ion-slide{
 	}
 }
 
+//login
 
+//register
+#register{
+	.item-input .icon{
+		padding:6px;
+		color:green;
+	}
+}
+#forgotPassword{
+	.placeholder-icon{
+		font-size:24px;
+	}
+	.message{
+		padding:12px 0;
+	}
+}
 //About 
 #about{
 	.wrapper{

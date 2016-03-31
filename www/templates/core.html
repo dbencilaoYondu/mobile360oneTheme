@@ -49,11 +49,15 @@
                     <span class="badge badge-assertive">0</span>
                   </a>
                </li>
-               <li class="item item-divider"></li>
+               
                 <li>
-                  <a class="item item-icon-left" href="#">
+                  <a class="button button-block item item-icon-left button-positive" ng-hide="loggedIn" ng-click="closeModal()" href="#/app/login">
                     <i class="icon ion-log-in"></i>
-                    Sign in
+                    login
+                  </a>
+                  <a class="button button-block item item-icon-left button-assertive" ng-show="loggedIn" ng-click="signout()">
+                    <i class="icon ion-log-in"></i>
+                    logout
                   </a>
                </li>
           </ul>

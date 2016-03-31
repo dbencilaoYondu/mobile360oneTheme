@@ -1,5 +1,11 @@
 
-app.controller('ContactCtrl', function($scope,Pages,$state) {
+app.controller('ContactCtrl', function($scope,$rootScope,$timeout,Pages,$state) {
+      $timeout(function() {
+        if($rootScope.loggedIn == false){
+          $state.go('app.login', true);
+        }
+      }, 1000);
+
   $scope.data = Pages;
   console.log('contact ctrl' );
   console.log($scope);

@@ -9804,6 +9804,16 @@ ion-slide .blue.box {
   left: 10px;
   top: 10px; }
 
+#register .item-input .icon {
+  padding: 6px;
+  color: green; }
+
+#forgotPassword .placeholder-icon {
+  font-size: 24px; }
+
+#forgotPassword .message {
+  padding: 12px 0; }
+
 #about .wrapper {
   padding-bottom: 64px; }
   #about .wrapper .banner {

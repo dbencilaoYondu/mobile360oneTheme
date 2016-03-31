@@ -1,5 +1,9 @@
-app.controller('VideoCtrl', function($scope,$state, $http, Pages){
-
+app.controller('VideoCtrl', function($scope,$rootScope,$timeout,$state, $http, Pages){
+      $timeout(function() {
+        if($rootScope.loggedIn == false){
+          $state.go('app.login', true);
+        }
+      }, 1000);
     //get youtube iframe api
      $.getScript( "https://www.youtube.com/iframe_api", function( data, textStatus, jqxhr ) {
       console.log( data ); // Data returned
