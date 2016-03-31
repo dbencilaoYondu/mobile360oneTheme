@@ -9816,6 +9816,8 @@ ion-slide .blue.box {
 
 #chat {
   padding-top: 34px; }
+  #chat .content {
+    padding-top: 64px; }
 
 #about .wrapper {
   padding-bottom: 64px; }
