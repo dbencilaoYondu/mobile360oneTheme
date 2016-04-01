@@ -56,18 +56,21 @@ app.controller('AboutCtrl', function($scope,$location,$rootScope,$timeout,$ionic
 
       $scope.lockname = localStorage.getItem($scope.currentAboutData.label);
       
-      if(localStorage[$scope.lockname] == true){
+      if($scope.lockname == true){
        console.log('yey!');
-      }else{
-        $state.go('app.login', true);
       }
-      /*else{
+      else{
         if($scope.currentAboutData.isLocked){
          $state.go('app.login', true);
-         localStorage.setItem($scope.currentAboutData.label, false);
+          if(localStorage[$scope.currentAboutData.label] == true){
+            console.log('yey!');
+          }else{
+            localStorage.setItem($scope.currentAboutData.label, false);
+          }
+         
          $rootScope.currentAuthRequest = $scope.currentAboutData.label;
         }
-      }*/
+      }
     }
 //  }, 1000);
 
@@ -76,7 +79,7 @@ app.controller('AboutCtrl', function($scope,$location,$rootScope,$timeout,$ionic
     console.log($scope);
     console.log($rootScope);
     console.log($scope.lockname);
-    console.log(localStorage[$scope.lockname]);
+    console.log(localStorage[$scope.currentAboutData.label]);
     //console.log($scope.currentAboutData.href);
     console.log($location.path());
 });

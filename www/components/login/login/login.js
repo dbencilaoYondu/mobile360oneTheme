@@ -4,8 +4,9 @@ app.controller('LoginCtrl',function($scope,$state,$rootScope,$ionicScrollDelegat
 	$scope.login.signin = function(){
 		$rootScope.loggedIn = true;
 		console.log($rootScope);
-		$scope.defaultState();
+		//$scope.defaultState();
 		localStorage.setItem($rootScope.currentAuthRequest,true);
+		$state.go('app.about22',true);
 	}
 	$scope.login.signout = function(){
 		$rootScope.loggedIn = false;

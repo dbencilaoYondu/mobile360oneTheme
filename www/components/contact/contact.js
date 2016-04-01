@@ -41,10 +41,10 @@ app.controller('ContactCtrl', function($scope,$rootScope,$timeout,Pages,$state) 
     }
   //}, 1000);
   
-   $rootScope.lockname = localStorage.getItem($scope.currentContactData.label);
+  /* $rootScope.lockname = localStorage.getItem($scope.currentContactData.label);
     if($rootScope.lockname == false){
        $state.go('app.login', true);
-    }
+    }*/
 
     console.log($scope.$parent.currentParentOfSubInfo);
     console.log($scope);
