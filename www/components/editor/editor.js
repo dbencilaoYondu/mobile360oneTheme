@@ -1,11 +1,14 @@
 
 
 app.controller('EditorCtrl', function($scope,$rootScope,$timeout,$stateParams, Pages, $sce,$state) {
-      $timeout(function() {
-        if($rootScope.loggedIn == false){
-          $state.go('app.login', true);
-        }
-      }, 1000);
+    $timeout(function() {
+      if(Pages.data.data.login.isGlobal == true){
+          if($rootScope.loggedIn == false){
+             $state.go('app.login', true);
+          }
+      }
+    
+    }, 1000);
 
   $scope.data = Pages;
   $scope.paramsId = $stateParams.paramsId;

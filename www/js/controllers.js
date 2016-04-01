@@ -55,11 +55,11 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
             }
             app.stateProvider.state(state.state, {
                 url: state.url,
+                cache:state.isCached,
                 views: {
                     'menuContent': {
                         templateUrl: state.templateUrl,
                         controller: state.controller
-                        
                     },
                     'sideMenu':{
                        templateUrl:'themes/' + Pages.data.data.theme + '/templates/sideMenu.html',
@@ -109,7 +109,7 @@ app.controller('AppCtrl', function ($scope, $rootScope,$state,$timeout, $ionicHi
     $rootScope.loggedIn = false;
 
     $timeout(function(){
-       if(Pages.data.data.login.global == true){
+       if(Pages.data.data.login.isGlobal == true){
         $state.go('app.login', true);
        }
 
@@ -276,7 +276,9 @@ app.controller('SettingsCtrl',function($scope,$rootScope,$ionicModal,Pages,MenuF
       animation: 'slide-in-up'
       }).then(function(modal) {
         $scope.oModalSettings = modal;
+        $scope.login = Pages.data.data.login;
          $scope.signout = function(){
+
             $rootScope.loggedIn = false;
             $scope.defaultState();
             $scope.closeModal();

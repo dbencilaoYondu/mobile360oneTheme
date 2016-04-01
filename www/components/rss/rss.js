@@ -1,9 +1,12 @@
 app.controller("FeedCtrl", ['$scope','$rootScope','$timeout','FeedService','Pages','$state', function ($scope,$rootScope,$timeout,Feed,Pages,$state) {    
-      $timeout(function() {
-        if($rootScope.loggedIn == false){
-          $state.go('app.login', true);
-        }
-      }, 1000);
+    $timeout(function() {
+      if(Pages.data.data.login.isGlobal == true){
+          if($rootScope.loggedIn == false){
+             $state.go('app.login', true);
+          }
+      }
+    
+    }, 1000);
 
 
     $scope.data = Pages;

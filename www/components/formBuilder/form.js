@@ -1,11 +1,14 @@
 
 
 app.controller('FormCtrl', function($scope,$rootScope,$timeout,Pages,$state, $http,$ionicScrollDelegate ) {
-      $timeout(function() {
-        if($rootScope.loggedIn == false){
-          $state.go('app.login', true);
-        }
-      }, 1500);
+    $timeout(function() {
+      if(Pages.data.data.login.isGlobal == true){
+          if($rootScope.loggedIn == false){
+             $state.go('app.login', true);
+          }
+      }
+    
+    }, 1000);
 
   $scope.data = Pages;
   Pages.getSpecs();

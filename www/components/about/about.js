@@ -1,11 +1,5 @@
 
-app.controller('AboutCtrl', function($scope,$rootScope,$timeout,$ionicModal,Pages,$state) {
-      
-      $timeout(function() {
-        if($rootScope.loggedIn == false){
-          $state.go('app.login', true);
-        }
-      }, 1000);
+app.controller('AboutCtrl', function($scope,$location,$rootScope,$timeout,$ionicModal,Pages,$state) {
 
       
       $scope.data = Pages;
@@ -52,7 +46,37 @@ app.controller('AboutCtrl', function($scope,$rootScope,$timeout,$ionicModal,Page
         });
       }
 
-      console.log($scope.currentParentOfSubInfo);
-      console.log($scope);
+//$timeout(function() {
+    if(Pages.data.data.login.isGlobal == true){
+        if($rootScope.loggedIn == false){
+           $state.go('app.login', true);
+        }
+    }
+    else{
 
+      $scope.lockname = localStorage.getItem($scope.currentAboutData.label);
+      
+      if(localStorage[$scope.lockname] == true){
+       console.log('yey!');
+      }else{
+        $state.go('app.login', true);
+      }
+      /*else{
+        if($scope.currentAboutData.isLocked){
+         $state.go('app.login', true);
+         localStorage.setItem($scope.currentAboutData.label, false);
+         $rootScope.currentAuthRequest = $scope.currentAboutData.label;
+        }
+      }*/
+    }
+//  }, 1000);
+
+
+    console.log($scope.$parent.currentParentOfSubInfo);
+    console.log($scope);
+    console.log($rootScope);
+    console.log($scope.lockname);
+    console.log(localStorage[$scope.lockname]);
+    //console.log($scope.currentAboutData.href);
+    console.log($location.path());
 });

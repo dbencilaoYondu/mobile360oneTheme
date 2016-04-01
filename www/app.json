@@ -5,7 +5,7 @@
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "global":true,
+        "isGlobal":false,
         "register":{
             "api":"submit.php",
             "customFields":[
@@ -437,6 +437,7 @@
         },
         
         {   "id":3,
+            "isLocked":true,
             "href": "#/app/aboutContact3",
             "label": "aboutContact3",
             "type":"contact",
@@ -471,6 +472,7 @@
             ]
         },
         {   "id":4,
+            "isLocked":true,
             "href": "#/app/about22",
             "label": "About22",
             "iconOn":"ion-ios-people",
@@ -1366,6 +1368,14 @@
             "url": "/login",
             "templateUrl": "components/login/login/login.html",
             "controller":"LoginCtrl",
+            "isCached":false,
+            "defaultState": false
+        },
+         {
+            "state": "app.profile",
+            "url": "/profile",
+            "templateUrl": "components/login/profile/profile.html",
+            "controller":"ProfileCtrl",
             "defaultState": false
         },
         {
@@ -1417,6 +1427,7 @@
             "templateUrl": "components/about/about.html",
             "controller":"AboutCtrl",
             "data":"4",
+            "isCached":false,
             "defaultState": false
         },
         {

@@ -25,6 +25,8 @@ app.run(function($ionicPlatform) {
 
 
 app.config(function ($stateProvider, $urlRouterProvider) {
+   
+
     app.stateProvider = $stateProvider;
     app.stateProvider.state('init', {
         url: "/init",
@@ -40,4 +42,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     app.urlRouterProvider = $urlRouterProvider;
     app.urlRouterProvider.otherwise('/init');
+
+
 });

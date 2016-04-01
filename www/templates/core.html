@@ -29,7 +29,7 @@
         <ion-content>
           <ul class="list">
                <li>
-                  <a class="item item-icon-left" href="#">
+                  <a class="item item-icon-left" href="#/app/profile" ng-click="closeModal()" ng-show="loggedIn">
                     <i class="icon ion-person"></i>
                     Profile
                     <span class="badge badge-assertive">0</span>
@@ -50,7 +50,7 @@
                   </a>
                </li>
                
-                <li>
+                <li ng-show="login">
                   <a class="button button-block item item-icon-left button-positive" ng-hide="loggedIn" ng-click="closeModal()" href="#/app/login">
                     <i class="icon ion-log-in"></i>
                     login

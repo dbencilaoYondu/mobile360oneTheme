@@ -1,10 +1,7 @@
 
 app.controller('ContactCtrl', function($scope,$rootScope,$timeout,Pages,$state) {
-      $timeout(function() {
-        if($rootScope.loggedIn == false){
-          $state.go('app.login', true);
-        }
-      }, 1000);
+  
+
 
   $scope.data = Pages;
   console.log('contact ctrl' );
@@ -28,5 +25,31 @@ app.controller('ContactCtrl', function($scope,$rootScope,$timeout,Pages,$state) 
         });
       }
   //end of data sharing
+
+
+  //$timeout(function() {
+    if(Pages.data.data.login.isGlobal == true){
+        if($rootScope.loggedIn == false){
+           $state.go('app.login', true);
+        }
+    }
+    else{
+      if($scope.currentContactData.isLocked){
+         $state.go('app.login', true);
+         localStorage.setItem($scope.currentContactData.label, false);
+      }
+    }
+  //}, 1000);
+  
+   $rootScope.lockname = localStorage.getItem($scope.currentContactData.label);
+    if($rootScope.lockname == false){
+       $state.go('app.login', true);
+    }
+
     console.log($scope.$parent.currentParentOfSubInfo);
+    console.log($scope);
+    console.log($state);
+    console.log($rootScope);
+    console.log(localStorage);
+    console.log($scope.lockname);
 });
