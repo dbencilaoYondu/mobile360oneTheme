@@ -190,7 +190,7 @@
                     },
                     {   "id":2,
                         "href": "#/app/aboutContact2",
-                        "label": "aboutContact2",
+                        "label": "AboutContact2",
                         "type":"contact",
                         "iconOn":"ion-ios-people",
                         "customIcon":"../img/custom-icon/ionic-placeholder.png",
@@ -439,7 +439,7 @@
         {   "id":3,
             "isLocked":true,
             "href": "#/app/aboutContact3",
-            "label": "aboutContact3",
+            "label": "AboutContact3",
             "type":"contact",
             "iconOn":"ion-ios-people",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
@@ -1452,6 +1452,7 @@
             "templateUrl": "components/contact/contact.html",
             "controller": "ContactCtrl",
             "parentId":"1",
+
             "data":"2"
         },
         {
@@ -1459,6 +1460,7 @@
             "url": "/aboutContact3",
             "templateUrl": "components/contact/contact.html",
             "controller": "ContactCtrl",
+            "isCached":false,
             "data":"3"
         },
          {

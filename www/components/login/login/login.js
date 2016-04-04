@@ -3,10 +3,12 @@ app.controller('LoginCtrl',function($scope,$state,$rootScope,$ionicScrollDelegat
 
 	$scope.login.signin = function(){
 		$rootScope.loggedIn = true;
-		console.log($rootScope);
+
 		//$scope.defaultState();
-		localStorage.setItem($rootScope.currentAuthRequest,true);
-		$state.go('app.about22',true);
+		sessionStorage.setItem($rootScope.currentAuthRequest,true);
+		$state.go($rootScope.currentState,true);
+		console.log($rootScope);
+		console.log(sessionStorage);
 	}
 	$scope.login.signout = function(){
 		$rootScope.loggedIn = false;
@@ -15,7 +17,7 @@ app.controller('LoginCtrl',function($scope,$state,$rootScope,$ionicScrollDelegat
 	
 	console.log($rootScope);
 
-	console.log(localStorage);
+	console.log(sessionStorage);
 });
 
 

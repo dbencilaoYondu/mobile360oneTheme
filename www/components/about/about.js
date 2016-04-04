@@ -54,32 +54,40 @@ app.controller('AboutCtrl', function($scope,$location,$rootScope,$timeout,$ionic
     }
     else{
 
-      $scope.lockname = localStorage.getItem($scope.currentAboutData.label);
-      
+      $scope.lockname = sessionStorage.getItem($scope.currentAboutData.label);
+
       if($scope.lockname == true){
        console.log('yey!');
       }
       else{
         if($scope.currentAboutData.isLocked){
-         $state.go('app.login', true);
-          if(localStorage[$scope.currentAboutData.label] == true){
+          
+          $rootScope.currentAuthRequest = $scope.currentAboutData.label;
+         // alert(typeof localStorage[$rootScope.currentAuthRequest]);
+          if(sessionStorage[$rootScope.currentAuthRequest] == 'true'){
             console.log('yey!');
-          }else{
-            localStorage.setItem($scope.currentAboutData.label, false);
+
+          }
+          else{
+            sessionStorage.setItem($rootScope.currentAuthRequest, false);
+            console.log('else:');
+            console.log(sessionStorage[$rootScope.currentAuthRequest]);
+            $state.go('app.login', true);
           }
          
-         $rootScope.currentAuthRequest = $scope.currentAboutData.label;
         }
       }
     }
 //  }, 1000);
 
-
-    console.log($scope.$parent.currentParentOfSubInfo);
+     $rootScope.currentState = $state.current.name;
+    /*console.log($scope.$parent.currentParentOfSubInfo);
     console.log($scope);
     console.log($rootScope);
     console.log($scope.lockname);
-    console.log(localStorage[$scope.currentAboutData.label]);
+    console.log(sessionStorage[$scope.currentAboutData.label]);*/
     //console.log($scope.currentAboutData.href);
-    console.log($location.path());
+    /*console.log($location.path());*/
+
+    console.log($state.current.name);
 });

@@ -26,30 +26,47 @@ app.controller('ContactCtrl', function($scope,$rootScope,$timeout,Pages,$state) 
       }
   //end of data sharing
 
-
-  //$timeout(function() {
-    if(Pages.data.data.login.isGlobal == true){
+//widget lock
+   if(Pages.data.data.login.isGlobal == true){
         if($rootScope.loggedIn == false){
            $state.go('app.login', true);
         }
     }
     else{
-      if($scope.currentContactData.isLocked){
-         $state.go('app.login', true);
-         localStorage.setItem($scope.currentContactData.label, false);
+
+      $scope.lockname = sessionStorage.getItem($scope.currentContactData.label);
+
+      if($scope.lockname == true){
+       console.log('yey!');
+      }
+      else{
+        if($scope.currentContactData.isLocked){
+          
+          $rootScope.currentAuthRequest = $scope.currentContactData.label;
+         // alert(typeof localStorage[$rootScope.currentAuthRequest]);
+          if(sessionStorage[$rootScope.currentAuthRequest] == 'true'){
+            console.log('yey!');
+           
+          }
+          else{
+            sessionStorage.setItem($rootScope.currentAuthRequest, false);
+            console.log('else:');
+            console.log(sessionStorage[$rootScope.currentAuthRequest]);
+            $state.go('app.login', true);
+          }
+         
+        }
       }
     }
-  //}, 1000);
-  
-  /* $rootScope.lockname = localStorage.getItem($scope.currentContactData.label);
-    if($rootScope.lockname == false){
-       $state.go('app.login', true);
-    }*/
 
-    console.log($scope.$parent.currentParentOfSubInfo);
+    $rootScope.currentState = $state.current.name;
+   /*console.log($scope.$parent.currentParentOfSubInfo);
     console.log($scope);
-    console.log($state);
     console.log($rootScope);
-    console.log(localStorage);
     console.log($scope.lockname);
+    console.log(sessionStorage[$scope.currentAboutData.label]);*/
+    //console.log($scope.currentAboutData.href);
+    /*console.log($location.path());*/
+
+    console.log($state.current.name);
 });

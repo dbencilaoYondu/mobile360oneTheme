@@ -1,12 +1,4 @@
 app.controller('MapCtrl', function($scope ,$rootScope,$timeout,$state, Pages,$cordovaGeolocation,$ionicLoading,$ionicPlatform) {
-    $timeout(function() {
-      if(Pages.data.data.login.isGlobal == true){
-          if($rootScope.loggedIn == false){
-             $state.go('app.login', true);
-          }
-      }
-    
-    }, 1000);
 
  $ionicPlatform.ready(function() { 
 
@@ -76,5 +68,42 @@ app.controller('MapCtrl', function($scope ,$rootScope,$timeout,$state, Pages,$co
         });
     });           
 
+//widget lock
+  if(Pages.data.data.login.isGlobal == true){
+        if($rootScope.loggedIn == false){
+           $state.go('app.login', true);
+        }
+    }
+    else{
 
+      $scope.lockname = sessionStorage.getItem($scope.currentMapData.label);
+
+      if($scope.lockname == true){
+       console.log('yey!');
+      }
+      else{
+        if($scope.currentMapData.isLocked){
+          
+          $rootScope.currentAuthRequest = $scope.currentMapData.label;
+         // alert(typeof localStorage[$rootScope.currentAuthRequest]);
+          if(sessionStorage[$rootScope.currentAuthRequest] == 'true'){
+            console.log('yey!');
+
+          }
+          else{
+            sessionStorage.setItem($rootScope.currentAuthRequest, false);
+            console.log('else:');
+            console.log(sessionStorage[$rootScope.currentAuthRequest]);
+            $state.go('app.login', true);
+          }
+         
+        }
+      }
+    }
+
+    $rootScope.currentState = $state.current.name;
+
+    console.log($state.current.name);
+
+//end of widget lock
 });
