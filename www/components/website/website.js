@@ -15,6 +15,7 @@ app.controller('WebsiteCtrl', function($scope,$rootScope,$timeout,Pages,$state,$
                  //wehn successful stop loading
                 $scope.stopLoading();
             });
+       $scope.currentSite = $scope.currentWebsiteData;
     }
 
     
@@ -25,6 +26,7 @@ app.controller('WebsiteCtrl', function($scope,$rootScope,$timeout,Pages,$state,$
                  //wehn successful stop loading
                 $scope.stopLoading();
             });
+        $scope.currentSite = $scope.subWebsiteData;
     }
 
     if($scope.parentId){
@@ -40,6 +42,7 @@ app.controller('WebsiteCtrl', function($scope,$rootScope,$timeout,Pages,$state,$
             });
           }
       });
+      $scope.currentSite = $scope.homeData;
     }
 
     //transfer data to sub contact pages
@@ -56,15 +59,15 @@ app.controller('WebsiteCtrl', function($scope,$rootScope,$timeout,Pages,$state,$
     }
     else{
 
-      $scope.lockname = sessionStorage.getItem($scope.currentVideoData.label);
+      $scope.lockname = sessionStorage.getItem($scope.currentSite.label);
 
       if($scope.lockname == true){
        console.log('yey!');
       }
       else{
-        if($scope.currentVideoData.isLocked){
+        if($scope.currentSite.isLocked){
           
-          $rootScope.currentAuthRequest = $scope.currentVideoData.label;
+          $rootScope.currentAuthRequest = $scope.currentSite.label;
          // alert(typeof localStorage[$rootScope.currentAuthRequest]);
           if(sessionStorage[$rootScope.currentAuthRequest] == 'true'){
             console.log('yey!');

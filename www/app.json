@@ -5,9 +5,16 @@
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":false,
+        "isGlobal":true,
         "register":{
             "api":"submit.php",
+            "formName":"form title test",
+            "usernameLabel":"username test",
+            "passwordLabel":"password test",
+            "confirmPasswordLabel":"password test",
+            "submitBtn":"submit",
+            "errorMsg":"login error",
+            "successMsg":"login successfull",
             "customFields":[
                             {
                                 "type":"input",
@@ -38,10 +45,18 @@
             ]
         },
         "forgotPassword":{
-            "message":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, mauris eu gravida fringilla, sem leo venenatis nibh, ut mollis tellus nibh non elit. Morbi malesuada ultrices eros ut vehicula. Cras consectetur dolor nisl, eget molestie lectus fringilla id. Mauris finibus velit at tortor ornare, in congue libero facilisis. Maecenas urna turpis, placerat nec est sit amet, vehicula malesuada sem. "
+            "message":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, mauris eu gravida fringilla, sem leo venenatis nibh, ut mollis tellus nibh non elit. Morbi malesuada ultrices eros ut vehicula. Cras consectetur dolor nisl, eget molestie lectus fringilla id. Mauris finibus velit at tortor ornare, in congue libero facilisis. Maecenas urna turpis, placerat nec est sit amet, vehicula malesuada sem. ",
+            "submitBtn":"submit",
+            "errorMsg":"login error",
+            "successMsg":"login successfull"
         },
-        "signin":{
-
+        "login":{
+            "formName":"form title test",
+            "usernameLabel":"username test",
+            "passwordLabel":"password test",
+            "submitBtn":"submit",
+            "errorMsg":"login error",
+            "successMsg":"login successfull"
         }
 
     },
@@ -1418,7 +1433,7 @@
             "url": "/blank",
             "templateUrl": "templates/blank.html",
              "controller":"BlankCtrl" ,
-             "defaultState": true 
+             "defaultState": false 
         },
 
          {
@@ -1444,7 +1459,9 @@
             "templateUrl": "components/contact/contact.html",
             "controller": "ContactCtrl",
             "parentId":"1",
-            "data":"101"
+            "data":"101",
+            "isCached":false,
+            "defaultState": true
         },
         {
             "state": "app.aboutContact2",

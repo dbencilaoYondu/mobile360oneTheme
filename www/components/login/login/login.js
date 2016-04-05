@@ -4,9 +4,21 @@ app.controller('LoginCtrl',function($scope,$state,$rootScope,$ionicScrollDelegat
 	$scope.login.signin = function(){
 		$rootScope.loggedIn = true;
 
-		//$scope.defaultState();
-		sessionStorage.setItem($rootScope.currentAuthRequest,true);
-		$state.go($rootScope.currentState,true);
+		//GLOBAL LOGIN
+		sessionStorage.setItem('globalLogin',true);
+		$rootScope.globalLogin = sessionStorage.getItem('globalLogin');
+		if($scope.login.isGlobal){
+			if($rootScope.globalLogin == 'true'){
+				$scope.defaultState();
+			}
+		}
+		else{
+			//WIDGET LOCK
+			sessionStorage.setItem($rootScope.currentAuthRequest,true);
+			$state.go($rootScope.currentState,true);
+
+		}
+
 		console.log($rootScope);
 		console.log(sessionStorage);
 	}
@@ -16,7 +28,7 @@ app.controller('LoginCtrl',function($scope,$state,$rootScope,$ionicScrollDelegat
 	}
 	
 	console.log($rootScope);
-
+	console.log($scope);
 	console.log(sessionStorage);
 });
 

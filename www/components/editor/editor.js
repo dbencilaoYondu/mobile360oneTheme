@@ -66,8 +66,11 @@ app.controller('EditorCtrl', function($scope,$rootScope,$timeout,$stateParams, P
       }
     }
 
-
-     $rootScope.currentState = $state.current.name;
+    $rootScope.currentState = $state.current.name;
 
     console.log($state.current.name);
+
+//end of widget lock
+
+
 });
