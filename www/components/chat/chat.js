@@ -14,7 +14,7 @@ var chat=app.controller('ChatCtrl',function($stateParams,socket,$sanitize,$ionic
 
      //initializing messages array
     self.messages=[]
-    socket.of('/mynamespace');
+    
     socket.on('connect',function(){
       
       connected = true

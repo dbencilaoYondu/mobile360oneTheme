@@ -5,10 +5,10 @@
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":false,
+        "isGlobal":true,
         "register":{
-            "api":"submit.php",
             "formName":"form title test",
+            "emailLabel":"email test",
             "usernameLabel":"username test",
             "passwordLabel":"password test",
             "confirmPasswordLabel":"password test",
@@ -45,6 +45,8 @@
             ]
         },
         "forgotPassword":{
+            "formName":"form title test",
+            "emailLabel":"email",
             "message":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, mauris eu gravida fringilla, sem leo venenatis nibh, ut mollis tellus nibh non elit. Morbi malesuada ultrices eros ut vehicula. Cras consectetur dolor nisl, eget molestie lectus fringilla id. Mauris finibus velit at tortor ornare, in congue libero facilisis. Maecenas urna turpis, placerat nec est sit amet, vehicula malesuada sem. ",
             "submitBtn":"submit",
             "errorMsg":"login error",

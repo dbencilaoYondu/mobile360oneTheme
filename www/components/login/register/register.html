@@ -4,6 +4,9 @@
 	<form class="form" name="myForm" novalidate ng-submit="register.submitForm()">
 		<div class="list">
 		  <label class="item item-input">
+		    <input type="text" placeholder="{{register.emailLabel}}" ng-model="form.email">
+		  </label>
+		  <label class="item item-input">
 		    <input type="text" placeholder="{{register.usernameLabel}}" ng-model="form.username">
 		  </label>
 		  <label class="item item-input">

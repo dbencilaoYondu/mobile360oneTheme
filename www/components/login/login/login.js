@@ -16,7 +16,7 @@ app.controller('LoginCtrl',function($scope,$http,$state,$rootScope,$ionicScrollD
 	$scope.login.signin = function(){
 
 		//UNCOMMENT WHEN LOGIN API IS READY: CHANGE URL WITH UPDATED API URL
-		/*$scope.stringData = JSON.stringify($scope.formLogin);
+		$scope.stringData = JSON.stringify($scope.formLogin);
 		$http({
 			method:'POST',
 			url:'http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/login',
@@ -26,8 +26,8 @@ app.controller('LoginCtrl',function($scope,$http,$state,$rootScope,$ionicScrollD
 		.then(function successCallback(response){
 			if(response.status == 'OK'){
 				$rootScope.loggedIn = true;
-
-				//GLOBAL LOGIN
+				console.log(response);
+				/*//GLOBAL LOGIN
 				sessionStorage.setItem('globalLogin',true);
 				$rootScope.globalLogin = sessionStorage.getItem('globalLogin');
 				if($scope.login.isGlobal){
@@ -40,11 +40,11 @@ app.controller('LoginCtrl',function($scope,$http,$state,$rootScope,$ionicScrollD
 					sessionStorage.setItem($rootScope.currentAuthRequest,true);
 					$state.go($rootScope.currentState,true);
 
-				}
+				}*/
 			}
-		});*/
+		});
 
-		$rootScope.loggedIn = true;
+		/*$rootScope.loggedIn = true;
 		$scope.loggedIn = $rootScope.loggedIn;
 
 		//GLOBAL LOGIN
@@ -60,7 +60,7 @@ app.controller('LoginCtrl',function($scope,$http,$state,$rootScope,$ionicScrollD
 			sessionStorage.setItem($rootScope.currentAuthRequest,true);
 			$state.go($rootScope.currentState,true);
 
-		}
+		}*/
 
 		console.log($rootScope);
 		console.log(sessionStorage);

@@ -31,7 +31,7 @@ app.controller('RegisterCtrl',function($scope,$ionicScrollDelegate,Pages,$http){
 
 	//register form
 	$scope.register.submitForm = function(){
-		$scope.form.prerequisites = {};
+		//$scope.form.prerequisites = {};
 	    $scope.stringData = JSON.stringify($scope.form);
 	
 		$http({
