@@ -5,7 +5,7 @@
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":true,
+        "isGlobal":false,
         "register":{
             "api":"submit.php",
             "formName":"form title test",
@@ -914,11 +914,11 @@
             "iconOn":"ion-android-list",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
             "banner":"../img/custom-images/inquire/banner-inquire.jpg",
-            "emailId":"user@yondu.com",
+            "emailId":"donbenci13@gmail.com",
             "subject":"From custom form",
             "formName":"myForm",
             "description":"Lorem111 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
-            "api":"http://192.168.20.5/builder/services/api/form_builder_send_email",
+            "api":"http://192.168.20.5/builderQA/builder/services/api/form_builder_send_email",
             "submitButton":"Submit",
             "onSuccess":"Details Successfully sent",
             "onError":"Something went wrong",
@@ -968,23 +968,24 @@
                         {
                             "label":"radio 1",
                             "value":"A",
-                            "listName":"gender",
-                            "isChecked":true
+                            "group":"gender"
+                            
                         },
                         {
                             "label":"radio 2",
                             "value":"B",
-                            "listName":"gender"
+                            "group":"gender",
+                            "isChecked":true
                         },
                         {
                             "label":"radio 1C",
                             "value":"C",
-                            "listName":"gender"
+                            "group":"gender"
                         },
                         {
                             "label":"radio 2D",
                             "value":"D",
-                            "listName":"gender"
+                            "group":"gender"
                         }
                     ]
                 },

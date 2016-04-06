@@ -42,6 +42,7 @@ app.controller('FormCtrl', function($scope,$rootScope,$timeout,Pages,$state, $ht
     })
       .then(function successCallback(response){
         console.log(response);
+        console.log($scope);
         if(response.statusText == 'OK'){
           $scope.success = $scope.currentFormData.onSuccess;
         }else{

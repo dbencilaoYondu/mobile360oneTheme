@@ -1,4 +1,4 @@
-app.controller('ChatLoginCtrl',function($state,$sanitize) {
+app.controller('ChatLoginCtrl',function($scope,$state,$sanitize) {
 	var self=this;
 
 	self.join=function()
@@ -10,4 +10,5 @@ app.controller('ChatLoginCtrl',function($state,$sanitize) {
 			$state.go('app.chat',{nickname:nickname})
 		}
 	}
+	console.log($scope);
 });

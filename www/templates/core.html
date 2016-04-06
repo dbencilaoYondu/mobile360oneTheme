@@ -50,7 +50,7 @@
                   </a>
                </li>
                
-                <li ng-show="login">
+                <li ng-show="login" ng-hide="!login.isGlobal">
                   <a class="button button-block item item-icon-left button-positive" ng-hide="loggedIn" ng-click="closeModal()" href="#/app/login">
                     <i class="icon ion-log-in"></i>
                     login

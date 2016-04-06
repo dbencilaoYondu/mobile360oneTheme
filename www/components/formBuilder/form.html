@@ -46,7 +46,7 @@
 			  	<label ng-if="info.type == 'radio'">
 			  		<h3>{{info.label}}</h3> 		
 			  		<ion-list>
-					  <ion-radio ng-model="form.radio[info.label][radio.group]" icon="ion-record" ng-value="radio.value" ng-class="{default : radio.isChecked}" ng-click="removeDefault()" ng-repeat="radio in info.radioList">{{radio.label}}</ion-radio>
+					  <ion-radio ng-model="form.radio[info.label][radio.group]" icon="ion-record" ng-value="radio.label" ng-class="{default : radio.isChecked}" ng-click="removeDefault()" ng-repeat="radio in info.radioList">{{radio.label}}</ion-radio>
 					</ion-list>
 			  	</label>
 			  </div>

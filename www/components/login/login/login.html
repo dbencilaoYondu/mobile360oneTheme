@@ -5,11 +5,11 @@
 		<div class="list">
 		  <label class="item item-input">
 		    <span class="input-label">{{login.login.usernameLabel}}</span>
-		    <input type="text">
+		    <input type="text" ng-model='formLogin.username'>
 		  </label>
 		  <label class="item item-input">
 		    <span class="input-label">{{login.login.passwordLabel}}</span>
-		    <input type="password">
+		    <input type="password" ng-model='formLogin.password'>
 		  </label>
 		</div>
 		<button type="submit" ng-click="login.signin()" class="button button-block">{{login.login.submitBtn}}</button>
