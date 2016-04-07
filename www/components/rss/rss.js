@@ -4,12 +4,20 @@ app.controller("FeedCtrl", ['$scope','$rootScope','$timeout','FeedService','Page
     Pages.getSpecs();  
     console.log($scope);
 
-    $scope.loadFeed=function(url){
+
+    $scope.startLoading('feeding...');
+    $scope.loadFeed = function(url){
+        $scope.startLoading('loading feed...');
         Feed.parseFeed(url).then(function(res){
             console.log(res);
             $scope.feeds = res.data.responseData.feed.entries;
+        })
+        .then(function(){
+          $scope.stopLoading();
         });
     }
+   
+    //$scope.loadFeed($scope.currentRssData.content[0].url); 
 
     $scope.currentData = $state.current.data;
     $scope.parentId =  $state.current.parentId;
@@ -30,7 +38,10 @@ app.controller("FeedCtrl", ['$scope','$rootScope','$timeout','FeedService','Page
       }
     console.log($scope.$parent.currentParentOfSubInfo);
 
-//widget lock
+
+$scope.loadFeed($scope.currentRssData.content[0].url);
+
+//WIDGET LOCK
   if(Pages.data.data.login.isGlobal == true){
         if($rootScope.loggedIn == false){
            $state.go('app.login', true);
