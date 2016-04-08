@@ -1,5 +1,5 @@
 {
-    "theme":"flyOutGrid",
+    "theme":"flyOutList",
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "headerText":"header Text",
@@ -1488,7 +1488,6 @@
             "templateUrl": "components/contact/contact.html",
             "controller": "ContactCtrl",
             "parentId":"1",
-
             "data":"2"
         },
         {
