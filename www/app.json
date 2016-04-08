@@ -49,6 +49,7 @@
             ]
         },
         "forgotPassword":{
+            "api":"",
             "formName":"form title test",
             "emailLabel":"email",
             "message":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, mauris eu gravida fringilla, sem leo venenatis nibh, ut mollis tellus nibh non elit. Morbi malesuada ultrices eros ut vehicula. Cras consectetur dolor nisl, eget molestie lectus fringilla id. Mauris finibus velit at tortor ornare, in congue libero facilisis. Maecenas urna turpis, placerat nec est sit amet, vehicula malesuada sem. ",
@@ -57,6 +58,7 @@
             "successMsg":"login successfull"
         },
         "login":{
+            "api":"http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/login",
             "formName":"form title test",
             "usernameLabel":"username test",
             "passwordLabel":"password test",

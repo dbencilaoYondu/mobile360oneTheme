@@ -19,7 +19,7 @@ app.controller('LoginCtrl',function($scope,$http,$state,$rootScope,$ionicScrollD
 		$scope.stringData = JSON.stringify($scope.formLogin);
 		$http({
 			method:'POST',
-			url:'http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/login',
+			url:$scope.login.login.api,
 			data:Object.toparams({'data':$scope.stringData}),
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		})
