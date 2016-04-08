@@ -5,8 +5,9 @@
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":false,
+        "isGlobal":true,
         "register":{
+            "api":"http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/signup",
             "formName":"form title test",
             "emailLabel":"email test",
             "usernameLabel":"username test",
@@ -19,11 +20,13 @@
                             {
                                 "type":"input",
                                 "label":"custom field 1",
+                                "model":"customfield1",
                                 "required":true
                             },
                             {
                                 "type":"input",
-                                "label":"custom field 2",
+                                "label":"custom field 1",
+                                "model":"customfield2",
                                 "required":true
                             },
                              {
@@ -42,6 +45,7 @@
                                     }
                                 ]
                             }
+
             ]
         },
         "forgotPassword":{

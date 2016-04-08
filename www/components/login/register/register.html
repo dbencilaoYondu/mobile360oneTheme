@@ -21,7 +21,7 @@
 		  <div class="list list-inset">
 			  <div ng-repeat="info in register.customFields">
 			  	<label class="item item-input" ng-if="info.type == 'input'">
-			  		<input type="text" placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]" ng-required="{{info.required}}">
+			  		<input type="text" placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.model]" ng-required="{{info.required}}">
 			  	</label>
 			  	<label class="item item-input"  ng-if="info.type == 'textarea'">
 			  		<textarea placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]"></textarea>

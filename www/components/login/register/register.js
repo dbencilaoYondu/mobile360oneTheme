@@ -36,7 +36,7 @@ app.controller('RegisterCtrl',function($scope,$ionicScrollDelegate,Pages,$http){
 	
 		$http({
 		      method:'POST',
-		      url:'http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/signup',
+		      url:$scope.register.api,
 		      data:Object.toparams({'data':$scope.stringData}),
 		      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		    }).then(function successCallback(response){
