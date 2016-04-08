@@ -36,6 +36,7 @@ app.controller("FeedCtrl", ['$scope','$rootScope','$timeout','FeedService','Page
             }
         });
       }
+      
     console.log($scope.$parent.currentParentOfSubInfo);
 
 

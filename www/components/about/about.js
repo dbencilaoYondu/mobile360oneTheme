@@ -5,24 +5,6 @@ app.controller('AboutCtrl', function($scope,$location,$rootScope,$timeout,$ionic
       $scope.data = Pages;
       Pages.getSpecs();
 
-      $ionicModal.fromTemplateUrl('aboutMore.html', {
-     /* id: $index, // We need to use and ID to identify the modal that is firing the event!*/
-      scope: $scope,
-      backdropClickToClose: false,
-      animation: 'slide-in-up'
-      }).then(function(modal) {
-        $scope.modal = modal;
-      });
-
-
-      $scope.openModal = function(index) {
-        $scope.modal.show(index);
-        $scope.$index = index;
-      };
-
-      $scope.closeModal = function(index) {
-        $scope.modal.hide();
-      };
       console.log('About ctrl: ');
       console.log($scope);
       console.log('Parent');
@@ -46,7 +28,8 @@ app.controller('AboutCtrl', function($scope,$location,$rootScope,$timeout,$ionic
         });
       }
 
-//$timeout(function() {
+     
+//widget lock
     if(Pages.data.data.login.isGlobal == true){
         if($rootScope.loggedIn == false){
            $state.go('app.login', true);
@@ -78,16 +61,9 @@ app.controller('AboutCtrl', function($scope,$location,$rootScope,$timeout,$ionic
         }
       }
     }
-//  }, 1000);
+
 
      $rootScope.currentState = $state.current.name;
-    /*console.log($scope.$parent.currentParentOfSubInfo);
-    console.log($scope);
-    console.log($rootScope);
-    console.log($scope.lockname);
-    console.log(sessionStorage[$scope.currentAboutData.label]);*/
-    //console.log($scope.currentAboutData.href);
-    /*console.log($location.path());*/
 
     console.log($state.current.name);
 });

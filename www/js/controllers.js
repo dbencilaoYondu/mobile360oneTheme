@@ -9,7 +9,7 @@ app.baseConfig = false;
  * This controllers reads the configuration and adds the states
  */
 app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, config,Pages) {
-   // $scope.startLoading();
+   $scope.startLoading();
 
     $ionicHistory.nextViewOptions({
         disableAnimate: true,
@@ -100,7 +100,7 @@ app.controller('InitCtrl', function ($scope, $state, $timeout, $ionicHistory, co
  */
 app.controller('AppCtrl', function ($scope, $rootScope,$state,$timeout, $ionicHistory, $cordovaInAppBrowser,Pages,$ionicModal) {
     
-
+    $scope.stopLoading();
     $ionicHistory.nextViewOptions({
         disableAnimate: true,
         disableBack: true,
@@ -232,9 +232,9 @@ app.controller('LayoutCtrl', function ($scope,Pages, $state, $ionicLoading) {
     $scope.defaultState = function () {
         $state.go(app.baseConfig.defaultState, true);
     };
-    $scope.startLoading = function () {
+    $scope.startLoading = function (message = '<ion-spinner icon="bubbles"></ion-spinner>') {
         $ionicLoading.show({
-            template: 'Loading...'
+            template: message
         });
     };
     $scope.stopLoading = function () {

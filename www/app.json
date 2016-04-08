@@ -5,7 +5,7 @@
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":true,
+        "isGlobal":false,
         "register":{
             "formName":"form title test",
             "emailLabel":"email test",
@@ -664,121 +664,122 @@
                         "iconOn":"ion-android-list",
                         "customIcon":"../img/custom-icon/ionic-placeholder.png",
                         "banner":"../img/custom-images/inquire/banner-inquire.jpg",
-                        "emailId":"user@yondu.com",
-                        "subject":"From custom form",
-                        "formName":"myForm",
-                        "description":"Lorem222 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
-                        "api":"http://52.74.243.149:8080/m360/service/index.php",
-                        "fields":[
-                            {
-                                "type":"input",
-                                "label":"Name",
-                                "required":true
-                            },
-                            {
-                                "type":"input",
-                                "label":"Phone",
-                                "required":false
-                            },
-                            {
-                                 "type":"email",
-                                "label":"Email",
-                                "required":true
-                            },
-                            {
-                                "type":"textarea",
-                                "label":"Comment",
-                                "required":true
-                            },
-                            {
-                                "type":"checkbox",
-                                "label":"checkbox",
-                                "checkList":[
-                                    {
-                                        "label":"check 1",
-                                        "modelName":"check1",
-                                        "group":"checkgroup group"
-                                    },
-                                    {
-                                        "label":"check 2",
-                                        "modelName":"check2",
-                                        "group":"checkgroup group"
-                                    }
+                        "emailId":"donbenci13@gmail.com",
+            "subject":"From custom form",
+            "formName":"myForm",
+            "description":"Lorem111 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
+            "api":"http://192.168.20.5/builderQA/builder/services/api/form_builder_send_email",
+            "submitButton":"Submit",
+            "onSuccess":"Details Successfully sent",
+            "onError":"Something went wrong",
+            "fields":[
+                {
+                    "type":"input",
+                    "label":"Name",
+                    "required":true
+                    
+                },
+                {
+                    "type":"input",
+                    "label":"Phone",
+                    "required":false
+                },
+                {
+                     "type":"email",
+                    "label":"Email",
+                    "required":true
+                },
+                {
+                    "type":"textarea",
+                    "label":"Comment",
+                    "required":true
+                },
+                {
+                    "type":"checkbox",
+                    "label":"checkbox",
+                    "checkList":[
+                        {
+                            "label":"check 1",
+                            "modelName":"check1",
+                            "group":"gender",
+                            "isChecked":true
+                        },
+                        {
+                            "label":"check 2",
+                            "modelName":"check2",
+                            "group":"gender"
+                        }
+                    ]
+                },
+                {
+                    "type":"radio",
+                    "label":"gender group 1",
+                    "radioList":[
+                        {
+                            "label":"radio 1",
+                            "value":"A",
+                            "group":"gender"
+                            
+                        },
+                        {
+                            "label":"radio 2",
+                            "value":"B",
+                            "group":"gender",
+                            "isChecked":true
+                        },
+                        {
+                            "label":"radio 1C",
+                            "value":"C",
+                            "group":"gender"
+                        },
+                        {
+                            "label":"radio 2D",
+                            "value":"D",
+                            "group":"gender"
+                        }
+                    ]
+                },
+                {
+                    "type":"dropdown",
+                    "label":"options",
+                    "selections":[
+                        {
+                            "label":"option 1",
+                            "options":[
+                                {
+                                    "title":"option1",
+                                    "value":1
+                                },
+                                 {
+                                    "title":"option2",
+                                    "value":2
+                                },
+                                 {
+                                    "title":"option3",
+                                    "value":3
+                                }
                                 ]
-                            },
-                            {
-                                "type":"radio",
-                                "label":"radio",
-                                "radioList":[
-                                    {
-                                        "label":"radio 1",
-                                        "modelName":"radio1",
-                                        "group":"radio group1"
-                                    },
-                                    {
-                                        "label":"radio 2",
-                                        "modelName":"radio2",
-                                        "group":"radio group1"
-                                    }
+                        },
+                        {
+                            "label":"option 2",
+                            "options":[
+                                {
+                                    "title":"option1",
+                                    "value":1
+                                },
+                                 {
+                                    "title":"option2",
+                                    "value":2
+                                },
+                                 {
+                                    "title":"option3",
+                                    "value":3
+                                }
                                 ]
-                            },
-                             {
-                                "type":"radio",
-                                "label":"radio2",
-                                "radioList":[
-                                    {
-                                        "label":"radio 1",
-                                        "modelName":"radio1",
-                                        "group":"radio group2"
-                                    },
-                                    {
-                                        "label":"radio 2",
-                                        "modelName":"radio2",
-                                        "group":"radio group2"
-                                    }
-                                ]
-                            },
-                            {
-                                "type":"dropdown",
-                                "label":"options",
-                                "selections":[
-                                    {
-                                        "label":"option 1",
-                                        "options":[
-                                            {
-                                                "title":"option1",
-                                                "value":1
-                                            },
-                                             {
-                                                "title":"option2",
-                                                "value":2
-                                            },
-                                             {
-                                                "title":"option3",
-                                                "value":3
-                                            }
-                                            ]
-                                    },
-                                    {
-                                        "label":"option 2",
-                                        "options":[
-                                            {
-                                                "title":"option1",
-                                                "value":1
-                                            },
-                                             {
-                                                "title":"option2",
-                                                "value":2
-                                            },
-                                             {
-                                                "title":"option3",
-                                                "value":3
-                                            }
-                                            ]
-                                    }
-                                ]
-                            }
-                        ]
+                        }
+                    ]
+                }
+            ]
                     },
                     {
                         "id":606,
@@ -791,6 +792,7 @@
                         "emailId":"user@yondu.com",
                         "subject":"From custom form",
                         "formName":"myForm",
+                        "submitButton":"submit",
                         "description":"Lorem333ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
                         "api":"submit.php",
                         "fields":[
@@ -1041,19 +1043,20 @@
             "iconOn":"ion-android-list",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
             "banner":"../img/custom-images/inquire/banner-inquire.jpg",
-            "emailId":"user@yondu.com",
+            "emailId":"donbenci13@gmail.com",
             "subject":"From custom form",
-            "formName":"myForm",
-            "description":"Lorem444 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
-            "api":"http://192.168.20.5/builder/services/api/form_builder_send_email",
+            "formName":"myForm4",
+            "description":"Lorem111 ipsum dolor sit amet, consectetur adipiscing elit. Proin facilisis tincidunt ante et pellentes",
+            "api":"http://192.168.20.5/builderQA/builder/services/api/form_builder_send_email",
+            "submitButton":"Submit",
             "onSuccess":"Details Successfully sent",
             "onError":"Something went wrong",
             "fields":[
                 {
                     "type":"input",
                     "label":"Name",
-                    "required":true,
-                    "isChecked":true
+                    "required":true
+                    
                 },
                 {
                     "type":"input",
@@ -1077,7 +1080,8 @@
                         {
                             "label":"check 1",
                             "modelName":"check1",
-                            "group":"gender"
+                            "group":"gender",
+                            "isChecked":true
                         },
                         {
                             "label":"check 2",
@@ -1088,17 +1092,29 @@
                 },
                 {
                     "type":"radio",
-                    "label":"radio",
+                    "label":"gender group 1",
                     "radioList":[
                         {
                             "label":"radio 1",
-                            "modelName":"radio1",
-                            "group":"radio group1"
+                            "value":"A",
+                            "group":"gender"
+                            
                         },
                         {
                             "label":"radio 2",
-                            "modelName":"radio2",
-                            "group":"radio group1"
+                            "value":"B",
+                            "group":"gender",
+                            "isChecked":true
+                        },
+                        {
+                            "label":"radio 1C",
+                            "value":"C",
+                            "group":"gender"
+                        },
+                        {
+                            "label":"radio 2D",
+                            "value":"D",
+                            "group":"gender"
                         }
                     ]
                 },
@@ -1488,8 +1504,8 @@
             "url": "/about28",
             "templateUrl": "components/about/about.html",
             "controller": "AboutCtrl",
-            "data":"128"
-                
+            "data":"128",
+            "parentId":"1"
         },
         {
             "state": "app.about2",

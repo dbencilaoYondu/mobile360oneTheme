@@ -27,6 +27,12 @@ app.controller('VideoCtrl', function($scope,$rootScope,$timeout,$state, $http, P
         });
       }
 
+    if($scope.currentParentOfSubInfo){
+       $scope.subvideoData    = $scope.currentParentOfSubInfo;
+    
+        $scope.currentVideoData = $scope.subvideoData;
+    }
+    //$scope.startLoading('loading videos...');
     console.log('video ctrl');
     console.log($scope);
 
@@ -48,11 +54,13 @@ app.controller('VideoCtrl', function($scope,$rootScope,$timeout,$state, $http, P
 
       .success(function(response){
 
+        $scope.stopLoading();  
         $scope.videos  = response.items;
 
         angular.forEach(response.items, function(child){
              console.log (child);
         });
+        
       });
        
       $scope.playerVars = {
@@ -60,6 +68,8 @@ app.controller('VideoCtrl', function($scope,$rootScope,$timeout,$state, $http, P
        showinfo: 0,
        modestbranding: 0,
       }
+
+
 
 //widget lock
   if(Pages.data.data.login.isGlobal == true){

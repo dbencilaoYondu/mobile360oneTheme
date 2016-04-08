@@ -312,6 +312,21 @@ ion-modal-view{
 	.wrapper{
 		    height: 100%;
     		padding-bottom: 64px;
+    		.btn-group{
+    			ul.list{
+    				overflow-x: scroll;
+				    width: auto;
+				    flex-wrap: inherit;
+				    height: 48px;
+				    padding-top:12px;
+				    li{
+				    	    display: inline;
+				    	    a{
+				    	    	    text-decoration: none;
+				    	    }
+				    }
+    			}
+    		}
 	}
 }
 //video
@@ -389,6 +404,7 @@ ion-modal-view{
     	    height: 100%;
     		overflow-y: scroll;
     		li{
+    			padding:0;
     			a{
     				i{
     					&.subArrow{

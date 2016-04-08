@@ -24,6 +24,7 @@ app.controller('ContactCtrl', function($scope,$rootScope,$timeout,Pages,$state) 
             }
         });
       }
+      
   //end of data sharing
 
 //widget lock

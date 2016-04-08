@@ -9953,6 +9953,16 @@ ion-modal-view#settings .item-divider {
 #rss .wrapper {
   height: 100%;
   padding-bottom: 64px; }
+  #rss .wrapper .btn-group ul.list {
+    overflow-x: scroll;
+    width: auto;
+    flex-wrap: inherit;
+    height: 48px;
+    padding-top: 12px; }
+    #rss .wrapper .btn-group ul.list li {
+      display: inline; }
+      #rss .wrapper .btn-group ul.list li a {
+        text-decoration: none; }
 
 #video .wrapper {
   padding-bottom: 64px; }
@@ -10010,8 +10020,10 @@ ion-modal-view#settings .item-divider {
   .flyout .menuList {
     height: 100%;
     overflow-y: scroll; }
-    .flyout .menuList li a i.subArrow {
-      font-size: 24px; }
+    .flyout .menuList li {
+      padding: 0; }
+      .flyout .menuList li a i.subArrow {
+        font-size: 24px; }
   .flyout .flyback {
     position: absolute;
     top: 5px;

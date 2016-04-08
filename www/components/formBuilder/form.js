@@ -73,6 +73,8 @@ app.controller('FormCtrl', function($scope,$rootScope,$timeout,Pages,$state, $ht
             }
         });
       }
+     
+
     console.log($scope.$parent.currentParentOfSubInfo);
   //end of data sharing
 

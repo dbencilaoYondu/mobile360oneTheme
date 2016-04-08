@@ -21,9 +21,7 @@ app.controller('MapCtrl', function($scope ,$rootScope,$timeout,$state, Pages,$co
             }
 
         console.log($scope);
-        $ionicLoading.show({
-            template: '<ion-spinner icon="bubbles"></ion-spinner><br/>Acquiring location!'
-        });
+        $scope.startLoading('locating...');
          
         var posOptions = {
             enableHighAccuracy: true,
@@ -60,10 +58,10 @@ app.controller('MapCtrl', function($scope ,$rootScope,$timeout,$state, Pages,$co
             });
             
             $scope.map = map;   
-            $ionicLoading.hide();  
+            $scope.stopLoading();  
              
         }, function(err) {
-            $ionicLoading.hide();
+            $scope.stopLoading();  
             console.log(err);
         });
     });           

@@ -72,6 +72,7 @@ app.controller('GalleryCtrl', function($scope,$rootScope,$timeout,$stateParams,$
             }
         });
       }
+
     console.log('scope with sub info');
     console.log($scope);
     console.log('sub info');
