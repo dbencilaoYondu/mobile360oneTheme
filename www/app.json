@@ -44,6 +44,34 @@
                                         "group":"checkgroup group"
                                     }
                                 ]
+                            },
+                             {
+                                "type":"radio",
+                                "label":"gender group 1",
+                                "radioList":[
+                                    {
+                                        "label":"radio 1",
+                                        "value":"A",
+                                        "group":"gender"
+                                        
+                                    },
+                                    {
+                                        "label":"radio 2",
+                                        "value":"B",
+                                        "group":"gender",
+                                        "isChecked":true
+                                    },
+                                    {
+                                        "label":"radio 1C",
+                                        "value":"C",
+                                        "group":"gender"
+                                    },
+                                    {
+                                        "label":"radio 2D",
+                                        "value":"D",
+                                        "group":"gender"
+                                    }
+                                ]
                             }
 
             ]
