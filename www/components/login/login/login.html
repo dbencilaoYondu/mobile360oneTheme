@@ -1,7 +1,7 @@
 <ion-view id="login">
   <ion-content>
   <h2 class="title">{{login.login.formName}}</h2>
-	<form action="">
+	<form name="loginForm" ng-submit="login.signin()">
 		<div class="list">
 		  <label class="item item-input">
 		    <span class="input-label">{{login.login.usernameLabel}}</span>
@@ -12,7 +12,7 @@
 		    <input type="password" ng-model='formLogin.password'>
 		  </label>
 		</div>
-		<button type="submit" ng-click="login.signin()" class="button button-block">{{login.login.submitBtn}}</button>
+		<button type="submit" class="button button-block">{{login.login.submitBtn}}</button>
 	</form>
 	<div class="row">
 		<a class="col col-50 text-center button button-outline" href="#/app/register">register</a>

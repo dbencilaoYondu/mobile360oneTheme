@@ -14,7 +14,7 @@ app.controller('LoginCtrl',function($scope,$http,$state,$rootScope,$ionicScrollD
 
 
 	$scope.login.signin = function(){
-
+		
 		//UNCOMMENT WHEN LOGIN API IS READY: CHANGE URL WITH UPDATED API URL
 		$scope.formLogin.appId = $scope.login.login.appId;
 		$scope.stringData = JSON.stringify($scope.formLogin);
@@ -62,7 +62,7 @@ app.controller('LoginCtrl',function($scope,$http,$state,$rootScope,$ionicScrollD
 			$state.go($rootScope.currentState,true);
 
 		}*/
-
+		console.log($scope);
 		console.log($rootScope);
 		console.log(sessionStorage);
 	}
