@@ -3,6 +3,7 @@
   <h2 class="title">{{login.login.formName}}</h2>
 	<form action="">
 		<div class="list">
+			<input type="hidden" ng-model='formLogin.appId' id="appId" ng-value="login.login.appId">
 		  <label class="item item-input">
 		    <span class="input-label">{{login.login.usernameLabel}}</span>
 		    <input type="text" ng-model='formLogin.username'>

@@ -58,6 +58,7 @@
             "successMsg":"login successfull"
         },
         "login":{
+            "appId":"111",
             "api":"http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/login",
             "formName":"form title test",
             "usernameLabel":"username test",
