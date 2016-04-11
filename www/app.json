@@ -45,9 +45,11 @@
                                     }
                                 ]
                             },
+                            
                              {
                                 "type":"radio",
                                 "label":"gender group 1",
+                                "group":"gender1",
                                 "radioList":[
                                     {
                                         "label":"radio 1",
@@ -60,19 +62,29 @@
                                         "value":"B",
                                         "group":"gender",
                                         "isChecked":true
-                                    },
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"radio",
+                                "label":"gender group 2",
+                                "group":"gender2",
+                                "radioList":[
                                     {
-                                        "label":"radio 1C",
+                                        "label":"radio 1",
                                         "value":"C",
-                                        "group":"gender"
+                                        "group":"gender2"
+                                        
                                     },
                                     {
-                                        "label":"radio 2D",
+                                        "label":"radio 2",
                                         "value":"D",
-                                        "group":"gender"
+                                        "group":"gender2",
+                                        "isChecked":true
                                     }
                                 ]
                             }
+
 
             ]
         },
