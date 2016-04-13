@@ -97,10 +97,16 @@
   #navigation .navList {
     overflow-x: scroll;
     width: 100%;
-    flex-wrap: inherit; }
+    flex-wrap: inherit;
+    height: 43px;
+     }
     #navigation .navList li {
       text-align: center;
-      background-color: #ff2a00; }
+      background-color: #ff2a00;
+      display:inline; }
+      #navigation .navList li a{
+        padding:5px;
+      }
     #navigation .navList .customIcon {
       padding: 5px 6px; }
 
