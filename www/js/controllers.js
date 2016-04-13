@@ -260,8 +260,7 @@ app.controller('SettingsCtrl',function($scope,$rootScope,$ionicModal,Pages,MenuF
 
     $scope.data = Pages;
     Pages.getSpecs();
-    console.log('dataaaaaaaa');
-    console.log($scope.data.data.data);
+
     //console.log(MenuFunctions);
     //MenuFunctions.flyout.open();
     if($scope.data.data.data.headerText){

@@ -40,13 +40,14 @@
 			  	<label ng-if="info.type == 'checkbox'">
 			  		<h3>{{info.label}}</h3> 		
 			  		<ion-list>
-					  <ion-checkbox ng-model="form.checkbox[check.group][check.label]" ng-checked="check.isChecked" ng-repeat="check in info.checkList">{{check.label}}</ion-checkbox>
+						<ion-checkbox ng-model="form.checkbox[check.group][check.modelName]" ng-checked="check.isChecked" ng-repeat="check in info.checkList">{{check.label}}</ion-checkbox>
+						
 					</ion-list>
 			  	</label>
 			  	<label ng-if="info.type == 'radio'">
 			  		<h3>{{info.label}}</h3> 		
 			  		<ion-list>
-					 <ion-radio ng-model="form.radio[info.label][radio.group]" name="{{radio.group}}" icon="ion-record" ng-value="radio.label" ng-class="{default : radio.isChecked}" ng-click="removeDefault()" ng-repeat="radio in info.radioList">{{radio.label}}</ion-radio>
+					 <ion-radio ng-model="form.radio[info.group][radio.group]" name="{{radio.group}}" icon="ion-record" ng-value="radio.label" ng-class="{default : radio.isChecked}" ng-click="removeDefault()" ng-repeat="radio in info.radioList">{{radio.label}}</ion-radio>
 					</ion-list>
 			  	</label>
 			  </div>

@@ -5,8 +5,9 @@
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":true,
+        "isGlobal":false,
         "register":{
+            "appId":"111",
             "api":"http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/signup",
             "formName":"form title test",
             "emailLabel":"email test",
@@ -36,7 +37,9 @@
                                     {
                                         "label":"check 1",
                                         "modelName":"check1",
-                                        "group":"checkgroup group"
+                                        "groupName":"checkgroupGroup",
+                                        "group":"checkgroup group",
+                                        "isChecked":true
                                     },
                                     {
                                         "label":"check 2",

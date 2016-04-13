@@ -9808,6 +9808,9 @@ ion-slide .blue.box {
   padding: 6px;
   color: green; }
 
+#register .default .radio-content .radio-icon {
+  visibility: visible; }
+
 #forgotPassword .placeholder-icon {
   font-size: 24px; }
 

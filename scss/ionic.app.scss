@@ -20,6 +20,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+
 .snappyTheme{
 	#menu{
 		z-index:5;
@@ -115,6 +117,9 @@ ion-slide{
 	.item-input .icon{
 		padding:6px;
 		color:green;
+	}
+	.default .radio-content .radio-icon{
+		visibility: visible;
 	}
 }
 #forgotPassword{

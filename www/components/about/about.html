@@ -5,7 +5,7 @@
 	<div ng-show="currentAboutData" class="wrapper">
 		<img ng-show="currentAboutData.banner" class="banner" ng-src="{{currentAboutData.banner}}" alt="{{currentAboutData.banner}}">
 		
-		<div class="custom-content" ng-repeat="info in currentAboutData.content">
+		<div data-customid="{{$index}}" class="custom-content" ng-repeat="info in currentAboutData.content">
 			<h3>{{info.title}}</h3>
 			<div class="card">
 				<div class="header"><img ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
@@ -17,7 +17,7 @@
 	<div ng-hide="currentAboutData" class="wrapper">
 		<img ng-show="currentParentOfSubInfo.banner" class="banner" ng-src="{{currentParentOfSubInfo.banner}}" alt="{{currentParentOfSubInfo.banner}}">
 		
-		<div class="custom-content" ng-repeat="info in currentParentOfSubInfo.content">
+		<div data-customid="{{$index}}" class="custom-content" ng-repeat="info in currentParentOfSubInfo.content">
 			<h3>{{info.title}}</h3>
 			<div class="card">
 				<div class="header"><img ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
