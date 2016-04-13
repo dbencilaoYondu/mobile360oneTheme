@@ -7,7 +7,7 @@
     "login":{
         "isGlobal":false,
         "register":{
-            "appId":"111",
+            "appId":"",
             "api":"http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/signup",
             "formName":"form title test",
             "emailLabel":"email test",
