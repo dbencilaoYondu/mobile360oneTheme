@@ -8,7 +8,7 @@
 		<div class="custom-content" ng-repeat="info in currentAboutData.content">
 			<h3 data-customid="about_header_{{$index}}">{{info.title}}</h3>
 			<div class="card">
-				<div class="header"><img data-customid="about_img_{{$index}}" ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
+				<div class="header"><img ng-show="info.photo" data-customid="about_img_{{$index}}" ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
 				<div data-customid="about_text_{{$index}}" class="item item-text-wrap">{{info.text}}</div>
 				
 			</div>
@@ -20,7 +20,7 @@
 		<div class="custom-content" ng-repeat="info in currentParentOfSubInfo.content">
 			<h3 data-customid="about_header_{{$index}}">{{info.title}}</h3>
 			<div class="card">
-				<div class="header"><img data-customid="about_img_{{$index}}" ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
+				<div class="header"><img ng-show="info.photo" data-customid="about_img_{{$index}}" ng-src="{{info.photo}}" alt="{{info.title}} header"></div>
 				<div data-customid="about_text_{{$index}}" class="item item-text-wrap">{{info.text}}</div>
 				
 			</div>
