@@ -1,9 +1,10 @@
 
+
 <ion-view id="editor">
   <ion-content>
-  		<div class="wrapper" ng-show="currentEditorData.content" ng-bind-html="$sce.trustAsHtml(currentEditorData.content)"></div>
+  		<div class="wrapper" ng-show="currentEditorData.content" data-customid="editor_txt_{{currentEditorData.id}}" ng-bind-html="$sce.trustAsHtml(currentEditorData.content)"></div>
 
-  		<div class="wrapper" ng-hide="currentEditorData.content" ng-bind-html="currentEditorDataHtml"></div>
+  		<div class="wrapper" ng-hide="currentEditorData.content" data-customid="editor_txt_{{currentEditorData.id}}" ng-bind-html="currentEditorDataHtml"></div>
   </ion-content>
 </ion-view>
 
