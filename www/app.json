@@ -1,13 +1,13 @@
 {
-    "theme":"tabularImg",
+    "theme":"flyOutList",
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":false,
+        "isGlobal":true,
         "register":{
-            "appId":"",
+            "appId":"111",
             "api":"http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/signup",
             "formName":"form title test",
             "emailLabel":"email test",
@@ -33,37 +33,55 @@
                              {
                                 "type":"checkbox",
                                 "label":"checkbox",
+                                "groupName":"checkgroupGroup1",
+                                "group":"checkgroup group1",
                                 "checkList":[
                                     {
                                         "label":"check 1",
                                         "modelName":"check1",
-                                        "groupName":"checkgroupGroup",
-                                        "group":"checkgroup group",
                                         "isChecked":true
                                     },
                                     {
                                         "label":"check 2",
                                         "modelName":"check2",
-                                        "group":"checkgroup group"
+                                         "isChecked":true
                                     }
                                 ]
                             },
-                            
-                             {
+                            {
+                                "type":"checkbox",
+                                "label":"checkbox",
+                                "groupName":"checkgroupGroup2",
+                                "group":"checkgroup group2",
+                                "checkList":[
+                                    {
+                                        "label":"check 3",
+                                        "modelName":"check3",                                 
+                                        "isChecked":true
+                                    },
+                                    {
+                                        "label":"check 4",
+                                        "modelName":"check4"
+                                    }
+                                ]
+                            },
+                              {
                                 "type":"radio",
                                 "label":"gender group 1",
-                                "group":"gender1",
+                                "groupName":"gendergroup1",
                                 "radioList":[
                                     {
                                         "label":"radio 1",
                                         "value":"A",
-                                        "group":"gender"
+                                        "modelName":"radio1",
+                                        "groupName":"radiogroup1"
                                         
                                     },
                                     {
                                         "label":"radio 2",
                                         "value":"B",
-                                        "group":"gender",
+                                        "modelName":"radio2",
+                                        "groupName":"radiogroup1",
                                         "isChecked":true
                                     }
                                 ]
@@ -71,22 +89,25 @@
                             {
                                 "type":"radio",
                                 "label":"gender group 2",
-                                "group":"gender2",
+                                "groupName":"gendergroup2",
                                 "radioList":[
                                     {
                                         "label":"radio 1",
                                         "value":"C",
-                                        "group":"gender2"
+                                        "modelName":"radio1",
+                                        "groupName":"radiogroup2"
                                         
                                     },
                                     {
                                         "label":"radio 2",
                                         "value":"D",
-                                        "group":"gender2",
+                                        "modelName":"radio2",
+                                        "groupName":"radiogroup2",
                                         "isChecked":true
                                     }
                                 ]
                             }
+                           
 
 
             ]

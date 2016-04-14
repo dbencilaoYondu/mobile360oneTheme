@@ -28,32 +28,42 @@ app.controller('RegisterCtrl',function($scope,$ionicScrollDelegate,Pages,$http){
 	    return p.join('&');
   	};
 
-  	angular.forEach($scope.register.customFields,function(value,key){
+  	//array of checkbox
+  	$scope.form.checkbox = {};
+  	//array of radio
+  	$scope.form.radio = {};
 
-  		if(value.type == 'checkbox'){
+  	angular.forEach($scope.register.customFields,function(valueprime,key){
 
-			angular.forEach(value.checkList,function(value,key){
+  		if(valueprime.type == 'checkbox'){
+
+  			$scope.form.checkbox[valueprime.groupName] = [];
+
+			angular.forEach(valueprime.checkList,function(value,key){
 				if(value.isChecked){
-					$scope.form.checkbox = {
-						[value.group]:{
-							[value.label]:true
-						}
-					};
+
+					$scope.form.checkbox[valueprime.groupName].push({
+						[value.modelName] : true
+					});
+
 				}
-				
+
 			});
 		}
 
-		if(value.type == 'radio'){
-			$scope.form.radio = [];
-			/*var radioG = {
-				[value.group]:{}
-			}*/
-			$scope.form.radio.push([value.group]);
-			angular.forEach(value.radioList,function(value,key){
+		if(valueprime.type == 'radio'){
+			
+			$scope.form.radio[valueprime.groupName] = {};
+
+			angular.forEach(valueprime.radioList,function(value,key){
+				
 				if(value.isChecked){
-					$scope.form.radio.push([value.group]);
+					/*$scope.form.radio[valueprime.groupName].push({
+						[value.modelName] : value.modelName
+					});*/
+					$scope.form.radio[valueprime.groupName][value.groupName] = value.modelName;
 				}
+				
 				
 			});
 		}
@@ -85,8 +95,9 @@ app.controller('RegisterCtrl',function($scope,$ionicScrollDelegate,Pages,$http){
 		        console.log(response);
 		        $scope.error = $scope.register.onError;
 		      });
-		     $scope.form = {};
+		     //$scope.form = {};
 		     $ionicScrollDelegate.scrollTop();
+		     console.log($scope);
 	}
 
 	console.log($scope);
