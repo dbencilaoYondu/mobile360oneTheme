@@ -1483,20 +1483,6 @@
             "controller":"ProfileCtrl",
             "defaultState": false
         },
-        {
-            "state": "app.chatlogin",
-            "url": "/chatlogin",
-            "templateUrl": "components/chat/login.html",
-            "controller":"ChatLoginCtrl",
-            "defaultState": false
-        },
-         {
-            "state": "app.chat",
-            "url": "/chat/:nickname",
-            "templateUrl": "components/chat/chat.html",
-            "controller":"ChatCtrl",
-            "defaultState": false
-        },
          {
             "state": "app.register",
             "url": "/register",
