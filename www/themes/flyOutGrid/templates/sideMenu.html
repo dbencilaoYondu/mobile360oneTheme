@@ -4,8 +4,8 @@
     	<header class="bar bar-header">    			
     			<div class="text-center title">
                     <a ng-click="defaultState()" class="logo-title">
-                      <span ng-hide="data.data.data.logo">{{headerText}}</span>
-                      <img ng-show="data.data.data.logo" class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
+                      <span ng-hide="data.data.data.logo" data-customid="label_header_text_{{info.id}}">{{headerText}}</span>
+                      <img ng-show="data.data.data.logo" data-customid="logo_header_{{info.id}}" class="logo" ng-src="{{data.data.data.logo}}" alt="{{data.data.data.applicationName}} logo">
                     </a>
 
                 </div>
@@ -20,21 +20,21 @@
             </div>
     		<li ng-hide="subsOn" class="col col-50 text-center nosubs" ng-repeat="info in menuItems">
     			<a ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);backdropActive();">
-    				<i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
-                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+    				<i ng-hide="info.customIcon" data-customid="label_icon_{{info.id}}" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" data-customid="label_img_{{info.id}}" ng-src="{{info.customIcon}}" alt="{{info.label}}">
     				<span class="link_text" data-customid="label_text_{{info.id}}">{{info.label}}</span>
                     <i class="subArrow icon ion-arrow-down-b"></i>
     			</a>
                 <a ng-hide="info.subMenu" href="{{info.href}}" ng-click="backdropHide();">
-                    <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
-                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                    <i ng-hide="info.customIcon" class="icon {{info.iconOn}}" data-customid="label_icon_{{info.id}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" data-customid="label_img_{{info.id}}" ng-src="{{info.customIcon}}" alt="{{info.label}}">
                     <span class="link_text" data-customid="label_text_{{info.id}}">{{info.label}}</span>
                 </a>
     		</li>
             <li ng-show="subsOn" class="col col-50 text-center subs" ng-repeat="info in currentParentOfSub.menuItems">
                 <a href="{{info.href}}" ng-click="pageInfo($index);backdropHide();">
-                   <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
-                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                   <i ng-hide="info.customIcon" class="icon {{info.iconOn}}" data-customid="label_icon_{{info.id}}"></i>
+                    <img ng-show="info.customIcon" class="customIcon" data-customid="label_text_{{info.id}}" ng-src="{{info.customIcon}}" alt="{{info.label}}">
                    <span class="link_text" data-customid="label_text_{{info.id}}">{{info.label}}</span>
                 </a>
             </li>

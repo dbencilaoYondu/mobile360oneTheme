@@ -10,8 +10,8 @@
           <ul class="menuList list">
             <li class="item item-icon-left" ng-repeat="info in menuItems" ng-class="info.label">
               <a ng-href="{{info.href}}">
-                 <i class="icon {{info.iconOn}}"></i>
-                <span>{{info.label}}</span>
+                 <i data-customid="label_icon_{{info.id}}" class="icon {{info.iconOn}}"></i>
+                <span data-customid="label_text_{{info.id}}">{{info.label}}</span>
               </a>
             </li>
           </ul>
@@ -23,9 +23,9 @@
     <li ng-repeat="info in menuItems" class="col col-50" ng-class="info.label">
 
       <a ng-href="{{info.href}}" >
-        <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
-        <img ng-show="info.menuImg" ng-src="{{info.menuImg}}" alt="{{info.label}}">
-        <h2>{{info.label}}</h2>
+        <i ng-hide="info.customIcon" data-customid="label_icon_{{info.id}}" class="icon {{info.iconOn}}"></i>
+        <img ng-show="info.menuImg" data-customid="label_img_{{info.id}}" ng-src="{{info.menuImg}}" alt="{{info.label}}">
+        <h2 data-customid="label_text_{{info.id}}">{{info.label}}</h2>
       </a>
     </li>
   </ul>
@@ -37,8 +37,8 @@
     <ul class="menuList">
     <li ng-repeat="info in menuItems" ng-class="info.label" >
       <a ng-href="{{info.href}}">
-        <img ng-show="info.menuImg" ng-src="{{info.menuImg}}" alt="{{info.label}}">
-        <h2>{{info.label}}</h2>
+        <img ng-show="info.menuImg" data-customid="label_img_{{info.id}}" ng-src="{{info.menuImg}}" alt="{{info.label}}">
+        <h2 data-customid="label_text_{{info.id}}">{{info.label}}</h2>
       </a>
     </li>
   </ul>

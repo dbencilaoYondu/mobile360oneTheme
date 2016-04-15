@@ -4,23 +4,23 @@
             <ul class="list">
               <li ng-hide="subsOn" class="nosubs" ng-repeat="info in menuItems">
                 <a class="item item-icon-left item-icon-right" ng-click="subsSwitch(info.label,$index);" ng-show="info.subMenu">
-                  <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"> </i>
-                   <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
-                  {{info.label}}
+                  <i ng-hide="info.customIcon" data-customid="label_icon_{{info.id}}" class="icon {{info.iconOn}}"> </i>
+                   <img ng-show="info.customIcon" data-customid="label_img_{{info.id}}" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                  <span data-customid="label_text_{{info.id}}">{{info.label}}</span>
                   <i class="subArrow icon ion-chevron-right"></i>
                 </a>
                 <a class="item item-icon-left" ng-hide="info.subMenu" href="{{info.href}}" ng-click="closeMoreModal()">
-                  <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"> </i>
-                   <img class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
-                  {{info.label}}
+                  <i ng-hide="info.customIcon" data-customid="label_icon_{{info.id}}" class="icon {{info.iconOn}}"> </i>
+                   <img class="customIcon" data-customid="label_img_{{info.id}}" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                  <span data-customid="label_text_{{info.id}}">{{info.label}}</span>
                 </a>
               </li>
 
               <li ng-show="subsOn" class="subs" ng-repeat="info in currentParentOfSub.menuItems">
                   <a  class="item item-icon-left" href="{{info.href}}" ng-click="pageInfo($index);closeMoreModal();">
-                      <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
-                      <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
-                      {{info.label}}
+                      <i ng-hide="info.customIcon" data-customid="label_icon_{{info.id}}" class="icon {{info.iconOn}}"></i>
+                      <img ng-show="info.customIcon" data-customid="label_img_{{info.id}}" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                      <span data-customid="label_text_{{info.id}}">{{info.label}}</span>
 
                   </a>
               </li>
@@ -38,14 +38,14 @@
   <ul class="row list-inline navList">
     <li ng-repeat="info in menuItems | limitTo:quantity" class="col col-25" test my-id="{{info.label}}" data-name="{{info.label}}">
       <a ng-show="info.subMenu" ng-click="subsSwitch(info.label,$index);moreModal()" class="button button-clear">
-        <i ng-hide="info.customIcon" class="{{info.iconOn}}" ></i>
-        <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
-        <div class="menuTitle">{{info.label}}</div>
+        <i ng-hide="info.customIcon" class="{{info.iconOn}}" data-customid="label_icon_{{info.id}}"></i>
+        <img ng-show="info.customIcon" class="customIcon" data-customid="label_img_{{info.id}}" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+        <div class="menuTitle"  data-customid="label_text_{{info.id}}">{{info.label}}</div>
       </a>
       <a ng-hide="info.subMenu" href="{{info.href}}" class="button button-clear">
-        <i ng-hide="info.customIcon" class="{{info.iconOn}}" ></i>
-        <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
-        <div class="menuTitle">{{info.label}}</div>
+        <i ng-hide="info.customIcon" class="{{info.iconOn}}" data-customid="label_icon_{{info.id}}"></i>
+        <img ng-show="info.customIcon" class="customIcon" data-customid="label_img_{{info.id}}" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+        <div class="menuTitle" data-customid="label_text_{{info.id}}">{{info.label}}</div>
       </a>
     </li>
     <li class="col col-25 more" ng-click="moreModal();backToParentMenu();" ng-show="showMoreMenu">

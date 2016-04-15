@@ -1,19 +1,13 @@
 <div class="flyout sub" ng-show="subsOn">
-	   <!-- <header class="bar bar-header">
-       
-                       <div class="button button-icon sort" ng-click="sortMenu();"><i class="{{sortIcon}}"></i></div>
-                       <div class="text-center title">title</div>
-                       <button class="button button-icon flyback" ng-click="flyBack();"><i class="ion-ios-arrow-left"></i></button>
-       
-               </header> -->
+
   <ion-content class="scroll-content ionic-scroll" hide-nav-bar="true" has-header='false' >
     	<ul class="menuList menu1 active" ng-class="withHieght">
 
             <li ng-show="subsOn" class="text-center subs" ng-repeat="info in currentParentOfSub.menuItems">
                 <a href="{{info.href}}" ng-click="pageInfo($index);backdropHide();">
-                   <i ng-hide="info.customIcon" class="icon {{info.iconOn}}"></i>
-                    <img ng-show="info.customIcon" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
-                    <p>{{info.label}}</p>
+                   <i ng-hide="info.customIcon" data-customid="label_icon_{{info.id}}" class="icon {{info.iconOn}}"></i>
+                    <img ng-show="info.customIcon" data-customid="label_img_{{info.id}}" class="customIcon" ng-src="{{info.customIcon}}" alt="{{info.label}}">
+                    <p data-customid="label_text_{{info.id}}">{{info.label}}</p>
                 </a>
             </li>
         </ul>
