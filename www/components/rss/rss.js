@@ -8,12 +8,16 @@ app.controller("FeedCtrl", ['$scope','$rootScope','$timeout','FeedService','Page
     $scope.startLoading('feeding...');
     $scope.loadFeed = function(url){
         $scope.startLoading('loading feed...');
-        Feed.parseFeed(url).then(function(res){
+        Feed.parseFeed(url)
+        .then(function(res){
             console.log(res);
             $scope.feeds = res.data.responseData.feed.entries;
+             //$scope.stopLoading();
         })
         .then(function(){
-          $scope.stopLoading();
+          $timeout(function(){
+             $scope.stopLoading();
+           },3000);
         });
     }
    
