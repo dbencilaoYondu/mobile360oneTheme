@@ -658,6 +658,15 @@
                         "url":"http://www.cnn.com"
                     },
                     {
+                        "id":112,
+                        "href": "#/app/website112",
+                        "label": "website112",
+                        "type": "website",
+                        "iconOn":"ion-earth",
+                        "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                        "url":"http://www.yondu.com"
+                    },
+                    {
                         "id":602,
                         "href": "#/app/about24",
                         "label": "About24",
@@ -1253,15 +1262,7 @@
                 "channelId":"UCLEKgoTUuNydpscaToRKI2Q"
             }
         },
-        {
-            "id":11,
-            "href": "#/app/website2",
-            "label": "website2",
-            "type": "website",
-            "iconOn":"ion-earth",
-            "customIcon":"../img/custom-icon/ionic-placeholder.png",
-            "url":"http://www.cnn.com"
-        },
+        
         {
             "id":12,
             "href": "#/app/website",
@@ -1537,7 +1538,7 @@
             "parentId":"1",
             "data":"101",
             "isCached":false,
-            "defaultState": true
+            "defaultState": false
         },
         {
             "state": "app.aboutContact2",
@@ -1741,6 +1742,15 @@
             "templateUrl": "components/website/website.html",
             "controller": "WebsiteCtrl",
             "data":"11"
+        },
+        {
+            "state": "app.website112",
+            "url": "/website112",
+            "templateUrl": "components/website/website.html",
+            "controller": "WebsiteCtrl",
+            "data":"112",
+            "parentId":"6",
+            "defaultState": true
         },
         {
             "state": "app.video",
