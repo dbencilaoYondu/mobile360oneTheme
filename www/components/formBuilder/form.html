@@ -5,7 +5,7 @@
 </style>
 <ion-view id="form">
   <ion-content>
-	<div class="wrapper" ng-show="currentFormData.fields">
+	<div class="wrapper" ng-class="{noBanner:!currentFormData.banner}" ng-show="currentFormData.fields">
 		<header class="banner" ng-show="currentFormData.label">
 			<h2 data-customid="fb_banner_text_{{currentFormData.id}}">{{currentFormData.label}}</h2>
 			<img ng-show="currentFormData.banner" ng-src="{{currentFormData.banner}}" alt="currentFormData.label">

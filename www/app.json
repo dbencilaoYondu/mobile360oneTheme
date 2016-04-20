@@ -988,7 +988,7 @@
             "type": "form",
             "iconOn":"ion-android-list",
             "customIcon":"../img/custom-icon/ionic-placeholder.png",
-            "banner":"../img/custom-images/inquire/banner-inquire.jpg",
+
             "emailId":"donbenci13@gmail.com",
             "subject":"From custom form",
             "formName":"myForm",

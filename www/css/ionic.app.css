@@ -9857,6 +9857,10 @@ ion-slide .blue.box {
 
 #form .wrapper {
   padding-bottom: 84px; }
+  #form .wrapper.noBanner .banner {
+    height: 64px; }
+    #form .wrapper.noBanner .banner h2 {
+      margin-top: 21px; }
 
 #form .banner {
   height: 136px;

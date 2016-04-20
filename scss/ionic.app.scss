@@ -186,7 +186,16 @@ ion-slide{
 #form{
 	.wrapper{
 		padding-bottom: 84px;
+		&.noBanner{
+			.banner{
+				height:64px;
+				h2{
+					margin-top:21px;
+				}
+			}
+		}
 	}
+
 	.banner{
 		height: 136px;
 	    background-size: cover;
