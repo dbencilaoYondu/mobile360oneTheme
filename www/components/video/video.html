@@ -3,10 +3,10 @@
   <ion-content>
   
     <div ng-show="currentVideoData" class="wrapper">
-           <h2 class="content padding double-padding-x">{{currentVideoData.label}}</h2>
+           <h2 class="content padding double-padding-x"  data-customid="label_text_{{currentVideoData.id}}">{{currentVideoData.label}}</h2>
            <div class="list card" ng-repeat="video in videos">
             <div class="item item-text-wrap">
-              <h2>{{video.snippet.title}}</h2>
+              <h2 >{{video.snippet.title}}</h2>
               <p>{{video.snippet.publishedAt | date : format : timezone}}</p>
             </div>
             <div class="item item-image">
@@ -17,10 +17,10 @@
         </div>
     </div>
     <div ng-hide="currentVideoData" class="wrapper">
-           <h2 class="content padding double-padding-x">{{currentParentOfSubInfo.label}}</h2>
+           <h2 class="content padding double-padding-x"  data-customid="label_text_{{currentVideoData.id}}">{{currentParentOfSubInfo.label}}</h2>
            <div class="list card" ng-repeat="video in videos">
             <div class="item item-text-wrap">
-              <h2>{{video.snippet.title}}</h2>
+              <h2 >{{video.snippet.title}}</h2>
               <p>{{video.snippet.publishedAt | date : format : timezone}}</p>
             </div>
             <div class="item item-image">
@@ -32,5 +32,6 @@
     </div>
   </ion-content>
 </ion-view>
+
 
 

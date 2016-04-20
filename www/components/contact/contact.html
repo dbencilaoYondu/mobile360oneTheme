@@ -2,24 +2,24 @@
 <ion-view id="contact">
   <ion-content>
 	<div class="wrapper">
-		<h2>{{currentContactData.label}}</h2>
+		<h2 data-customid='label_text_{{currentContactData.id}}'>{{currentContactData.label}}</h2>
 		<div ng-show="currentContactData.contacts">
-			<ul class="list list-inset">
-			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentContactData.contacts">
-			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
-					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
-			    	 <p>{{contact.input}}</p>
-			    	 <p class="contact-label">{{contact.title}}</p>
+			<ul class="list list-inset"  data-customid="contact_parent_wrapper_{{currentContactData.id}}">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentContactData.contacts" data-customid="contact_wrapper_{{currentContactData.id}}_{{$index}}">
+			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}" data-customid="contact_icon_{{currentContactData.id}}_{{$index}}"></i>
+					<img class="customIcon" ng-src="{{contact.customIcon}}" data-customid="contact_image_{{currentContactData.id}}_{{$index}}" alt="{{custom.input}}">
+			    	 <p data-customid="contact_title_{{currentContactData.id}}_{{$index}}">{{contact.input}}</p>
+			    	 <p class="contact-label" data-customid="contact_desc_{{currentContactData.id}}_{{$index}}">{{contact.title}}</p>
 			    </li>
 			</ul>
 		</div>
-		<div ng-hide="currentContactData.contacts">
-			<ul class="list list-inset">
-			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentParentOfSubInfo.contacts">
-			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}"></i>
-					<img class="customIcon" ng-src="{{contact.customIcon}}" alt="{{custom.input}}">
-			    	 <p>{{contact.input}}</p>
-			    	 <p class="contact-label">{{contact.title}}</p>
+		<div ng-hide="currentContactData.contacts" >
+			<ul class="list list-inset" data-customid="contact_parent_wrapper_{{currentContactData.id}}">
+			    <li class="item item-icon-left item-text-wrap" ng-repeat="contact in currentParentOfSubInfo.contacts" data-customid="contact_wrapper_{{currentContactData.id}}_{{$index}}">
+			    	<i ng-hide="contact.customIcon" class="icon {{contact.icon}}" data-customid="contact_icon_{{currentContactData.id}}_{{$index}}"></i>
+					<img class="customIcon" ng-src="{{contact.customIcon}}" data-customid="contact_image_{{currentContactData.id}}_{{$index}}" alt="{{custom.input}}">
+			    	 <p data-customid="contact_title_{{currentContactData.id}}_{{$index}}">{{contact.input}}</p>
+			    	 <p class="contact-label" data-customid="contact_desc_{{currentContactData.id}}_{{$index}}">{{contact.title}}</p>
 			    </li>
 			</ul>
 		</div>
