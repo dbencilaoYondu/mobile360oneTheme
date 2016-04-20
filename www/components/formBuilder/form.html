@@ -7,7 +7,7 @@
   <ion-content>
 	<div class="wrapper" ng-class="{noBanner:!currentFormData.banner}" ng-show="currentFormData.fields">
 		<header class="banner" ng-show="currentFormData.label">
-			<h2 ng-show="currentFormData.label" data-customid="fb_banner_text_{{currentFormData.id}}">{{currentFormData.label}}</h2>
+			<h2 ng-show="currentFormData.label" ng-hide="currentParentOfSubInfo.banner" data-customid="fb_banner_text_{{currentFormData.id}}">{{currentFormData.label}}</h2>
 			<img ng-show="currentFormData.banner" ng-src="{{currentFormData.banner}}" alt="currentFormData.label">
 		</header>
 		<p class="formDescription">{{currentFormData.description}}</p>
@@ -62,7 +62,7 @@
 
 	<div class="wrapper" ng-hide="currentFormData.fields">
 		<header ng-show="currentParentOfSubInfo.label" class="banner">
-			<h2 ng-show="currentFormData.label">{{currentParentOfSubInfo.label}}</h2>
+			<h2 ng-show="currentFormData.label" ng-hide="currentParentOfSubInfo.banner">{{currentParentOfSubInfo.label}}</h2>
 			<img ng-show="currentParentOfSubInfo.banner" ng-src="{{currentParentOfSubInfo.banner}}" alt="currentParentOfSubInfo.label">
 		</header>
 		<p class="formDescription">{{currentParentOfSubInfo.description}}</p>
