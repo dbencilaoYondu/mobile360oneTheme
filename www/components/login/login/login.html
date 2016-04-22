@@ -1,22 +1,22 @@
 <ion-view id="login">
   <ion-content>
-  <h2 class="title">{{login.login.formName}}</h2>
+  <h2 class="title" data-customid="lg_name_{{login.login.appId}}">{{login.login.formName}}</h2>
 	<form name="loginForm" ng-submit="login.signin()">
 		<div class="list">
 		  <label class="item item-input">
-		    <span class="input-label">{{login.login.usernameLabel}}</span>
+		    <span class="input-label" data-customid="lg_username_{{login.login.appId}}">{{login.login.usernameLabel}}</span>
 		    <input type="text" ng-model='formLogin.username'>
 		  </label>
 		  <label class="item item-input">
-		    <span class="input-label">{{login.login.passwordLabel}}</span>
+		    <span class="input-label" data-customid="lg_password_{{login.login.appId}}">{{login.login.passwordLabel}}</span>
 		    <input type="password" ng-model='formLogin.password'>
 		  </label>
 		</div>
-		<button type="submit" class="button button-block">{{login.login.submitBtn}}</button>
+		<button type="submit" class="button button-block" data-customid="lg_submitbtn_{{login.login.appId}}">{{login.login.submitBtn}}</button>
 	</form>
 	<div class="row">
-		<a class="col col-50 text-center button button-outline" href="#/app/register">register</a>
-		<a class="col col-50 text-center button button-outline" href="#/app/forgotpassword">forgot password</a>
+		<a class="col col-50 text-center button button-outline" href="#/app/register" data-customid="lg_regbtn_{{login.login.appId}}">register</a>
+		<a class="col col-50 text-center button button-outline" href="#/app/forgotpassword" data-customid="lg_forgotbtn_{{login.login.appId}}">forgot password</a>
 	</div>
   </ion-content>
 </ion-view>
