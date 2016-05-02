@@ -7,10 +7,10 @@
   <ion-content>
 	<div class="wrapper" ng-class="{noBanner:!currentFormData.banner}" ng-show="currentFormData.fields">
 		<header class="banner" ng-show="currentFormData.label">
-			<h2 ng-show="currentFormData.label" ng-hide="currentFormData.banner" data-customid="fb_banner_text_{{currentFormData.id}}">{{currentFormData.label}}</h2>
+			<h2 ng-show="currentFormData.label" ng-hide="currentFormData.banner" data-customid="label_text_{{currentFormData.id}}">{{currentFormData.label}}</h2>
 			<img ng-show="currentFormData.banner" ng-src="{{currentFormData.banner}}" alt="currentFormData.label">
 		</header>
-		<p class="formDescription">{{currentFormData.description}}</p>
+		<p class="formDescription" data-customid="fb_desc_{{currentFormData.id}}">{{currentFormData.description}}</p>
 		<div ng-show="success" class="bar bar-header bar-balanced">
 					<p class="title">{{success}}</p>
 		</div>
@@ -19,39 +19,39 @@
 		</div>
 		<form class="form" name="myForm" novalidate ng-submit="submitForm()">
 			<div class="list list-inset">
-			  <div ng-repeat="info in currentFormData.fields">
+			  <div ng-repeat="(key,info) in currentFormData.fields">
 			  	<label class="item item-input" ng-if="info.type == 'input'">
-			  		<input type="text" placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]" ng-required="{{info.required}}">
+			  		<input type="text" placeholder="{{info.label}}" data-customid="fb_textinput_{{currentFormData.id}}_{{$index}}" name="{{info.label}}" ng-model="form[info.label]" ng-required="{{info.required}}">
 			  	</label>
 			  	<label class="item item-input"  ng-if="info.type == 'textarea'">
 			  		<textarea placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]"></textarea>
 			  	</label>
 			  	<div class="list" ng-if="info.type == 'dropdown'">
-			  	 	<h3>{{info.label}}</h3>
+			  	 	<h3 data-customid="fb_listtext_{{currentFormData.id}}_{{key}}" >{{info.label}}</h3>
 			  		<label class="item item-input item-select"  ng-repeat="item in info.selections">
-				  			<div class="input-label">
+				  			<div class="input-label" data-customid="fb_listtext_{{currentFormData.id}}_{{key}}">
 						      {{item.label}}
 						    </div>
 						    <select ng-model="form.dropdown[item.label]">
-						      <option ng-repeat="option in item.options" value="{{option.value}}">{{option.title}}</option>
+						      <option ng-repeat="(keyopt,option) in item.options" value="{{option.value}}" data-customid="fb_list_options_{{currentFormData.id}}_{{key}}_{{keyopt}}">{{option.title}}</option>
 						    </select>
 			  		</label>
 			  	</div>
 			  	<label ng-if="info.type == 'checkbox'">
-			  		<h3>{{info.label}}</h3> 		
+			  		<h3 data-customid="fb_checkbox_title_{{currentFormData.id}}_{{$index}}" >{{info.label}}</h3> 		
 			  		<ion-list>
-						<ion-checkbox ng-model="form.checkbox[info.groupName][$index][check.modelName]" ng-checked="check.isChecked" ng-repeat="check in info.checkList track by $index">{{check.label}}</ion-checkbox>
+						<ion-checkbox ng-model="form.checkbox[info.groupName][$index][check.modelName]" ng-checked="check.isChecked" ng-repeat="(checkkey,check) in info.checkList track by $index" data-customid="fb_check_options_{{currentFormData.id}}_{{key}}_{{checkkey}}" >{{check.label}}</ion-checkbox>
 						
 					</ion-list>
 			  	</label>
 			  	<label ng-if="info.type == 'radio'">
-			  		<h3>{{info.label}}</h3> 		
+			  		<h3 data-customid="fb_radio_title_{{currentFormData.id}}_{{$index}}" >{{info.label}}</h3> 		
 			  		<ion-list>
 					 <ion-radio ng-model="form.radio[info.groupName][radio.groupName]" name="{{radio.groupName}}" ng-value="radio.modelName" icon="ion-record" ng-class="{default : radio.isChecked}" ng-click="removeDefault()" ng-repeat="radio in info.radioList track by $index">{{radio.label}}</ion-radio>
 					</ion-list>
 			  	</label>
 			  </div>
-			  <button type="submit" class="button button-full button-assertive">
+			  <button type="submit" class="button button-full button-assertive" data-customid="fb_submit_btn_{{currentFormData.id}}">
 				  {{currentFormData.submitButton}}
 			  </button>
 			  	
@@ -62,46 +62,45 @@
 
 	<div class="wrapper" ng-hide="currentFormData.fields">
 		<header ng-show="currentParentOfSubInfo.label" class="banner">
-			<h2 ng-show="currentParentOfSubInfo.label" ng-hide="currentParentOfSubInfo.banner">{{currentParentOfSubInfo.label}}</h2>
+			<h2 ng-show="currentParentOfSubInfo.label" ng-hide="currentParentOfSubInfo.banner" data-customid="label_text_{{currentFormData.id}}">{{currentParentOfSubInfo.label}}</h2>
 			<img ng-show="currentParentOfSubInfo.banner" ng-src="{{currentParentOfSubInfo.banner}}" alt="currentParentOfSubInfo.label">
 		</header>
-		<p class="formDescription">{{currentParentOfSubInfo.description}}</p>
+		<p class="formDescription" data-customid="fb_desc_{{currentParentOfSubInfo.id}}">{{currentParentOfSubInfo.description}}</p>
 		<form class="form" name="myForm" novalidate ng-submit="submitForm()">
 			<div class="list list-inset">
-			  <div ng-repeat="info in currentParentOfSubInfo.fields">
+			  <div ng-repeat="(key,info) in currentParentOfSubInfo.fields">
 			  	<label class="item item-input" ng-if="info.type == 'input'">
-			  		<input type="text" placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]" ng-required="{{info.required}}">
+			  		<input type="text" placeholder="{{info.label}}" data-customid="fb_textinput_{{currentFormData.id}}_{{$index}}" name="{{info.label}}" ng-model="form[info.label]" ng-required="{{info.required}}">
 			  	</label>
 			  	<label class="item item-input"  ng-if="info.type == 'textarea'">
 			  		<textarea placeholder="{{info.label}}" name="{{info.label}}" ng-model="form[info.label]"></textarea>
 			  	</label>
 			  	<div class="list" ng-if="info.type == 'dropdown'"> 
-			  		<h3>{{info.label}}</h3>	
+			  		<h3 data-customid="fb_listtext_{{currentFormData.id}}_{{key}}">{{info.label}}</h3>	
 			  		<label class="item item-input item-select"  ng-repeat="item in info.selections">
 
-				  			<div class="input-label">
+				  			<div class="input-label" data-customid="fb_listtext_{{currentFormData.id}}_{{key}}">
 						      {{item.label}}
 						    </div>
 						    <select ng-model="form.dropdown[item.label]">
-						      <option ng-repeat="option in item.options" value="{{option.value}}">{{option.title}}</option>
+						      <option ng-repeat="(keyopt,option) in item.options" data-customid="fb_list_options_{{currentFormData.id}}_{{key}}_{{keyopt}}" value="{{option.value}}">{{option.title}}</option>
 						    </select>
 			  		</label>
 			  	</div>
 			  	<label ng-if="info.type == 'checkbox'">
-			  			<h3>{{info.label}}</h3>
+		  			<h3 data-customid="fb_checkbox_title_{{currentFormData.id}}_{{$index}}">{{info.label}}</h3>
 			  		<ion-list>
-						<ion-checkbox ng-model="form.checkbox[info.groupName][$index][check.modelName]" ng-checked="check.isChecked" ng-repeat="check in info.checkList track by $index">{{check.label}}</ion-checkbox>
-						
+						<ion-checkbox ng-model="form.checkbox[info.groupName][$index][check.modelName]" ng-checked="check.isChecked" ng-repeat="(checkkey,check) in info.checkList track by $index" data-customid="fb_check_options_{{currentFormData.id}}_{{key}}_{{checkkey}}">{{check.label}}</ion-checkbox>
 					</ion-list>
 			  	</label>
 			  	<label ng-if="info.type == 'radio'">
-				<h3>{{info.label}}</h3>
+					<h3 data-customid="fb_radio_title_{{currentFormData.id}}_{{$index}}">{{info.label}}</h3>
 			  		<ion-list>
 					 <ion-radio ng-model="form.radio[info.groupName][radio.groupName]" name="{{radio.groupName}}" ng-value="radio.modelName" icon="ion-record" ng-class="{default : radio.isChecked}" ng-click="removeDefault()" ng-repeat="radio in info.radioList track by $index">{{radio.label}}</ion-radio>
 					</ion-list>
 			  	</label>
 			  </div>
-			  <button type="submit" class="button button-full button-assertive">
+			  <button type="submit" class="button button-full button-assertive" data-customid="fb_submit_btn_{{currentFormData.id}}">
 				  {{currentParentOfSubInfo.submitButton}}
 			  </button>
 			</div>
