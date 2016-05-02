@@ -242,10 +242,10 @@ app.controller('LayoutCtrl', function ($scope,Pages, $state, $ionicLoading) {
     };
 
     $scope.data = Pages;
-    var themeType = Pages.data.data.theme;
+    $scope.themeType = Pages.data.data.theme;
     $scope.snappyTheme = {};
     $scope.snappyTheme.name = Pages.data.data.theme;
-    if(themeType == "bannerList" || themeType == 'pushMenu' || themeType == 'listImg' || themeType == 'gridMenu' ){
+    if($scope.themeType == "bannerList" || $scope.themeType == 'pushMenu' || $scope.themeType == 'listImg' || $scope.themeType == 'gridMenu' ){
       $scope.snappyTheme.status = true;
     }else{
       $scope.snappyTheme.status = false;

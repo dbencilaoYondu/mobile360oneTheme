@@ -1452,6 +1452,32 @@
                         "url":"http://feeds.feedburner.com/TechCrunch"
                     }
                 ]
+            },
+            {
+                "id":15,
+                "href": "#/app/testimonials",
+                "label": "testimonials",
+                "type": "testimonials",
+                "iconOn":"ion-social-rss",
+                "customIcon":"../img/custom-icon/ionic-placeholder.png",
+                "content":[
+                    {
+                        "author":"CNN",
+                        "review":"very good"
+                    },
+                     {
+                        "author":"Barack Obama",
+                        "review":"fantastic"
+                    },
+                      {
+                        "author":"Manny Pacquiao",
+                        "review":"Pantastik! bery much!"
+                    },
+                     {
+                        "author":"Barack Obama",
+                        "review":"me again!"
+                    }
+                ]
             }
         
     ],
@@ -1510,7 +1536,7 @@
             "url": "/blank",
             "templateUrl": "templates/blank.html",
              "controller":"BlankCtrl" ,
-             "defaultState": false 
+             "defaultState": true 
         },
 
          {
@@ -1750,7 +1776,7 @@
             "controller": "WebsiteCtrl",
             "data":"112",
             "parentId":"6",
-            "defaultState": true
+            "defaultState": false
         },
         {
             "state": "app.video",
@@ -1767,6 +1793,13 @@
             "controller": "VideoCtrl",
             "data":"1226"
             
+        },
+        {
+            "state": "app.testimonial",
+            "url": "/testimonials",
+            "templateUrl": "components/testimonial/testimonial.html",
+            "controller": "testimonialCtrl",
+            "data":"15"    
         }
     ]
 }

@@ -7,6 +7,9 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+
 var paths = {
   sass: ['./scss/**/*.scss']
 };
@@ -25,6 +28,18 @@ gulp.task('sass', function(done) {
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
+
+
+//minify image : not working ; must fix!
+/*gulp.task('imagemin',() => {
+    return gulp.src('/www/img/*')
+            .pipe(imagemin({
+                  progressive: true,
+                  svgoPlugins: [{removeViewBox: false}],
+                  use: [pngquant()]
+                }))
+            .pipe(gulp.dest('www/img'));
+});*/
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);

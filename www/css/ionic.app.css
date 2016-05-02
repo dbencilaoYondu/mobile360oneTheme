@@ -10090,3 +10090,18 @@ ion-modal-view#settings .item-divider {
 
 #moreMenu button.button.button-icon, #moreMenu .h1.title {
   color: #fff; }
+
+#testimonial .testi_title {
+  font-size: 32px;
+  text-align: center;
+  padding: 12px; }
+
+#testimonial .testi_card {
+  background-color: #D7D7D7; }
+  #testimonial .testi_card .item {
+    background-color: #D7D7D7; }
+  #testimonial .testi_card h3 {
+    font-size: 15px;
+    text-align: right;
+    padding: 12px;
+    margin: 0; }

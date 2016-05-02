@@ -1,0 +1,24 @@
+<ion-view id="testimonial">
+<ion-content>
+	
+	<div ng-show="currentTestiData" class="wrapper">
+		<h1 class="testi_title">{{currentTestiData.label}}</h1>
+		<div class="custom-content" ng-repeat="info in currentTestiData.content" data-customid="about_wrapper_{{$index}}">
+			<div class="testi_card card">
+				<div data-customid="about_text_{{$index}}" class="item item-text-wrap">{{info.review}}</div>
+				<h3 data-customid="about_header_{{$index}}">{{info.author}}</h3>
+			</div>
+		</div>
+	</div>
+	<div ng-hide="currentTestiData" class="wrapper">
+		<h1 class="testi_title">{{currentParentOfSubInfo.label}}</h1>
+		<div class="custom-content" ng-repeat="info in currentParentOfSubInfo.content" data-customid="about_wrapper_{{$index}}">	
+			<div class="testi_card card">
+				<div data-customid="about_text_{{$index}}" class="item item-text-wrap">{{info.review}}</div>
+				<h3 data-customid="about_header_{{$index}}">{{info.author}}</h3>
+			</div>
+		</div>
+	</div>
+
+</ion-content>
+</ion-view>
