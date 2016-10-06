@@ -1,132 +1,130 @@
-var chat=app.controller('ChatCtrl',function($stateParams,socket,$sanitize,$ionicScrollDelegate,$timeout) {
-    
-    var self=this;
-    var typing = false;
-    var lastTypingTime;
-    var TYPING_TIMER_LENGTH = 400;
-    
-    //Add colors
-    var COLORS = [
-        '#e21400', '#91580f', '#f8a700', '#f78b00',
-        '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
-        '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
-      ];
+app.controller('chatController',function(){
+	var socket = io.connect('192.168.20.47:3000/'),
+		$message = $('#message'),
+		  $room = $('#roomname'),
+		  $roombox = $('#roombox'),
+		  $messagebox = $('#send-message'),
+		  $chat = $('#chat'),
+		  $chatbox = $('#chatbox'),
+		  $leaveRoom = $('#leaveRoom'),
+		  $nickname = $('#nickname'),
+		  $usernamebox = $('#usernamebox'),
+		  $usernames = $('#usernames');
+		  $roomName = $('#room-name');
 
-     //initializing messages array
-    self.messages=[]
-    
-    socket.on('connect',function(){
-      
-      connected = true
-     
-      //Add user
-      socket.emit('add user', $stateParams.nickname);
+		  var roomcurrent;
 
-      // On login display welcome message
-      socket.on('login', function (data) {
-        //Set the value of connected flag
-        self.connected = true
-        self.number_message= message_string(data.numUsers)
-        
-      });
+		  //leave current room
+		  $leaveRoom.click(function(e){
+		  	e.preventDefault();
+		  	var x = $leaveRoom.attr('data-room');
+		  	var user = $leaveRoom.attr('data-user');
+		  	console.log(x);
+		  	socket.emit('leave room',{room:x,user:user});
+		  	$chatbox.hide();
+		  	$roombox.show();  	
+		  });
 
-      // Whenever the server emits 'new message', update the chat body
-      socket.on('new message', function (data) {
-        if(data.message&&data.username)
-        {
-            addMessageToList(data.username,true,data.message)
-        }
-      });
+		  //join room
+		  $roombox.on('submit',(e)=> {
+		  	e.preventDefault();
+		  	roomcurrent = $room.val();
+		  	$roombox.hide();
+		  	$usernamebox.show();
+		  	socket.emit('switch room',roomcurrent);
+		  	$leaveRoom.attr('data-room',roomcurrent);
+		  	$roomName.text(roomcurrent);
+		  });
 
-      // Whenever the server emits 'user joined', log it in the chat body
-      socket.on('user joined', function (data) {
-        addMessageToList("",false,data.username + " joined")
-        addMessageToList("",false,message_string(data.numUsers)) 
-      });
+		  //assign username
+		  $usernamebox.on('submit',(e)=>{
+		  	e.preventDefault();
 
-      // Whenever the server emits 'user left', log it in the chat body
-      socket.on('user left', function (data) {
-        addMessageToList("",false,data.username+" left")
-        addMessageToList("",false,message_string(data.numUsers))
-      });
+		  	socket.emit('new user',{users:$nickname.val(),room:roomcurrent},function(callback){
+		  		console.log(callback);
+		  		if(callback){
+		  			console.log('try again!');
 
-      //Whenever the server emits 'typing', show the typing message
-      socket.on('typing', function (data) {
-        addChatTyping(data);
-      });
+		  		}else{
+		  			$chatbox.show();
+		  			$usernamebox.hide();
+		  			$leaveRoom.attr('data-user',$nickname.val());
+		  		}
+		  	});
+		  });
 
-      // Whenever the server emits 'stop typing', kill the typing message
-      socket.on('stop typing', function (data) {
-        removeChatTyping(data.username);
-      });   
-    })
+		  //enter new message
+		  $messagebox.on('submit',(e)=>{
+		  	e.preventDefault();
+		  	var a = $message.val();
+		  	//msg = $(a).text();
+		  	console.log(a);
+		  	socket.emit('send message',a,roomcurrent);
+		  	$message.val('');
+		  	
+		  });
+		  
+		  //load chat history
+		  socket.on('load chat',function(data){
+		  	console.log(data);
+		  	var html = '';
+		  	var roomClass = $leaveRoom.attr('data-room');
+		  	var userClass = $leaveRoom.attr('data-user');
 
-    //function called when user hits the send button
-    self.sendMessage=function(){
-        socket.emit('new message', self.message)
-        addMessageToList($stateParams.nickname,true,self.message)
-        socket.emit('stop typing');
-        self.message = ""
-    }
+		  	$.each(data,function(key,value){
+		  		
+		  		console.log()
+		  		if(value.roomID === roomClass){
+			  			if(userClass == value.nickname){
+					  		html = `<div class="row"><div class="nickname columns medium-5">${value.nickname}</div><p class="self medium-7"> ${value.message}</p></div> ${html} `;
+					  	}else{
+					  		html = `<div class="row"><div class="nickname columns medium-5">${value.nickname}</div><p class="medium-7">${value.message}</p></div> ${html} `;
+					  	}
+		  		}
 
-    //function called on Input Change
-    self.updateTyping=function(){
-        sendUpdateTyping()
-    }
+		  	});
+		  	$chat.html(html);
 
-    // Display message by adding it to the message list
-    function addMessageToList(username,style_type,message){
-        username = $sanitize(username)
-        removeChatTyping(username)
-        var color = style_type ? getUsernameColor(username) : null
-        self.messages.push({content:$sanitize(message),style:style_type,username:username,color:color})
-        $ionicScrollDelegate.scrollBottom();
-    }
+		  });
 
-    //Generate color for the same user.
-    function getUsernameColor (username) {
-        // Compute hash code
-        var hash = 7;
-        for (var i = 0; i < username.length; i++) {
-           hash = username.charCodeAt(i) + (hash << 5) - hash;
-        }
-        // Calculate color
-        var index = Math.abs(hash % COLORS.length);
-        return COLORS[index];
-    }
+		  //load new message
+		  socket.on('new message',function(data){
+		  	var userClass = $leaveRoom.attr('data-user');
 
-    // Updates the typing event
-    function sendUpdateTyping(){
-        if(connected){
-            if (!typing) {
-                typing = true;
-                socket.emit('typing');
-            }
-        }
-        lastTypingTime = (new Date()).getTime();
-        $timeout(function () {
-            var typingTimer = (new Date()).getTime();
-            var timeDiff = typingTimer - lastTypingTime;
-            if (timeDiff >= TYPING_TIMER_LENGTH && typing) {
-              socket.emit('stop typing');
-              typing = false;
-            }
-        }, TYPING_TIMER_LENGTH)
-    }
+		  		if(userClass == data.user){
+		  			$chat.append(`<div class="row"><div class="nickname columns medium-5">${data.user}</div><p class="self medium-7"> ${data.msg}</p></div>`);
+			  	}else{
+			  		$chat.append(`<div class="row"><div class="nickname columns medium-5">${data.user}</div><p class="medium-77"> ${data.msg}</p></div>`);
+			  	}
 
-    // Adds the visual chat typing message
-    function addChatTyping (data) {
-        addMessageToList(data.username,true," is typing");
-    }
+		  	
+		  	console.log(data);
+		  	window.scrollTo(0,document.body.scrollHeight);
+		  });
 
-    // Removes the visual chat typing message
-    function removeChatTyping (username) {
-        self.messages = self.messages.filter(function(element){return element.username != username || element.content != " is typing"})
-    }
 
-    // Return message string depending on the number of users
-    function message_string(number_of_users)
-    {
-        return number_of_users === 1 ? "there's 1 participant":"there are " + number_of_users + " participants"
-    }
+
+		  //load users
+		  socket.on('usernames',function(data){
+		   var html = '';
+		   var roomClass = $leaveRoom.attr('data-room');
+		   	console.log(data);
+		 	  $.each(data,function(index,value){
+		 	  	console.log(value);
+		 	  	if(roomClass == value.room){
+		 	  		html = `${html} <p data-user="${value.name}-${value.hash}">${value.name}</p>`;
+		 	  	}
+		  	  });
+		  	/// TODO: fix the room assignments 
+		  	//if(roomClass == currentRoomPerUser){
+		  		$usernames.html(html);
+		  	//}	  	
+		  });
+
+		  socket.on('some event',function(data){
+		 	console.log(data);
+		 	});
+
+		  console.log(socket);
+
 });

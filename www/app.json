@@ -1,11 +1,11 @@
 {
-    "theme":"flyOutList",
+    "theme":"bannerList",
     "stylesheet":"css/style.css",
     "applicationName":"Micoioc",
     "headerText":"header Text",
     "logo":"img/logo.png",
     "login":{
-        "isGlobal":true,
+        "isGlobal":false,
         "register":{
             "appId":"111",
             "api":"http://192.168.110.15/esg-cms/mobile360_yondu/builder/services/user/signup",
@@ -1483,20 +1483,7 @@
             "controller":"ProfileCtrl",
             "defaultState": false
         },
-        {
-            "state": "app.chatlogin",
-            "url": "/chatlogin",
-            "templateUrl": "components/chat/login.html",
-            "controller":"ChatLoginCtrl",
-            "defaultState": false
-        },
-         {
-            "state": "app.chat",
-            "url": "/chat/:nickname",
-            "templateUrl": "components/chat/chat.html",
-            "controller":"ChatCtrl",
-            "defaultState": false
-        },
+        
          {
             "state": "app.register",
             "url": "/register",
@@ -1754,6 +1741,13 @@
             "url": "/website2",
             "templateUrl": "components/website/website.html",
             "controller": "WebsiteCtrl",
+            "data":"11"
+        },
+        {
+            "state": "app.chat",
+            "url": "/chat",
+            "templateUrl": "components/chat/chat.html",
+            "controller": "chatController",
             "data":"11"
         },
         {
